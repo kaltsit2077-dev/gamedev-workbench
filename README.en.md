@@ -1,5 +1,7 @@
 # GameDev Workbench
 
+**Direction update:** an AI game-creation companion for beginners, centered on creative exploration, whole-project planning and engineering continuity. Package the workflow as a portable skill, add host-specific plugin/UI capabilities where verified, and separate the broader knowledge library into its own project. This is a design proposal, not a claim that the new plugin or knowledge-repository migration has shipped. [Product direction (Chinese)](docs/PRODUCT-DIRECTION.md).
+
 An installable skill, offline Python toolbox and learning guide for independent developers and small game teams. Priorities: code architecture, native UI, gameplay features and effects, with design, narrative, art and resource-discovery workflows.
 
 [中文与实际截图](README.md) · [Quickstart (Chinese)](docs/QUICKSTART.md) · [0.7 preview](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.7.0-preview) · [Support boundaries](docs/CAPABILITIES.md)
