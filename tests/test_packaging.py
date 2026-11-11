@@ -23,7 +23,8 @@ class PackagingTests(unittest.TestCase):
                 self.assertEqual(z.read(z.namelist()[0]),(root/'README.md').read_bytes())
     def test_local_files_excluded_even_inside_source_areas(self):
         with tempfile.TemporaryDirectory() as d:
-            root=Path(d); (root/'docs').mkdir(); (root/'skills').mkdir()
+            # macOS temp aliases and Windows short names resolve to a different spelling.
+            root=Path(d).resolve(); (root/'docs').mkdir(); (root/'skills').mkdir()
             for name in ['local-profile.json','.env','notes.txt','docs/local-profile.json','skills/.env.local','docs/debug.log']:
                 (root/name).write_text('private local data',encoding='utf-8')
             (root/'README.md').write_text('public',encoding='utf-8')
