@@ -4,9 +4,31 @@
 
 **可安装技能 + Python 离线工具 + 原创引擎案例 + 有来源的知识库。** Python 工具只用标准库，无 API key；运行引擎案例才需要相应编辑器。
 
-[快速上手](docs/QUICKSTART.md) · [下载 0.6 预览版](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.6.0-preview) · [能力与边界](docs/CAPABILITIES.md) · [路线](docs/ROADMAP.md) · [English](README.en.md)
+[快速上手](docs/QUICKSTART.md) · [下载 0.7 预览版](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.7.0-preview) · [能力与边界](docs/CAPABILITIES.md) · [路线](docs/ROADMAP.md) · [English](README.en.md)
 
 [![Toolbox checks](https://github.com/kaltsit2077-dev/gamedev-workbench/actions/workflows/ci.yml/badge.svg)](https://github.com/kaltsit2077-dev/gamedev-workbench/actions/workflows/ci.yml)
+
+## 0.7：连接成一个任务工作台
+
+长期形态是 **AI 辅助游戏开发平台**。技能提供 AI 工作入口，知识与工具共用核心；当前已增加可编辑创作包、离线任务页、项目测试契约和统一适配报告。独立聊天后台、实时项目服务和自动模型调度仍在后续路线中。[长期产品设计](docs/PLATFORM.md)。
+
+![实际工作页：关联需求、阶段、可编辑文件预览和任务包导出](docs/media/workspace-preview.png)
+
+```text
+python tools/gdw.py create-workspace skills/gamedev-workbench/assets/design/brief.json --output workspaces/my-game
+python tools/gdw.py check-workspace workspaces/my-game
+python tools/gdw.py workspace-page workspaces/my-game --output workspaces/my-game.html
+```
+
+打开新工作页，可在体验、机制、剧情、风格、UI、资产、实现、验收阶段间切换，查看文件并下载当前任务包，交给宿主 AI 结合真实项目继续做。源文件可以编辑；页面是快照，所有阶段初始为草案，结构通过不表示游戏已经完成。发行页另提供可直接双击的 workspace HTML。
+
+本轮新增验证：
+
+- **外部作者源码核验**：固定 Godot 官方 demo 的 8 个文件，首轮前冻结标签；7 条标注资源边全部匹配，误报/漏报均 0。标签仍由本助手整理，不是人类盲评，也不能推广为全工程准确率。[来源、边界和人工核验表](docs/ANALYSIS-REVIEW.md)。
+- **实际执行**：Godot 项目声明测试 7 项通过，统一适配菜单 headless 81 项通过；Node 26.5.0 状态/生命周期案例 2 项通过。Unity/Unreal/Blender 缺少可用编辑器路径，记录 blocked；Web 浏览器渲染未测。[共同执行记录](docs/execution-v07.json)。
+- **工具的增量作用**：三个正常副本通过；三个预设资源/焦点/效果缺陷仅解析均未检出，专项工具均检出。它是同工件缺陷检测实验，不是模型生产力实验；新增独立同模型、人类盲评与实际费用仍待采集。[原始记录与方法](docs/VALUE-EXPERIMENTS.md)。
+
+项目执行的 `freeze-project-tests` / `project-tests` 默认预览，显式 `--execute` 后才运行选中命令；共同报告拒绝把退出 0、空检查或缺失证据直接当作通过。[配置与使用](skills/gamedev-workbench/references/tool-recipes.md)。
 
 ## 先看实际产物
 
@@ -31,7 +53,7 @@
 
 </details>
 
-**0.6 新增：离线画面证据浏览器。** 下载发行页的 `gamedev-workbench-gallery-0.6.0-preview.html`，双击即可按视口筛选、两侧独立逐帧对照、查看失败项与下载原报告。它包含上述 0.5 案例的 40 张原始 PNG；不运行引擎、不联网，也不把旧记录算作新的测试。
+**0.6 新增：离线画面证据浏览器。** 下载发行页的 `gamedev-workbench-gallery-0.7.0-preview.html`，双击即可按视口筛选、两侧独立逐帧对照、查看失败项与下载原报告。它包含上述 0.5 案例的 40 张原始 PNG；不运行引擎、不联网，也不把旧记录算作新的测试。
 
 <details>
 <summary>查看新浏览器的实际页面</summary>
@@ -136,6 +158,8 @@ python tools/gdw.py gallery "新的菜单证据目录" --output "新的菜单浏
 
 ## 下一步优先做什么
 
+长期阶段、进入条件及平台层次见 [PLATFORM](docs/PLATFORM.md)，当前重点仍是真实项目连续使用与独立验证。
+
 1. **接入一个真实项目的 UI/效果验证夹具。** 显式选择场景、控件和触发点，复用报告/浏览器；让现有检查真正进入日常回归。先保留项目自己的装配和测试约定。
 2. **独立留出案例检验架构扫描。** 加入未参与开发的 UID/动态引用样本，复核误报/漏报；运行时资源保留未知，避免假装完整理解源码。
 3. **评估新工具而非只评估提示词。** 用真实架构/UI任务比较有无分析器、浏览器的结果、返工、总耗时和可追溯账单，再判断是否值得默认启用。
@@ -147,4 +171,4 @@ python tools/gdw.py gallery "新的菜单证据目录" --output "新的菜单浏
 
 [贡献指南](CONTRIBUTING.md) · [验证报告](docs/VALIDATION.md) · [变更记录](CHANGELOG.md) · [第三方声明](THIRD_PARTY_NOTICES.md)
 
-原创代码与文档采用 [Apache-2.0](LICENSE)。来源目录主要保存链接和元数据，不重新打包第三方书籍、课程、技能或资产；使用外部资源时遵守其许可。公开包不包含私有游戏源码或私有工程分析报告。
+原创代码与文档采用 [Apache-2.0](LICENSE)。来源目录主要保存链接和元数据；外部评估中的少量 Godot 官方源码保留其 MIT 许可。第三方书籍、课程、技能或资产不随包重打包；使用外部资源时遵守其许可。公开包不包含私有游戏源码或私有工程分析报告。

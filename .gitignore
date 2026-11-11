@@ -15,3 +15,6 @@ Intermediate/
 Saved/
 DerivedDataCache/
 Binaries/
+
+# Private/generated creative workspaces
+/workspaces/

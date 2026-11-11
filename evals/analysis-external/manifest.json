@@ -1,0 +1,64 @@
+{
+  "upstream": "https://github.com/godotengine/godot-demo-projects",
+  "commit": "b761b4cd5718a7118f2c95eb55f181d0a5f004f1",
+  "retrieved": "2026-11-11",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "sources/2d/role_playing_game/game.gd",
+      "upstream_path": "2d/role_playing_game/game.gd",
+      "sha256": "f073a09ed86e8cc87e4a346c7607df94f0a89a7565bf28257fe2b5a20c4d14fa",
+      "url": "https://raw.githubusercontent.com/godotengine/godot-demo-projects/b761b4cd5718a7118f2c95eb55f181d0a5f004f1/2d/role_playing_game/game.gd"
+    },
+    {
+      "path": "sources/2d/role_playing_game/game.tscn",
+      "upstream_path": "2d/role_playing_game/game.tscn",
+      "sha256": "d7c14d26b1d9b74d8d0c254e1d1ffbed3c03676bba7dd3ed0e323e3e3236a415",
+      "url": "https://raw.githubusercontent.com/godotengine/godot-demo-projects/b761b4cd5718a7118f2c95eb55f181d0a5f004f1/2d/role_playing_game/game.tscn"
+    },
+    {
+      "path": "sources/2d/role_playing_game/dialogue/dialogue_player/dialogue_player.gd",
+      "upstream_path": "2d/role_playing_game/dialogue/dialogue_player/dialogue_player.gd",
+      "sha256": "92444173ebddcb7a3d8d26b368f1ca5594f2a37f81298cd6dd60801fec14f98b",
+      "url": "https://raw.githubusercontent.com/godotengine/godot-demo-projects/b761b4cd5718a7118f2c95eb55f181d0a5f004f1/2d/role_playing_game/dialogue/dialogue_player/dialogue_player.gd"
+    },
+    {
+      "path": "sources/2d/platformer/player/gun.gd",
+      "upstream_path": "2d/platformer/player/gun.gd",
+      "sha256": "358034b967cad64093217a1f0e54c13ee5085f62736dfd4ee1732748427958aa",
+      "url": "https://raw.githubusercontent.com/godotengine/godot-demo-projects/b761b4cd5718a7118f2c95eb55f181d0a5f004f1/2d/platformer/player/gun.gd"
+    },
+    {
+      "path": "sources/2d/platformer/game.gd",
+      "upstream_path": "2d/platformer/game.gd",
+      "sha256": "7ccad692769f880ee8662b19b0362c95a30c6fbd593de78aae8304702a6ebfba",
+      "url": "https://raw.githubusercontent.com/godotengine/godot-demo-projects/b761b4cd5718a7118f2c95eb55f181d0a5f004f1/2d/platformer/game.gd"
+    },
+    {
+      "path": "sources/2d/instancing/ball_factory.gd",
+      "upstream_path": "2d/instancing/ball_factory.gd",
+      "sha256": "34ba288d0aa27a5b7ec918638ace8d877774b52868a1fc61a904444a94079a28",
+      "url": "https://raw.githubusercontent.com/godotengine/godot-demo-projects/b761b4cd5718a7118f2c95eb55f181d0a5f004f1/2d/instancing/ball_factory.gd"
+    },
+    {
+      "path": "sources/gui/custom_splash_screen/splash.gd",
+      "upstream_path": "gui/custom_splash_screen/splash.gd",
+      "sha256": "13d3f5a15de8c671551541867171217ff358de881069e3d123e15715303ee68e",
+      "url": "https://raw.githubusercontent.com/godotengine/godot-demo-projects/b761b4cd5718a7118f2c95eb55f181d0a5f004f1/gui/custom_splash_screen/splash.gd"
+    },
+    {
+      "path": "sources/loading/runtime_save_load/runtime_save_load.gd",
+      "upstream_path": "loading/runtime_save_load/runtime_save_load.gd",
+      "sha256": "2a667fe0a99ffddf7a2021f639ce777a10338016ac290cbbe3087ed84a60e86c",
+      "url": "https://raw.githubusercontent.com/godotengine/godot-demo-projects/b761b4cd5718a7118f2c95eb55f181d0a5f004f1/loading/runtime_save_load/runtime_save_load.gd"
+    },
+    {
+      "path": "LICENSE",
+      "upstream_path": "LICENSE.md",
+      "sha256": "0339177149b474f7ff676d32218ecb3a8f2538955610023c3769763720d09e4c",
+      "url": "https://raw.githubusercontent.com/godotengine/godot-demo-projects/b761b4cd5718a7118f2c95eb55f181d0a5f004f1/LICENSE.md"
+    }
+  ],
+  "labels_sha256": "f6295101dfca840354e7cc27a958163261c67b1d0afa273db3107df62ede46ba",
+  "freeze": "Source and expected labels selected and read before the first analyzer run; no tuning on this set yet."
+}

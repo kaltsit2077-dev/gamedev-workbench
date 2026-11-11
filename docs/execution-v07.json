@@ -1,0 +1,520 @@
+{
+  "date": "2026-11-11",
+  "kind": "platform-execution-evidence",
+  "records": {
+    "godot_project": {
+      "schema_version": 1,
+      "kind": "execution-report",
+      "engine": "godot",
+      "status": "passed",
+      "passed": true,
+      "source_fingerprints": {
+        "project.godot": "7472ec071da66206c8b9cc843d55e973a51d39e0618bcc0d8b62ccdea4fe50ec",
+        "smoke.gd": "8918163282f125702efdd59629986e3071320def7a4e08af4fd5d6b9aa98ba54",
+        "state.gd": "526a7e33be490487fd09e765f915cfb55511e0055de676235bf40d12c879fb95",
+        "pulse.gd": "a25043d0c52c17fd2b6980788959d57543bdacc7c565eb2127c8d1a9e958b524",
+        "demo.gd": "22a8653dd9cce214cd3a8e9e41f24945548fd6d8cb298d8820a6eb7055c90a6a"
+      },
+      "selected_sources_changed": [],
+      "tests": [
+        {
+          "id": "smoke",
+          "status": "passed",
+          "passed": true,
+          "effects": "Writes Godot cache in the explicitly selected disposable project and native evidence to output; no user game is selected.",
+          "exit_code": 0,
+          "elapsed_seconds": 0.2503652999876067,
+          "native": {
+            "checks": [
+              {
+                "name": "model trigger",
+                "passed": true
+              },
+              {
+                "name": "model reset",
+                "passed": true
+              },
+              {
+                "name": "effect halfway",
+                "passed": true
+              },
+              {
+                "name": "retrigger restarts clock",
+                "passed": true
+              },
+              {
+                "name": "effect terminates",
+                "passed": true
+              },
+              {
+                "name": "UI command reaches model",
+                "passed": true
+              },
+              {
+                "name": "model reaches UI",
+                "passed": true
+              }
+            ],
+            "engine": "godot",
+            "engine_version": "4.7.2-stable (official)",
+            "passed": true
+          }
+        }
+      ],
+      "dimensions": {
+        "rendering": "not-inferred",
+        "physical_input": "not-inferred",
+        "performance": "not-measured"
+      },
+      "limits": [
+        "Explicit user-selected code runs with normal process permissions, not an isolation boundary.",
+        "Only selected source hashes are tracked; unlisted saves/caches/files are outside that snapshot.",
+        "Native reports are project-authored assertions, not independent proof of visual or gameplay quality."
+      ]
+    },
+    "godot_menu": {
+      "schema_version": 1,
+      "kind": "execution-report",
+      "engine": "godot",
+      "status": "passed",
+      "passed": true,
+      "dimensions": {
+        "rendering": "not-run",
+        "physical_input": "not-run",
+        "performance": "not-measured"
+      },
+      "native": {
+        "case": "menu and layered impact",
+        "checks": [
+          {
+            "name": "main initial focus",
+            "passed": true
+          },
+          {
+            "name": "typed Tab reaches options",
+            "passed": true
+          },
+          {
+            "name": "typed Enter opens options and focuses slider",
+            "passed": true
+          },
+          {
+            "name": "typed mouse opens nested confirmation",
+            "passed": true
+          },
+          {
+            "name": "cancel restores settings focus",
+            "passed": true
+          },
+          {
+            "name": "back restores original main focus",
+            "passed": true
+          },
+          {
+            "name": "synthetic gamepad down navigates",
+            "passed": true
+          },
+          {
+            "name": "synthetic gamepad accept opens options",
+            "passed": true
+          },
+          {
+            "name": "synthetic gamepad cancel restores focus",
+            "passed": true
+          },
+          {
+            "name": "100 nested menu cycles preserve stack and nodes",
+            "passed": true
+          },
+          {
+            "name": "layered impact restarts single clock",
+            "passed": true
+          },
+          {
+            "name": "pause freezes all shader and spark progress",
+            "passed": true
+          },
+          {
+            "name": "impact ends hidden and idle",
+            "passed": true
+          },
+          {
+            "name": "1000 impact cycles do not allocate persistent nodes",
+            "passed": true
+          },
+          {
+            "name": "scroll viewport fits (640, 360) text 20",
+            "passed": true
+          },
+          {
+            "name": "long text wraps within width (640, 360) text 20",
+            "passed": true
+          },
+          {
+            "name": "long text is scrollable (640, 360) text 20",
+            "passed": true
+          },
+          {
+            "name": "return stays on screen (640, 360) text 20",
+            "passed": true
+          },
+          {
+            "name": "content scrolls to reading position (640, 360) text 20",
+            "passed": true
+          },
+          {
+            "name": "long paragraph visible after scrolling (640, 360) text 20",
+            "passed": true
+          },
+          {
+            "name": "scroll viewport fits (640, 360) text 30",
+            "passed": true
+          },
+          {
+            "name": "long text wraps within width (640, 360) text 30",
+            "passed": true
+          },
+          {
+            "name": "long text is scrollable (640, 360) text 30",
+            "passed": true
+          },
+          {
+            "name": "return stays on screen (640, 360) text 30",
+            "passed": true
+          },
+          {
+            "name": "content scrolls to reading position (640, 360) text 30",
+            "passed": true
+          },
+          {
+            "name": "long paragraph visible after scrolling (640, 360) text 30",
+            "passed": true
+          },
+          {
+            "name": "effect center visible (640, 360)",
+            "passed": true
+          },
+          {
+            "name": "scroll viewport fits (960, 540) text 20",
+            "passed": true
+          },
+          {
+            "name": "long text wraps within width (960, 540) text 20",
+            "passed": true
+          },
+          {
+            "name": "long text is scrollable (960, 540) text 20",
+            "passed": true
+          },
+          {
+            "name": "return stays on screen (960, 540) text 20",
+            "passed": true
+          },
+          {
+            "name": "content scrolls to reading position (960, 540) text 20",
+            "passed": true
+          },
+          {
+            "name": "long paragraph visible after scrolling (960, 540) text 20",
+            "passed": true
+          },
+          {
+            "name": "scroll viewport fits (960, 540) text 30",
+            "passed": true
+          },
+          {
+            "name": "long text wraps within width (960, 540) text 30",
+            "passed": true
+          },
+          {
+            "name": "long text is scrollable (960, 540) text 30",
+            "passed": true
+          },
+          {
+            "name": "return stays on screen (960, 540) text 30",
+            "passed": true
+          },
+          {
+            "name": "content scrolls to reading position (960, 540) text 30",
+            "passed": true
+          },
+          {
+            "name": "long paragraph visible after scrolling (960, 540) text 30",
+            "passed": true
+          },
+          {
+            "name": "effect center visible (960, 540)",
+            "passed": true
+          },
+          {
+            "name": "scroll viewport fits (1280, 720) text 20",
+            "passed": true
+          },
+          {
+            "name": "long text wraps within width (1280, 720) text 20",
+            "passed": true
+          },
+          {
+            "name": "long text is scrollable (1280, 720) text 20",
+            "passed": true
+          },
+          {
+            "name": "return stays on screen (1280, 720) text 20",
+            "passed": true
+          },
+          {
+            "name": "content scrolls to reading position (1280, 720) text 20",
+            "passed": true
+          },
+          {
+            "name": "long paragraph visible after scrolling (1280, 720) text 20",
+            "passed": true
+          },
+          {
+            "name": "scroll viewport fits (1280, 720) text 30",
+            "passed": true
+          },
+          {
+            "name": "long text wraps within width (1280, 720) text 30",
+            "passed": true
+          },
+          {
+            "name": "long text is scrollable (1280, 720) text 30",
+            "passed": true
+          },
+          {
+            "name": "return stays on screen (1280, 720) text 30",
+            "passed": true
+          },
+          {
+            "name": "content scrolls to reading position (1280, 720) text 30",
+            "passed": true
+          },
+          {
+            "name": "long paragraph visible after scrolling (1280, 720) text 30",
+            "passed": true
+          },
+          {
+            "name": "effect center visible (1280, 720)",
+            "passed": true
+          },
+          {
+            "name": "scroll viewport fits (800, 600) text 20",
+            "passed": true
+          },
+          {
+            "name": "long text wraps within width (800, 600) text 20",
+            "passed": true
+          },
+          {
+            "name": "long text is scrollable (800, 600) text 20",
+            "passed": true
+          },
+          {
+            "name": "return stays on screen (800, 600) text 20",
+            "passed": true
+          },
+          {
+            "name": "content scrolls to reading position (800, 600) text 20",
+            "passed": true
+          },
+          {
+            "name": "long paragraph visible after scrolling (800, 600) text 20",
+            "passed": true
+          },
+          {
+            "name": "scroll viewport fits (800, 600) text 30",
+            "passed": true
+          },
+          {
+            "name": "long text wraps within width (800, 600) text 30",
+            "passed": true
+          },
+          {
+            "name": "long text is scrollable (800, 600) text 30",
+            "passed": true
+          },
+          {
+            "name": "return stays on screen (800, 600) text 30",
+            "passed": true
+          },
+          {
+            "name": "content scrolls to reading position (800, 600) text 30",
+            "passed": true
+          },
+          {
+            "name": "long paragraph visible after scrolling (800, 600) text 30",
+            "passed": true
+          },
+          {
+            "name": "effect center visible (800, 600)",
+            "passed": true
+          },
+          {
+            "name": "scroll viewport fits (360, 640) text 20",
+            "passed": true
+          },
+          {
+            "name": "long text wraps within width (360, 640) text 20",
+            "passed": true
+          },
+          {
+            "name": "long text is scrollable (360, 640) text 20",
+            "passed": true
+          },
+          {
+            "name": "return stays on screen (360, 640) text 20",
+            "passed": true
+          },
+          {
+            "name": "content scrolls to reading position (360, 640) text 20",
+            "passed": true
+          },
+          {
+            "name": "long paragraph visible after scrolling (360, 640) text 20",
+            "passed": true
+          },
+          {
+            "name": "scroll viewport fits (360, 640) text 30",
+            "passed": true
+          },
+          {
+            "name": "long text wraps within width (360, 640) text 30",
+            "passed": true
+          },
+          {
+            "name": "long text is scrollable (360, 640) text 30",
+            "passed": true
+          },
+          {
+            "name": "return stays on screen (360, 640) text 30",
+            "passed": true
+          },
+          {
+            "name": "content scrolls to reading position (360, 640) text 30",
+            "passed": true
+          },
+          {
+            "name": "long paragraph visible after scrolling (360, 640) text 30",
+            "passed": true
+          },
+          {
+            "name": "effect center visible (360, 640)",
+            "passed": true
+          },
+          {
+            "name": "reduced-motion preference reaches effect",
+            "passed": true
+          },
+          {
+            "name": "scene cleanup releases menu and effect",
+            "passed": true
+          }
+        ],
+        "frames": [],
+        "input": "typed synthetic key/mouse/gamepad events, not hardware verification",
+        "passed": true,
+        "performance": "not-measured",
+        "rendering": "not-run",
+        "exit_code": 0,
+        "diagnostics": [
+          "ERROR: Failed to read the root certificate store."
+        ],
+        "engine": "godot",
+        "engine_version": "4.7.2.stable.official.ed1daf0bf"
+      }
+    },
+    "web": {
+      "schema_version": 1,
+      "kind": "execution-report",
+      "engine": "web",
+      "status": "passed",
+      "passed": true,
+      "dimensions": {
+        "rendering": "not-run",
+        "physical_input": "not-run",
+        "performance": "not-measured"
+      },
+      "native": {
+        "engine": "web",
+        "engine_version": "26.5.0",
+        "passed": true,
+        "checks": [
+          {
+            "name": "state event and unsubscribe",
+            "passed": true
+          },
+          {
+            "name": "bounded reset",
+            "passed": true
+          }
+        ]
+      },
+      "exit_code": 0
+    },
+    "unity": {
+      "schema_version": 1,
+      "kind": "execution-report",
+      "engine": "unity",
+      "status": "blocked",
+      "passed": false,
+      "dimensions": {
+        "rendering": "not-run",
+        "physical_input": "not-run",
+        "performance": "not-measured"
+      },
+      "native": null,
+      "reason": "Editor/runtime executable not supplied or not found"
+    },
+    "unreal": {
+      "schema_version": 1,
+      "kind": "execution-report",
+      "engine": "unreal",
+      "status": "blocked",
+      "passed": false,
+      "dimensions": {
+        "rendering": "not-run",
+        "physical_input": "not-run",
+        "performance": "not-measured"
+      },
+      "native": null,
+      "reason": "Editor/runtime executable not supplied or not found"
+    },
+    "blender": {
+      "schema_version": 1,
+      "kind": "execution-report",
+      "engine": "blender",
+      "status": "blocked",
+      "passed": false,
+      "dimensions": {
+        "rendering": "not-run",
+        "physical_input": "not-run",
+        "performance": "not-measured"
+      },
+      "native": null,
+      "reason": "Editor/runtime executable not supplied or not found"
+    }
+  },
+  "environment_failures_retained": [
+    {
+      "attempt": "restricted process",
+      "result": "project test timeout; version query did not return",
+      "new_success_claim": false
+    },
+    {
+      "attempt": "native process with protected output folder",
+      "result": "Godot could not write logs/native evidence; failed",
+      "new_success_claim": false
+    },
+    {
+      "attempt": "native process with dedicated ignored writable scratch",
+      "result": "Godot project and menu checks passed",
+      "game_source_changed": false
+    }
+  ],
+  "limits": [
+    "Only original disposable cases executed. No private game source or root engine cache modified.",
+    "JavaScript runtime evidence is not browser rendering; Godot menu case was headless.",
+    "Unity/Unreal/Blender executables were not supplied; blocked is not success."
+  ]
+}

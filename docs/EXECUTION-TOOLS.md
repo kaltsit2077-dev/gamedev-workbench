@@ -63,3 +63,8 @@ python tools/gdw.py gallery docs/quality-v05 --output "新的画面浏览.html"
 Unity/Unreal 已提供原创案例与显式运行入口；本机未安装，尚无真实运行证据。取得环境后逐项运行，不借 Godot 或模拟单测结果背书。
 
 Windows 窗口 OS 自动交互记录见 os-input-v05.json：已走 Tab/Enter/Right/Escape 和鼠标路径，operator_completed=false；它不替代实体输入验收。
+
+
+## 0.7 平台核心入口
+
+新增 create-workspace / check-workspace / workspace-page、capabilities / run-adapter-case、freeze-project-tests / project-tests。完整配置与副作用边界见 [工具配方](../skills/gamedev-workbench/references/tool-recipes.md)，长期层次见 [平台设计](PLATFORM.md)，实际执行见 [共同证据](execution-v07.json)。工作页只读，AI 仍由宿主提供；项目测试默认预览，不自动隔离真实项目。

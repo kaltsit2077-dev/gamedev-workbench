@@ -1,0 +1,558 @@
+{
+  "schema_version": 1,
+  "kind": "workspace-check",
+  "passed": true,
+  "state": "draft",
+  "checks": [
+    {
+      "name": "brief engine agrees with workspace",
+      "passed": true
+    },
+    {
+      "name": "unique requirement ids",
+      "passed": true
+    },
+    {
+      "name": "brief requirements match workspace",
+      "passed": true
+    },
+    {
+      "name": "unique task ids",
+      "passed": true
+    },
+    {
+      "name": "experience: known dependencies",
+      "passed": true
+    },
+    {
+      "name": "experience: valid requirement links",
+      "passed": true
+    },
+    {
+      "name": "experience: outputs declared",
+      "passed": true
+    },
+    {
+      "name": "experience: output design/experience.md",
+      "passed": true
+    },
+    {
+      "name": "experience: remains draft until separately verified",
+      "passed": true
+    },
+    {
+      "name": "mechanics: known dependencies",
+      "passed": true
+    },
+    {
+      "name": "mechanics: valid requirement links",
+      "passed": true
+    },
+    {
+      "name": "mechanics: outputs declared",
+      "passed": true
+    },
+    {
+      "name": "mechanics: output design/mechanics.md",
+      "passed": true
+    },
+    {
+      "name": "mechanics: output design/economy.json",
+      "passed": true
+    },
+    {
+      "name": "mechanics: remains draft until separately verified",
+      "passed": true
+    },
+    {
+      "name": "narrative: known dependencies",
+      "passed": true
+    },
+    {
+      "name": "narrative: valid requirement links",
+      "passed": true
+    },
+    {
+      "name": "narrative: outputs declared",
+      "passed": true
+    },
+    {
+      "name": "narrative: output design/narrative.json",
+      "passed": true
+    },
+    {
+      "name": "narrative: remains draft until separately verified",
+      "passed": true
+    },
+    {
+      "name": "art: known dependencies",
+      "passed": true
+    },
+    {
+      "name": "art: valid requirement links",
+      "passed": true
+    },
+    {
+      "name": "art: outputs declared",
+      "passed": true
+    },
+    {
+      "name": "art: output art/direction.md",
+      "passed": true
+    },
+    {
+      "name": "art: remains draft until separately verified",
+      "passed": true
+    },
+    {
+      "name": "ui: known dependencies",
+      "passed": true
+    },
+    {
+      "name": "ui: valid requirement links",
+      "passed": true
+    },
+    {
+      "name": "ui: outputs declared",
+      "passed": true
+    },
+    {
+      "name": "ui: output ui/spec.json",
+      "passed": true
+    },
+    {
+      "name": "ui: remains draft until separately verified",
+      "passed": true
+    },
+    {
+      "name": "assets: known dependencies",
+      "passed": true
+    },
+    {
+      "name": "assets: valid requirement links",
+      "passed": true
+    },
+    {
+      "name": "assets: outputs declared",
+      "passed": true
+    },
+    {
+      "name": "assets: output assets/manifest.json",
+      "passed": true
+    },
+    {
+      "name": "assets: output assets/signal-mark.svg",
+      "passed": true
+    },
+    {
+      "name": "assets: remains draft until separately verified",
+      "passed": true
+    },
+    {
+      "name": "implementation: known dependencies",
+      "passed": true
+    },
+    {
+      "name": "implementation: valid requirement links",
+      "passed": true
+    },
+    {
+      "name": "implementation: outputs declared",
+      "passed": true
+    },
+    {
+      "name": "implementation: output delivery/implementation.md",
+      "passed": true
+    },
+    {
+      "name": "implementation: remains draft until separately verified",
+      "passed": true
+    },
+    {
+      "name": "verification: known dependencies",
+      "passed": true
+    },
+    {
+      "name": "verification: valid requirement links",
+      "passed": true
+    },
+    {
+      "name": "verification: outputs declared",
+      "passed": true
+    },
+    {
+      "name": "verification: output delivery/acceptance.md",
+      "passed": true
+    },
+    {
+      "name": "verification: remains draft until separately verified",
+      "passed": true
+    },
+    {
+      "name": "task dependency graph is acyclic and closed",
+      "passed": true
+    },
+    {
+      "name": "every requirement has a task",
+      "passed": true
+    },
+    {
+      "name": "UI requirements and engine agree",
+      "passed": true
+    },
+    {
+      "name": "narrative finite model/preflight",
+      "passed": true
+    },
+    {
+      "name": "economy finite model/preflight",
+      "passed": true
+    },
+    {
+      "name": "assets finite model/preflight",
+      "passed": true
+    }
+  ],
+  "specialist_results": {
+    "narrative": {
+      "kind": "narrative-check",
+      "passed": true,
+      "complete": true,
+      "errors": [],
+      "states_explored": 4,
+      "limits": [
+        "Only declared boolean flags and choice require/set maps are modeled.",
+        "Reachability and termination are structural checks, not narrative quality or player behavior."
+      ],
+      "reachable_endings": [
+        "departure"
+      ],
+      "unreachable_nodes": [],
+      "softlocks": [],
+      "non_terminating_states": 0
+    },
+    "economy": {
+      "kind": "economy-simulation",
+      "passed": true,
+      "errors": [],
+      "limits": [
+        "One cheapest-affordable purchase per step after income.",
+        "Integer growth uses ceiling after each purchase.",
+        "Scenarios are assumptions, not calibrated player behavior, fun or revenue forecasts."
+      ],
+      "scenarios": [
+        {
+          "income_scale_percent": 80,
+          "final_currency": 332,
+          "total_earned": 2647,
+          "total_spent": 2315,
+          "conservation_holds": true,
+          "levels": {
+            "relay": 6,
+            "survey": 4,
+            "archive": 3
+          },
+          "purchase_count": 13,
+          "first_purchase_step": 8,
+          "purchases": [
+            {
+              "step": 8,
+              "upgrade": "relay",
+              "cost": 30,
+              "currency_after": 2
+            },
+            {
+              "step": 16,
+              "upgrade": "relay",
+              "cost": 41,
+              "currency_after": 1
+            },
+            {
+              "step": 24,
+              "upgrade": "relay",
+              "cost": 56,
+              "currency_after": 1
+            },
+            {
+              "step": 34,
+              "upgrade": "relay",
+              "cost": 76,
+              "currency_after": 5
+            },
+            {
+              "step": 43,
+              "upgrade": "survey",
+              "cost": 90,
+              "currency_after": 5
+            },
+            {
+              "step": 50,
+              "upgrade": "relay",
+              "cost": 103,
+              "currency_after": 0
+            },
+            {
+              "step": 59,
+              "upgrade": "survey",
+              "cost": 135,
+              "currency_after": 9
+            },
+            {
+              "step": 66,
+              "upgrade": "relay",
+              "cost": 140,
+              "currency_after": 9
+            },
+            {
+              "step": 76,
+              "upgrade": "survey",
+              "cost": 203,
+              "currency_after": 16
+            },
+            {
+              "step": 85,
+              "upgrade": "archive",
+              "cost": 220,
+              "currency_after": 21
+            },
+            {
+              "step": 94,
+              "upgrade": "survey",
+              "cost": 305,
+              "currency_after": 31
+            },
+            {
+              "step": 103,
+              "upgrade": "archive",
+              "cost": 352,
+              "currency_after": 30
+            },
+            {
+              "step": 115,
+              "upgrade": "archive",
+              "cost": 564,
+              "currency_after": 42
+            }
+          ],
+          "trace_truncated": false
+        },
+        {
+          "income_scale_percent": 100,
+          "final_currency": 2269,
+          "total_earned": 4584,
+          "total_spent": 2315,
+          "conservation_holds": true,
+          "levels": {
+            "relay": 6,
+            "survey": 4,
+            "archive": 3
+          },
+          "purchase_count": 13,
+          "first_purchase_step": 6,
+          "purchases": [
+            {
+              "step": 6,
+              "upgrade": "relay",
+              "cost": 30,
+              "currency_after": 0
+            },
+            {
+              "step": 12,
+              "upgrade": "relay",
+              "cost": 41,
+              "currency_after": 1
+            },
+            {
+              "step": 19,
+              "upgrade": "relay",
+              "cost": 56,
+              "currency_after": 8
+            },
+            {
+              "step": 26,
+              "upgrade": "relay",
+              "cost": 76,
+              "currency_after": 9
+            },
+            {
+              "step": 33,
+              "upgrade": "survey",
+              "cost": 90,
+              "currency_after": 10
+            },
+            {
+              "step": 39,
+              "upgrade": "relay",
+              "cost": 103,
+              "currency_after": 15
+            },
+            {
+              "step": 45,
+              "upgrade": "survey",
+              "cost": 135,
+              "currency_after": 0
+            },
+            {
+              "step": 51,
+              "upgrade": "relay",
+              "cost": 140,
+              "currency_after": 10
+            },
+            {
+              "step": 59,
+              "upgrade": "survey",
+              "cost": 203,
+              "currency_after": 23
+            },
+            {
+              "step": 66,
+              "upgrade": "archive",
+              "cost": 220,
+              "currency_after": 27
+            },
+            {
+              "step": 73,
+              "upgrade": "survey",
+              "cost": 305,
+              "currency_after": 30
+            },
+            {
+              "step": 80,
+              "upgrade": "archive",
+              "cost": 352,
+              "currency_after": 21
+            },
+            {
+              "step": 89,
+              "upgrade": "archive",
+              "cost": 564,
+              "currency_after": 6
+            }
+          ],
+          "trace_truncated": false
+        },
+        {
+          "income_scale_percent": 120,
+          "final_currency": 3872,
+          "total_earned": 6187,
+          "total_spent": 2315,
+          "conservation_holds": true,
+          "levels": {
+            "relay": 6,
+            "survey": 4,
+            "archive": 3
+          },
+          "purchase_count": 13,
+          "first_purchase_step": 5,
+          "purchases": [
+            {
+              "step": 5,
+              "upgrade": "relay",
+              "cost": 30,
+              "currency_after": 0
+            },
+            {
+              "step": 11,
+              "upgrade": "relay",
+              "cost": 41,
+              "currency_after": 7
+            },
+            {
+              "step": 16,
+              "upgrade": "relay",
+              "cost": 56,
+              "currency_after": 1
+            },
+            {
+              "step": 22,
+              "upgrade": "relay",
+              "cost": 76,
+              "currency_after": 3
+            },
+            {
+              "step": 28,
+              "upgrade": "survey",
+              "cost": 90,
+              "currency_after": 3
+            },
+            {
+              "step": 33,
+              "upgrade": "relay",
+              "cost": 103,
+              "currency_after": 5
+            },
+            {
+              "step": 39,
+              "upgrade": "survey",
+              "cost": 135,
+              "currency_after": 14
+            },
+            {
+              "step": 44,
+              "upgrade": "relay",
+              "cost": 140,
+              "currency_after": 24
+            },
+            {
+              "step": 50,
+              "upgrade": "survey",
+              "cost": 203,
+              "currency_after": 13
+            },
+            {
+              "step": 56,
+              "upgrade": "archive",
+              "cost": 220,
+              "currency_after": 21
+            },
+            {
+              "step": 62,
+              "upgrade": "survey",
+              "cost": 305,
+              "currency_after": 28
+            },
+            {
+              "step": 68,
+              "upgrade": "archive",
+              "cost": 352,
+              "currency_after": 24
+            },
+            {
+              "step": 76,
+              "upgrade": "archive",
+              "cost": 564,
+              "currency_after": 44
+            }
+          ],
+          "trace_truncated": false
+        }
+      ]
+    },
+    "assets": {
+      "kind": "asset-preflight",
+      "passed": true,
+      "errors": [],
+      "warnings": [],
+      "assets": [
+        {
+          "path": "signal-mark.svg",
+          "format_checks": "file-and-declaration-only",
+          "bytes": 368,
+          "sha256": "ad7919e4cac2c37b137aac630552303b6d329a09e1a3ef35d9874ac1d2f2fbf1",
+          "metadata_checked": true
+        }
+      ],
+      "limits": [
+        "License fields are caller declarations, not verified rights.",
+        "PNG checks cover header dimensions, not full decoding or visual quality.",
+        "Dependency checks do not prove engine import, materials or runtime appearance."
+      ],
+      "duplicate_content": []
+    }
+  },
+  "engine_started": false,
+  "limits": [
+    "Structural linkage and finite model checks only; design, UI, art, gameplay and implementation need review.",
+    "Draft artifacts do not become production-ready because this report passed."
+  ]
+}

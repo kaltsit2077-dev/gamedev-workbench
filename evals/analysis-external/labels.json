@@ -1,0 +1,57 @@
+{
+  "scope": "Explicit load/preload/extends and ext_resource path edges, per source file; no target existence or engine execution scoring",
+  "label_author": "assistant reading upstream files before first evaluation; not independent human blind review",
+  "expected": {
+    "2d/role_playing_game/game.gd": [
+      [
+        "load",
+        "dialogue/dialogue_player/dialogue_player.tscn"
+      ]
+    ],
+    "2d/role_playing_game/game.tscn": [
+      [
+        "ext-resource",
+        "game.gd"
+      ],
+      [
+        "ext-resource",
+        "combat/combat.tscn"
+      ],
+      [
+        "ext-resource",
+        "grid_movement/exploration.tscn"
+      ]
+    ],
+    "2d/role_playing_game/dialogue/dialogue_player/dialogue_player.gd": [],
+    "2d/platformer/player/gun.gd": [
+      [
+        "preload",
+        "player/bullet.tscn"
+      ]
+    ],
+    "2d/platformer/game.gd": [],
+    "2d/instancing/ball_factory.gd": [
+      [
+        "preload",
+        "ball.tscn"
+      ]
+    ],
+    "gui/custom_splash_screen/splash.gd": [
+      [
+        "load",
+        "main.tscn"
+      ]
+    ],
+    "loading/runtime_save_load/runtime_save_load.gd": []
+  },
+  "unmodeled_runtime_inputs": [
+    {
+      "path": "2d/role_playing_game/dialogue/dialogue_player/dialogue_player.gd",
+      "mechanism": "FileAccess.open(file_path) reads external dialogue content; not a ResourceLoader call"
+    },
+    {
+      "path": "loading/runtime_save_load/runtime_save_load.gd",
+      "mechanism": "User-selected images/audio/models/fonts/archives via format-specific APIs; outside static resource-call scope"
+    }
+  ]
+}

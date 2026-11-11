@@ -4,3 +4,7 @@ Copyright 2026 GameDev Workbench contributors
 Original toolkit code, guidance, templates, fixtures and sample assets are
 licensed under Apache-2.0. Indexed external resources retain their own rights.
 See LICENSE and THIRD_PARTY_NOTICES.md.
+
+The pinned external evaluation subset under evals/analysis-external/sources
+comes from godotengine/godot-demo-projects and retains its MIT license.
+See evals/analysis-external/LICENSE and manifest.json for exact attribution.

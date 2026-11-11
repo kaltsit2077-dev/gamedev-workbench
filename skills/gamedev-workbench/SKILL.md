@@ -48,6 +48,15 @@ license: Apache-2.0
 
 工具通过只背书其报告明确覆盖的维度；其他引擎、真实硬件输入、性能和玩法仍须各自验证。
 
+## 创作工作区与项目执行
+
+- `create-workspace assets/design/brief.json --output "新工作区"`：从明确目标创建体验、机制、剧情、风格、UI、资产、实现交接和验收的可编辑草案，关联需求与任务依赖；不是已经实现的游戏。
+- `check-workspace "工作区"` 与 `workspace-page "工作区" --output "新的工作页.html"`：检查连接及有限模型，浏览草案并下载当前任务包。页面是只读快照；由当前宿主助手结合真实项目规则继续执行，没有独立 AI 后台。
+- `capabilities`：区分五类后端的具体入口与真实运行要求。`run-adapter-case` 返回共同执行报告；Godot/Unity/Unreal/Web/Blender 各自保留原生证据，缺少环境为 blocked。
+- `freeze-project-tests` 对项目明确声明的源文件做快照；`project-tests` 默认只预览结构化命令，`--execute` 才运行。必须先读配置中的副作用、工作目录与验收项；不把用户项目代码当作隔离进程。本技能不扩大宿主授权。
+
+以上省略公共前缀 `python scripts/workbench.py`，完整命令和格式见 [配方](references/tool-recipes.md)。优先按当前任务加载设计产物；不要一次将整个工作区或全部知识库塞入模型。
+
 ## 专项执行入口
 
 按需读 [工具配方与输入格式](references/tool-recipes.md)：包括 UID/有限常量解析、`check-ui-effects --case menu`、`manual-input`、`check-narrative`、`simulate-economy`、`audit-assets`、`summarize-evals` 与 `verify-editor-case`。这些工具随技能自包含分发；Unity/Unreal 的源码案例存在不代表已运行，没有编辑器时返回 blocked。

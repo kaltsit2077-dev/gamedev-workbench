@@ -4,7 +4,7 @@
 
 ## 先看已有真实证据
 
-发行页的 `gamedev-workbench-gallery-0.6.0-preview.html` 可直接下载后双击。也可从克隆生成：
+发行页的 `gamedev-workbench-gallery-0.7.0-preview.html` 可直接下载后双击。也可从克隆生成：
 
 ```text
 python tools/gdw.py validate
@@ -93,3 +93,20 @@ Unity / Unreal 的独立案例同样由 `verify-editor-case` 显式指定本地�
 选一个边界明确的真实任务，固定输入、验收、模型与环境；分别记录有无工具的产物、失败、共同验收后返工、墙钟和可追溯实际用量。`tools/repeated_eval.py` 可准备和验收已冻结的设置事务任务，`summarize-evals` 可汇总记录，但不会自动派发模型或取得账单。费用缺失保留 null；既有小样本没有证明技能提效。
 
 优先让一个真实项目接入只读分析和显式 UI 验证，再决定是否需要更多工具或编辑器 MCP。[已验证与未验证项](VALIDATION.md) · [下一步路线](ROADMAP.md)。
+
+
+## 0.7：从创作工作区继续开发
+
+在 brief 示例里填写自己的目标，然后创建一个新工作区：
+
+```text
+python tools/gdw.py create-workspace skills/gamedev-workbench/assets/design/brief.json --output workspaces/my-game
+python tools/gdw.py check-workspace workspaces/my-game --output workspaces/my-game-check.json
+python tools/gdw.py workspace-page workspaces/my-game --output workspaces/my-game.html
+```
+
+双击 HTML，选择阶段和产物。下载当前任务包后可交给当前 AI 助手；它仍需先读真实项目规则，再制作代码/场景/资源。工作区是初始草案，源文件可编辑；页面只读，编辑后重新导出。不要把模板结构检查通过当作游戏实现完成。
+
+接入已有项目回归时，先按 [项目测试配方](../skills/gamedev-workbench/references/tool-recipes.md) 明确命令、源文件、检查名与副作用，再 freeze-project-tests、预览 project-tests，确认范围后显式 --execute。执行不自动复制项目，需临时副本时先建立副本，避免引擎并发写同一缓存。
+
+适配入口可用 capabilities 查看；run-adapter-case 使用明确的编辑器和版本。五个入口的验证深度不相同；无环境保留 blocked。长期产品形态与下一阶段见 [平台设计](PLATFORM.md)。

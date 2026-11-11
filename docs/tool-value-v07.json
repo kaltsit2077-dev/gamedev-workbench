@@ -1,0 +1,106 @@
+{
+  "kind": "tool-defect-detection-experiment",
+  "protocol_version": 1,
+  "records": [
+    {
+      "task": "architecture",
+      "variant": "intact",
+      "expected_defect": false,
+      "parse_only_passed": true,
+      "tool_passed": true,
+      "parse_only_seconds": 0.2806193999713287,
+      "tool_seconds": 0.003440600004978478,
+      "tool_diagnostics": [],
+      "parse_exit_code": 0
+    },
+    {
+      "task": "architecture",
+      "variant": "seeded-defect",
+      "expected_defect": true,
+      "parse_only_passed": true,
+      "tool_passed": false,
+      "parse_only_seconds": 0.2654537999769673,
+      "tool_seconds": 0.004102400038391352,
+      "tool_diagnostics": [
+        "missing.tres"
+      ],
+      "parse_exit_code": 0
+    },
+    {
+      "task": "menu",
+      "variant": "intact",
+      "expected_defect": false,
+      "parse_only_passed": true,
+      "tool_passed": true,
+      "parse_only_seconds": 0.35770069994032383,
+      "tool_seconds": 0.8554142999928445,
+      "tool_diagnostics": [],
+      "parse_exit_code": 0
+    },
+    {
+      "task": "menu",
+      "variant": "seeded-defect",
+      "expected_defect": true,
+      "parse_only_passed": true,
+      "tool_passed": false,
+      "parse_only_seconds": 0.38749809993896633,
+      "tool_seconds": 0.9664730000076815,
+      "tool_diagnostics": [
+        "cancel restores settings focus",
+        "back restores original main focus",
+        "synthetic gamepad cancel restores focus"
+      ],
+      "parse_exit_code": 0
+    },
+    {
+      "task": "effects",
+      "variant": "intact",
+      "expected_defect": false,
+      "parse_only_passed": true,
+      "tool_passed": true,
+      "parse_only_seconds": 0.3930205999640748,
+      "tool_seconds": 0.9799726000055671,
+      "tool_diagnostics": [],
+      "parse_exit_code": 0
+    },
+    {
+      "task": "effects",
+      "variant": "seeded-defect",
+      "expected_defect": true,
+      "parse_only_passed": true,
+      "tool_passed": false,
+      "parse_only_seconds": 0.39679739996790886,
+      "tool_seconds": 0.894392600050196,
+      "tool_diagnostics": [
+        "impact ends hidden and idle"
+      ],
+      "parse_exit_code": 0
+    }
+  ],
+  "parse_only": {
+    "true_positive": 0,
+    "false_positive": 0,
+    "false_negative": 3
+  },
+  "task_tools": {
+    "true_positive": 3,
+    "false_positive": 0,
+    "false_negative": 0
+  },
+  "all_intact_accepted": true,
+  "all_seeded_defects_detected": true,
+  "new_model_trials": {
+    "status": "not-run",
+    "records": [],
+    "actual_cost_usd": null,
+    "tokens": null,
+    "human_blind_review": "pending"
+  },
+  "limits": [
+    "Controlled original fixture defects, selected by the same implementation author; not a representative game defect benchmark.",
+    "Compares parse-only acceptance with task-specific tools on the same intact/defective copies; neither arm is a model.",
+    "Timing covers indicated tool stages only; not end-to-end developer time, AI latency, rework or money saved.",
+    "Menu/effect runs are headless behavioral checks, not rendering, physical input, performance or player experience.",
+    "New independent same-model architecture/menu/effect trials, human blind review and provider usage records remain pending."
+  ]
+}

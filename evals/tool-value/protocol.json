@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "frozen_before_first_run": "2026-11-11",
+  "tasks": [
+    {
+      "id": "architecture",
+      "defect": "Runtime load points at missing local resource; method not invoked by parser."
+    },
+    {
+      "id": "menu",
+      "file": "menu.gd",
+      "before": "removed.return_focus.grab_focus()",
+      "after": "pass # seeded defect: focus is not restored",
+      "defect": "Returning from nested menu fails to restore the opener focus."
+    },
+    {
+      "id": "effects",
+      "file": "impact.gd",
+      "before": "if elapsed >= DURATION:",
+      "after": "if elapsed > DURATION:",
+      "defect": "Clamped elapsed can never exceed duration, so effect remains active."
+    }
+  ],
+  "source_sha256": {
+    "skills/gamedev-workbench/assets/godot-menu/impact.gd": "c91527ba8c19f53c565632e91c1b29e4c77a82fc0a04006fef80c726c7e0b2a6",
+    "skills/gamedev-workbench/assets/godot-menu/impact.gdshader": "105245a46748b7ba671f1c478ad0484adb6021ba04fb8bd2d2270406cda49304",
+    "skills/gamedev-workbench/assets/godot-menu/manual.gd": "ff6d9f3f6b6b26c174da33cc28525e63f6491488997bdc9a2c11bd937fd2705e",
+    "skills/gamedev-workbench/assets/godot-menu/menu.gd": "1f27b04776c6bc132d4e1c2edf154bc0fb2cc7ba6a05e4990827ed29a751f020",
+    "skills/gamedev-workbench/assets/godot-menu/menu.tscn": "ea5192ff3526c7d56ed0ea8dee588f5ee12c7140f9f7971e96cd4be92079af9b",
+    "skills/gamedev-workbench/assets/godot-menu/project.godot": "5dd88afb5e0c3a2c1f1fd911403152584cc5771c421c8e4db703e2606f0d5b97",
+    "skills/gamedev-workbench/assets/godot-menu/quality.gd": "f2d404122b30264961479d4a880148eda402bdf6ae9979cf2a0caae56611bc39",
+    "skills/gamedev-workbench/assets/godot-menu/state.gd": "59c0975341b4b45ca73d694cc9167e65d7339edf1f4104cd3bc86d89b58ac51b",
+    "skills/gamedev-workbench/scripts/project_analysis.py": "7f2e3c07f6ad71afcd5a131673bde98c8bf457eebf7a2ebb8e0f51f79d65e5c5",
+    "skills/gamedev-workbench/scripts/gd_references.py": "5e26b06c8338dadb03d0815c88bd362785714550475fdfe347874ef91786f547",
+    "skills/gamedev-workbench/scripts/quality_checks.py": "9c7d016c60005864b71fc7a17925264f69a10e442ddf924354fe16c26abcc775",
+    "tools/evaluate_tool_value.py": "1b953cf2b0ef542c691422de192809d530373262374a7004daf9ed60f45a78b2"
+  },
+  "limits": [
+    "Controlled original fixture defects, selected by the same implementation author; not a representative game defect benchmark.",
+    "Compares parse-only acceptance with task-specific tools on the same intact/defective copies; neither arm is a model.",
+    "Timing covers indicated tool stages only; not end-to-end developer time, AI latency, rework or money saved.",
+    "Menu/effect runs are headless behavioral checks, not rendering, physical input, performance or player experience.",
+    "New independent same-model architecture/menu/effect trials, human blind review and provider usage records remain pending."
+  ]
+}

@@ -3,8 +3,10 @@ const State = preload("res://state.gd")
 const Pulse = preload("res://pulse.gd")
 const Demo = preload("res://demo.gd")
 var errors: Array[String] = []
+var checks: Array[Dictionary] = []
 
 func expect(condition: bool, message: String) -> void:
+	checks.append({"name": message, "passed": condition})
 	if not condition:
 		errors.append(message)
 
@@ -37,4 +39,12 @@ func run_checks() -> void:
 	for message in errors:
 		push_error(message)
 	print("WORKBENCH_SMOKE: ", "PASS" if errors.is_empty() else "FAIL")
+	if OS.has_environment("GDW_TEST_REPORT"):
+		var report_file := FileAccess.open(OS.get_environment("GDW_TEST_REPORT"), FileAccess.WRITE)
+		if report_file:
+			report_file.store_string(JSON.stringify({"engine": "godot", "engine_version": Engine.get_version_info().string, "passed": errors.is_empty(), "checks": checks}, "  "))
+		else:
+			push_error("Cannot write declared project report")
+			quit(2)
+			return
 	quit(0 if errors.is_empty() else 1)

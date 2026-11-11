@@ -1,0 +1,179 @@
+{
+  "kind": "external-analysis-evaluation",
+  "upstream": "https://github.com/godotengine/godot-demo-projects",
+  "commit": "b761b4cd5718a7118f2c95eb55f181d0a5f004f1",
+  "labels_sha256": "f6295101dfca840354e7cc27a958163261c67b1d0afa273db3107df62ede46ba",
+  "files": [
+    {
+      "path": "2d/role_playing_game/game.gd",
+      "expected": [
+        [
+          "load",
+          "dialogue/dialogue_player/dialogue_player.tscn"
+        ]
+      ],
+      "predicted": [
+        [
+          "load",
+          "dialogue/dialogue_player/dialogue_player.tscn"
+        ]
+      ],
+      "matched": true,
+      "false_positive": [],
+      "false_negative": [],
+      "unknown_uid_clues": 0,
+      "dynamic_clues": 0
+    },
+    {
+      "path": "2d/role_playing_game/game.tscn",
+      "expected": [
+        [
+          "ext-resource",
+          "combat/combat.tscn"
+        ],
+        [
+          "ext-resource",
+          "game.gd"
+        ],
+        [
+          "ext-resource",
+          "grid_movement/exploration.tscn"
+        ]
+      ],
+      "predicted": [
+        [
+          "ext-resource",
+          "combat/combat.tscn"
+        ],
+        [
+          "ext-resource",
+          "game.gd"
+        ],
+        [
+          "ext-resource",
+          "grid_movement/exploration.tscn"
+        ]
+      ],
+      "matched": true,
+      "false_positive": [],
+      "false_negative": [],
+      "unknown_uid_clues": 3,
+      "dynamic_clues": 0
+    },
+    {
+      "path": "2d/role_playing_game/dialogue/dialogue_player/dialogue_player.gd",
+      "expected": [],
+      "predicted": [],
+      "matched": true,
+      "false_positive": [],
+      "false_negative": [],
+      "unknown_uid_clues": 0,
+      "dynamic_clues": 0
+    },
+    {
+      "path": "2d/platformer/player/gun.gd",
+      "expected": [
+        [
+          "preload",
+          "player/bullet.tscn"
+        ]
+      ],
+      "predicted": [
+        [
+          "preload",
+          "player/bullet.tscn"
+        ]
+      ],
+      "matched": true,
+      "false_positive": [],
+      "false_negative": [],
+      "unknown_uid_clues": 0,
+      "dynamic_clues": 0
+    },
+    {
+      "path": "2d/platformer/game.gd",
+      "expected": [],
+      "predicted": [],
+      "matched": true,
+      "false_positive": [],
+      "false_negative": [],
+      "unknown_uid_clues": 0,
+      "dynamic_clues": 0
+    },
+    {
+      "path": "2d/instancing/ball_factory.gd",
+      "expected": [
+        [
+          "preload",
+          "ball.tscn"
+        ]
+      ],
+      "predicted": [
+        [
+          "preload",
+          "ball.tscn"
+        ]
+      ],
+      "matched": true,
+      "false_positive": [],
+      "false_negative": [],
+      "unknown_uid_clues": 0,
+      "dynamic_clues": 0
+    },
+    {
+      "path": "gui/custom_splash_screen/splash.gd",
+      "expected": [
+        [
+          "load",
+          "main.tscn"
+        ]
+      ],
+      "predicted": [
+        [
+          "load",
+          "main.tscn"
+        ]
+      ],
+      "matched": true,
+      "false_positive": [],
+      "false_negative": [],
+      "unknown_uid_clues": 0,
+      "dynamic_clues": 0
+    },
+    {
+      "path": "loading/runtime_save_load/runtime_save_load.gd",
+      "expected": [],
+      "predicted": [],
+      "matched": true,
+      "false_positive": [],
+      "false_negative": [],
+      "unknown_uid_clues": 0,
+      "dynamic_clues": 0
+    }
+  ],
+  "matched_files": 8,
+  "file_count": 8,
+  "true_positive_references": 7,
+  "false_positive_references": 0,
+  "false_negative_references": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "unmodeled_runtime_inputs": [
+    {
+      "path": "2d/role_playing_game/dialogue/dialogue_player/dialogue_player.gd",
+      "mechanism": "FileAccess.open(file_path) reads external dialogue content; not a ResourceLoader call"
+    },
+    {
+      "path": "loading/runtime_save_load/runtime_save_load.gd",
+      "mechanism": "User-selected images/audio/models/fonts/archives via format-specific APIs; outside static resource-call scope"
+    }
+  ],
+  "human_review": "pending; assistant labels are not independent human review",
+  "limits": [
+    "Small selected official-demo source subset, not whole projects or a representative population.",
+    "External authorship; labels frozen before first run, but authored by the same assistant.",
+    "Scores explicit edge identity only; referenced resources were not all downloaded or executed.",
+    "Format-specific runtime loaders, signal wiring and state ownership remain outside this score.",
+    "Once used to guide changes, treat this corpus as regression, not fresh held-out evidence."
+  ]
+}

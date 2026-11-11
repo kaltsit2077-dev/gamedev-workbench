@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-11",
+  "kind": "workspace-browser-qa",
+  "checks": {
+    "stage_switch": true,
+    "economy_artifact_selection": true,
+    "requirement_links": true,
+    "task_export_matches_source_hash": true,
+    "390px_no_horizontal_overflow": true,
+    "draft_state_not_game_complete": true
+  },
+  "screenshot": "media/workspace-preview.png",
+  "ai_backend": "not-implemented; exported task is intended for current host assistant"
+}

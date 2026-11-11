@@ -39,6 +39,15 @@ def build(output_dir):
     gallery=output/f'gamedev-workbench-gallery-{version}.html'
     gallery.write_text(render_gallery(report,images),encoding='utf-8',newline='\n')
     hashes[gallery.name]=hashlib.sha256(gallery.read_bytes()).hexdigest()
+    from creative_workspace import create_workspace
+    from workspace_view import render_workspace
+    import json
+    with tempfile.TemporaryDirectory(prefix='gdw-workspace-release-') as d:
+        workspace=Path(d).resolve()/'workspace'
+        create_workspace(json.loads((source/'assets/design/brief.json').read_text(encoding='utf-8')),workspace)
+        page=output/f'gamedev-workbench-workspace-{version}.html'
+        page.write_text(render_workspace(workspace),encoding='utf-8',newline='\n')
+        hashes[page.name]=hashlib.sha256(page.read_bytes()).hexdigest()
     env=dict(os.environ,PYTHONUTF8='1')
     with tempfile.TemporaryDirectory(prefix='gdw-release-') as d:
         with zipfile.ZipFile(project_zip) as z: z.extractall(d)

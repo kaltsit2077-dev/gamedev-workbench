@@ -2,7 +2,7 @@
 
 An installable skill, offline Python toolbox and learning guide for independent developers and small game teams. Priorities: code architecture, native UI, gameplay features and effects, with design, narrative, art and resource-discovery workflows.
 
-[中文与实际截图](README.md) · [Quickstart (Chinese)](docs/QUICKSTART.md) · [0.6 preview](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.6.0-preview) · [Support boundaries](docs/CAPABILITIES.md)
+[中文与实际截图](README.md) · [Quickstart (Chinese)](docs/QUICKSTART.md) · [0.7 preview](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.7.0-preview) · [Support boundaries](docs/CAPABILITIES.md)
 
 ![Recorded tool changes, not a productivity claim](docs/media/evidence-changes.svg)
 
@@ -13,6 +13,18 @@ The original Godot menu fixture records 121 checks and 40 native PNG captures ov
 ![Paired pilots show no demonstrated speed gain](docs/media/paired-pilot.svg)
 
 Two settings-repair pairs passed the same 10 checks in all four arms, with zero post-grading rework. The with-skill arms (version 0.4) had a median paired wall-time difference of +23.6 seconds. Model configuration was inherited equally; exact backend ID and actual token/billing data were unavailable. Concurrent host load confounds time. **No productivity or cost improvement established; new 0.5/0.6 tools were not the treatment.** [Protocol and evidence](docs/PAIRED-EVALUATION.md).
+
+## Platform foundation in 0.7
+
+Long-term direction: a local-first AI-assisted game development platform with independently usable skill, knowledge and tool components. New: editable creative packs, an offline task/artifact page with selected-task export, frozen project test previews/explicit execution, and common adapter reports. The page is a read-only snapshot; AI execution still belongs to the host assistant, not a standalone backend.
+
+A small pinned official-demo subset has 8 matching source files / 7 labeled resource edges / zero FP/FN; labels were frozen before the first run but are assistant-authored, not human blind review. Real Godot project tests (7), menu headless checks (81), and Node state checks (2) passed. Unity/Unreal/Blender remain blocked without supplied editors. Three seeded defects escaped parsing but were caught by task tools; this is **not** a new same-model productivity trial. Fees remain unknown. [Long-term architecture](docs/PLATFORM.md) · [Value evidence](docs/VALUE-EXPERIMENTS.md).
+
+```text
+python tools/gdw.py create-workspace skills/gamedev-workbench/assets/design/brief.json --output workspaces/my-game
+python tools/gdw.py check-workspace workspaces/my-game
+python tools/gdw.py workspace-page workspaces/my-game --output workspaces/my-game.html
+```
 
 ## Use
 
@@ -42,4 +54,4 @@ Godot fixtures have real Windows / official 4.7.2 / OpenGL evidence. Unity/Unrea
 
 Next: integrate an explicit real-project test adapter; add independent held-out analysis cases; evaluate new tools with traceable costs; finish hardware input and cross-engine runs when environments exist.
 
-[Apache-2.0](LICENSE) for original work. External books, courses, skills and assets remain links/metadata governed by their own licenses. No private game sources or private analysis reports are distributed.
+[Apache-2.0](LICENSE) for original work. The small pinned Godot official-demo evaluation subset retains its MIT license; see THIRD_PARTY_NOTICES. Other external books, courses, skills and assets remain links/metadata governed by their own licenses. No private game sources or private analysis reports are distributed.

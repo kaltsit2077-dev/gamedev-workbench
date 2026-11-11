@@ -73,3 +73,71 @@ python scripts/workbench.py verify-editor-case unreal --editor "UnrealEditor-Cmd
 示例版本是声明目标，不是本机成功记录；按实际准备的版本明确指定 --expect。Unity 原创 Editor C# 检查状态通知与 GameObject 创建/变换/清理；Unreal 原创 Python 检查临时世界与 Actor 生命周期。后者只在独立样例项目启用引擎内置 Python 插件，不是运行时玩法语言。相关官方入口：[Unity 命令行](https://docs.unity3d.com/Manual/EditorCommandLineArguments.html)、[Unreal 编辑器 Python](https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python)。
 
 运行器复制本包案例，不启动用户项目；编辑器仍使用其正常用户环境与已有许可。没有二进制则 blocked，不安装编辑器或激活许可；有二进制时必须同时满足报告、非空检查、版本、标记和退出码。单元测试中的模拟只验证运行器失败处理，不能计为引擎执行。需要编辑器选取/Inspector/撤回等实际操作缺口后，再比较 MCP。
+
+## 0.7 创作工作区与任务工作页
+
+```text
+python scripts/workbench.py create-workspace assets/design/brief.json --output "新的创作工作区"
+python scripts/workbench.py check-workspace "新的创作工作区" --output "新的结构检查.json"
+python scripts/workbench.py workspace-page "新的创作工作区" --output "新的工作页.html"
+```
+
+brief 字段固定为 schema_version=1、title、engine、audience、experience、mechanics、art_direction、features；engine 为 godot/unity/unreal/web/blender。文字字段非空且不超过 4000 字，mechanics/features 各 1..30 条、每条至多 1000 字。创建拒绝覆盖，且不运行模型、引擎或上游安装器。
+
+工作区包含 brief.json、workspace.json 和 design/art/ui/assets/delivery 的可编辑文件。workspace 声明需求 ID、任务依赖与输出路径；初始任务全部 draft，初始需求连接属于规划，需审查后细化。UI 的 requirement 列表与 UI 任务保持一致。check-workspace 检查任务 DAG、路径、产物、需求一致性及有限叙事/经济/资产模型；通过仍是设计草案。示例数据与 SVG 为原创起点，须替换或审查，许可证随包复制。
+
+工作页不联网，展示阶段、需求、文件内容与快照 hash，可下载带选中任务/关联需求/产物的 JSON。交给当前宿主助手继续工作时，还需读取真实项目规则；下载任务包不授予发布或安装权限。本页只读，不提供独立聊天后台。预览文本每项 64 KB、总量 500 KB，输出拒绝覆盖；编辑源文件后重新导出。
+
+## 项目声明的测试计划
+
+测试配置是 JSON，示意如下。sources 的 null 仅可用于待冻结草案，执行计划需要真实 hash：
+
+```json
+{
+  "schema_version": 1,
+  "engine": "godot",
+  "expected_version": "4.7.2",
+  "sources": {"tests/settings_probe.gd": null},
+  "tests": [{
+    "id": "settings",
+    "argv": ["{engine}", "--headless", "--path", "{project}", "--script", "res://tests/settings_probe.gd"],
+    "cwd": ".",
+    "timeout_seconds": 60,
+    "effects": "说明会写入的缓存、存档或其他文件；预先遵守项目约束。",
+    "required_checks": ["settings behavior"]
+  }]
+}
+```
+
+```text
+python scripts/workbench.py freeze-project-tests "项目目录" --config "测试草案.json" --output "新的冻结计划.json"
+python scripts/workbench.py project-tests "项目目录" --config "新的冻结计划.json" --engine "编辑器路径"
+python scripts/workbench.py project-tests "项目目录" --config "新的冻结计划.json" --engine "编辑器路径" --execute --output-dir "项目之外的新证据目录"
+```
+
+冻结只读取明确选中的源码，预览不执行。执行器使用 argv 列表，不隐式调用 shell；占位符为 {engine}/{project}/{output}/{python}。显式选择的项目代码在正常用户环境运行，**不会自动隔离或复制真实项目**；先核对副作用及项目关于编辑器/并发缓存的约定，需要副本时先建立副本。1..20 项测试、每项 1..300 秒；最多 200 个选中源文件、每个 5 MB。源 hash 按 CRLF/LF 规范化，变动后须新建快照；未选中的文件不在该检查范围。
+
+测试通过环境变量 GDW_TEST_REPORT 得到本项专用 native.json 目标，写入原生证据：
+
+```json
+{"engine":"godot","engine_version":"4.7.2.stable.official.ed1daf0bf","passed":true,"checks":[{"name":"settings behavior","passed":true}]}
+```
+
+执行器同时要求退出 0、引擎标识、版本前缀、非空/唯一的检查、required_checks 完整且全部布尔通过；缺证据、空检查、超时或声明矛盾均失败。选中源码执行后变化也会判失败。run.json 保留原生报告、每项时长、失败原因与源码指纹；它不能独立证明测试本身完整或诚实，更不代表渲染/输入/性能通过。读取日志与证据有界，但本执行器不是完整进程资源/权限隔离器。
+
+完整项目的 assets/project-tests.json 配合 godot-demo 原创副本可复现该流程。建议将测试入口与项目回归一起版本化。
+
+## 五类后端入口与共同报告
+
+```text
+python scripts/workbench.py capabilities
+python scripts/workbench.py run-adapter-case godot --editor "官方Godot路径" --expect 4.7.2 --scratch "引擎可写缓存" --output-dir "新证据目录"
+python scripts/workbench.py run-adapter-case web --editor "Node可执行文件" --expect "本机实际版本前缀" --scratch "可写缓存" --output-dir "新的JS证据"
+python scripts/workbench.py run-adapter-case blender --editor "Blender可执行文件" --expect "明确版本前缀" --scratch "可写缓存" --output-dir "新的Blender证据"
+```
+
+Unity/Unreal 采用同一入口各自指定 kind、编辑器与期望版本。共同报告 schema_version=1、kind=execution-report，status 为 passed/failed/blocked，保留 native 与各验证维度。缺少可执行文件会写 blocked 报告，不自动安装。
+
+Godot 在副本跑菜单 headless；Unity/Unreal 沿用各自原创编辑器案例；Web 案例只在 Node 中验证状态事件/取消订阅与重置，不能充当浏览器 UI 验证；Blender 案例准备后台创建/变换/对象与 mesh 清理，尚无真实运行记录。没有新增 MCP 连接。
+
+官方参考：[Godot CLI](https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html)、[Unity CLI](https://docs.unity3d.com/Manual/EditorCommandLineArguments.html)、[Unreal Python](https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python)、[Node EventTarget](https://nodejs.org/api/events.html#class-eventtarget)、[Blender CLI](https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html)。文档来源不等于本机引擎成功运行。
