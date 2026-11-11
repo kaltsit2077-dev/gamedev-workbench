@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-11",
+  "model_configuration": "same inherited parent configuration; no overrides; exact backend ID unavailable",
+  "arm_a": "fresh context without custom skills",
+  "arm_b": "fresh context using gamedev-workbench 0.2.0-preview",
+  "protocol_notes": [
+    "Shared host instructions and skill metadata remain.",
+    "A had environment retries; B received the workaround before engine runs.",
+    "Requirements were frozen before execution; the grader implementation followed agent completion, without reading modified production source to select checks.",
+    "No independent human blind quality review."
+  ]
+}

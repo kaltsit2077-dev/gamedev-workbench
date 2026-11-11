@@ -1,0 +1,14 @@
+[
+  {"task":"build a model", "include":["art"], "exclude":["ui"]},
+  {"task":"build tools for shaders", "include":["effects"], "exclude":["ui"]},
+  {"task":"testament draft", "include":[], "exclude":["validation"]},
+  {"task":"redesignation field", "include":[], "exclude":["design"]},
+  {"task":"native HUD focus", "include":["ui"], "exclude":[]},
+  {"task":"整体代码架构与依赖", "include":["architecture"], "exclude":[]},
+  {"task":"实现粒子效果", "include":["feature","effects"], "exclude":[]},
+  {"task":"剧情人物与分支", "include":["narrative"], "exclude":[]},
+  {"task":"模型和贴图", "include":["art"], "exclude":[]},
+  {"task":"find MCP skill", "include":["research"], "exclude":[]},
+  {"task":"什么也没有指定", "include":["guide"], "exclude":[]},
+  {"task":"实现UI焦点", "include":["ui","feature"], "exclude":[]}
+]

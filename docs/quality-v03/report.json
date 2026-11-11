@@ -1,0 +1,395 @@
+{
+  "checks": [
+    {
+      "name": "initial trigger focus",
+      "passed": true
+    },
+    {
+      "name": "declared focus chain covers both buttons",
+      "passed": true
+    },
+    {
+      "name": "Tab reaches reset",
+      "passed": true
+    },
+    {
+      "name": "reverse Tab reaches trigger",
+      "passed": true
+    },
+    {
+      "name": "injected accept action activates native button",
+      "passed": true
+    },
+    {
+      "name": "native button updates bound label",
+      "passed": true
+    },
+    {
+      "name": "retrigger resets clock",
+      "passed": true
+    },
+    {
+      "name": "retrigger does not add nodes",
+      "passed": true
+    },
+    {
+      "name": "scene pause stops inherited effect clock",
+      "passed": true
+    },
+    {
+      "name": "effect ends hidden and idle",
+      "passed": true
+    },
+    {
+      "name": "bounds (640, 360) VBoxContainer",
+      "passed": true
+    },
+    {
+      "name": "bounds (640, 360) Label",
+      "passed": true
+    },
+    {
+      "name": "bounds (640, 360) Button",
+      "passed": true
+    },
+    {
+      "name": "bounds (640, 360) Button",
+      "passed": true
+    },
+    {
+      "name": "bounds (640, 360) Control",
+      "passed": true
+    },
+    {
+      "name": "buttons separated (640, 360)",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_640x360_000.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_640x360_020.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_640x360_050.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_640x360_080.png",
+      "passed": true
+    },
+    {
+      "name": "bounds (960, 540) VBoxContainer",
+      "passed": true
+    },
+    {
+      "name": "bounds (960, 540) Label",
+      "passed": true
+    },
+    {
+      "name": "bounds (960, 540) Button",
+      "passed": true
+    },
+    {
+      "name": "bounds (960, 540) Button",
+      "passed": true
+    },
+    {
+      "name": "bounds (960, 540) Control",
+      "passed": true
+    },
+    {
+      "name": "buttons separated (960, 540)",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_960x540_000.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_960x540_020.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_960x540_050.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_960x540_080.png",
+      "passed": true
+    },
+    {
+      "name": "bounds (1280, 720) VBoxContainer",
+      "passed": true
+    },
+    {
+      "name": "bounds (1280, 720) Label",
+      "passed": true
+    },
+    {
+      "name": "bounds (1280, 720) Button",
+      "passed": true
+    },
+    {
+      "name": "bounds (1280, 720) Button",
+      "passed": true
+    },
+    {
+      "name": "bounds (1280, 720) Control",
+      "passed": true
+    },
+    {
+      "name": "buttons separated (1280, 720)",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_1280x720_000.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_1280x720_020.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_1280x720_050.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_1280x720_080.png",
+      "passed": true
+    },
+    {
+      "name": "bounds (800, 600) VBoxContainer",
+      "passed": true
+    },
+    {
+      "name": "bounds (800, 600) Label",
+      "passed": true
+    },
+    {
+      "name": "bounds (800, 600) Button",
+      "passed": true
+    },
+    {
+      "name": "bounds (800, 600) Button",
+      "passed": true
+    },
+    {
+      "name": "bounds (800, 600) Control",
+      "passed": true
+    },
+    {
+      "name": "buttons separated (800, 600)",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_800x600_000.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_800x600_020.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_800x600_050.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_800x600_080.png",
+      "passed": true
+    },
+    {
+      "name": "bounds (360, 640) VBoxContainer",
+      "passed": true
+    },
+    {
+      "name": "bounds (360, 640) Label",
+      "passed": true
+    },
+    {
+      "name": "bounds (360, 640) Button",
+      "passed": true
+    },
+    {
+      "name": "bounds (360, 640) Button",
+      "passed": true
+    },
+    {
+      "name": "bounds (360, 640) Control",
+      "passed": true
+    },
+    {
+      "name": "buttons separated (360, 640)",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_360x640_000.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_360x640_020.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_360x640_050.png",
+      "passed": true
+    },
+    {
+      "name": "rendered frame frame_360x640_080.png",
+      "passed": true
+    }
+  ],
+  "frames": [
+    {
+      "effect_active": true,
+      "effect_seconds": 0.0,
+      "height": 360,
+      "image": "frame_640x360_000.png",
+      "width": 640
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.2,
+      "height": 360,
+      "image": "frame_640x360_020.png",
+      "width": 640
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.5,
+      "height": 360,
+      "image": "frame_640x360_050.png",
+      "width": 640
+    },
+    {
+      "effect_active": false,
+      "effect_seconds": 0.8,
+      "height": 360,
+      "image": "frame_640x360_080.png",
+      "width": 640
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.0,
+      "height": 540,
+      "image": "frame_960x540_000.png",
+      "width": 960
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.2,
+      "height": 540,
+      "image": "frame_960x540_020.png",
+      "width": 960
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.5,
+      "height": 540,
+      "image": "frame_960x540_050.png",
+      "width": 960
+    },
+    {
+      "effect_active": false,
+      "effect_seconds": 0.8,
+      "height": 540,
+      "image": "frame_960x540_080.png",
+      "width": 960
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.0,
+      "height": 720,
+      "image": "frame_1280x720_000.png",
+      "width": 1280
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.2,
+      "height": 720,
+      "image": "frame_1280x720_020.png",
+      "width": 1280
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.5,
+      "height": 720,
+      "image": "frame_1280x720_050.png",
+      "width": 1280
+    },
+    {
+      "effect_active": false,
+      "effect_seconds": 0.8,
+      "height": 720,
+      "image": "frame_1280x720_080.png",
+      "width": 1280
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.0,
+      "height": 600,
+      "image": "frame_800x600_000.png",
+      "width": 800
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.2,
+      "height": 600,
+      "image": "frame_800x600_020.png",
+      "width": 800
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.5,
+      "height": 600,
+      "image": "frame_800x600_050.png",
+      "width": 800
+    },
+    {
+      "effect_active": false,
+      "effect_seconds": 0.8,
+      "height": 600,
+      "image": "frame_800x600_080.png",
+      "width": 800
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.0,
+      "height": 640,
+      "image": "frame_360x640_000.png",
+      "width": 360
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.2,
+      "height": 640,
+      "image": "frame_360x640_020.png",
+      "width": 360
+    },
+    {
+      "effect_active": true,
+      "effect_seconds": 0.5,
+      "height": 640,
+      "image": "frame_360x640_050.png",
+      "width": 360
+    },
+    {
+      "effect_active": false,
+      "effect_seconds": 0.8,
+      "height": 640,
+      "image": "frame_360x640_080.png",
+      "width": 360
+    }
+  ],
+  "input": "injected engine actions; no physical device",
+  "passed": true,
+  "performance": "not-measured",
+  "rendering": "captured",
+  "exit_code": 0,
+  "diagnostics": [
+    "ERROR: Failed to read the root certificate store."
+  ],
+  "engine_version": "4.7.2.stable.official.ed1daf0bf"
+}

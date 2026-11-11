@@ -1,0 +1,419 @@
+{
+  "format_version": 1,
+  "snapshot_utc": "2026-11-11T06:00:37.716862+00:00",
+  "engine": "godot",
+  "execution": "read-only text scan; no engine invoked",
+  "entry": "res://demo.tscn",
+  "autoloads": [],
+  "declared_features": null,
+  "actual_engine_version": "unverified",
+  "files": [
+    "capture.gd",
+    "demo.gd",
+    "demo.tscn",
+    "pulse.gd",
+    "quality.gd",
+    "smoke.gd",
+    "state.gd",
+    "validation_probe.gd"
+  ],
+  "references": [
+    {
+      "source": "capture.gd",
+      "line": 2,
+      "target": "demo.gd",
+      "kind": "preload",
+      "status": "exists"
+    },
+    {
+      "source": "demo.gd",
+      "line": 2,
+      "target": "state.gd",
+      "kind": "preload",
+      "status": "exists"
+    },
+    {
+      "source": "demo.gd",
+      "line": 3,
+      "target": "pulse.gd",
+      "kind": "preload",
+      "status": "exists"
+    },
+    {
+      "source": "demo.tscn",
+      "line": 3,
+      "target": "demo.gd",
+      "kind": "ext-resource",
+      "status": "exists"
+    },
+    {
+      "source": "quality.gd",
+      "line": 2,
+      "target": "demo.gd",
+      "kind": "preload",
+      "status": "exists"
+    },
+    {
+      "source": "quality.gd",
+      "line": 3,
+      "target": "validation_probe.gd",
+      "kind": "preload",
+      "status": "exists"
+    },
+    {
+      "source": "smoke.gd",
+      "line": 2,
+      "target": "state.gd",
+      "kind": "preload",
+      "status": "exists"
+    },
+    {
+      "source": "smoke.gd",
+      "line": 3,
+      "target": "pulse.gd",
+      "kind": "preload",
+      "status": "exists"
+    },
+    {
+      "source": "smoke.gd",
+      "line": 4,
+      "target": "demo.gd",
+      "kind": "preload",
+      "status": "exists"
+    }
+  ],
+  "dynamic_references": [],
+  "members": [
+    {
+      "file": "demo.gd",
+      "line": 4,
+      "name": "model"
+    },
+    {
+      "file": "demo.gd",
+      "line": 5,
+      "name": "pulse"
+    },
+    {
+      "file": "demo.gd",
+      "line": 6,
+      "name": "status"
+    },
+    {
+      "file": "demo.gd",
+      "line": 7,
+      "name": "trigger_button"
+    },
+    {
+      "file": "demo.gd",
+      "line": 8,
+      "name": "reset_button"
+    },
+    {
+      "file": "demo.gd",
+      "line": 9,
+      "name": "panel"
+    },
+    {
+      "file": "demo.gd",
+      "line": 10,
+      "name": "effect_area"
+    },
+    {
+      "file": "pulse.gd",
+      "line": 3,
+      "name": "elapsed"
+    },
+    {
+      "file": "pulse.gd",
+      "line": 4,
+      "name": "active"
+    },
+    {
+      "file": "quality.gd",
+      "line": 4,
+      "name": "checks"
+    },
+    {
+      "file": "quality.gd",
+      "line": 5,
+      "name": "frames"
+    },
+    {
+      "file": "smoke.gd",
+      "line": 5,
+      "name": "errors"
+    },
+    {
+      "file": "state.gd",
+      "line": 4,
+      "name": "charge"
+    }
+  ],
+  "state_write_clues": [
+    {
+      "file": "capture.gd",
+      "line": 13,
+      "method": "capture",
+      "target": "root.size",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 23,
+      "method": "_ready",
+      "target": "panel.size_flags_horizontal",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 24,
+      "method": "_ready",
+      "target": "panel.size_flags_stretch_ratio",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 28,
+      "method": "_ready",
+      "target": "title.text",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 30,
+      "method": "_ready",
+      "target": "title.autowrap_mode",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 33,
+      "method": "_ready",
+      "target": "trigger_button.text",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 34,
+      "method": "_ready",
+      "target": "trigger_button.custom_minimum_size",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 36,
+      "method": "_ready",
+      "target": "reset_button.text",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 37,
+      "method": "_ready",
+      "target": "reset_button.custom_minimum_size",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 42,
+      "method": "_ready",
+      "target": "effect_area.size_flags_horizontal",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 43,
+      "method": "_ready",
+      "target": "effect_area.custom_minimum_size",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 44,
+      "method": "_ready",
+      "target": "effect_area.mouse_filter",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 48,
+      "method": "_ready",
+      "target": "trigger_button.focus_next",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 49,
+      "method": "_ready",
+      "target": "trigger_button.focus_previous",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 50,
+      "method": "_ready",
+      "target": "reset_button.focus_next",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 51,
+      "method": "_ready",
+      "target": "reset_button.focus_previous",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 57,
+      "method": "_layout_effect",
+      "target": "pulse.position",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 59,
+      "method": "_layout_effect",
+      "target": "pulse.scale",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "demo.gd",
+      "line": 66,
+      "method": "_update_status",
+      "target": "status.text",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "pulse.gd",
+      "line": 12,
+      "method": "trigger",
+      "target": "elapsed",
+      "operator": "=",
+      "binding": "member name match; local shadowing unresolved"
+    },
+    {
+      "file": "pulse.gd",
+      "line": 13,
+      "method": "trigger",
+      "target": "active",
+      "operator": "=",
+      "binding": "member name match; local shadowing unresolved"
+    },
+    {
+      "file": "pulse.gd",
+      "line": 21,
+      "method": "advance",
+      "target": "elapsed",
+      "operator": "=",
+      "binding": "member name match; local shadowing unresolved"
+    },
+    {
+      "file": "pulse.gd",
+      "line": 22,
+      "method": "advance",
+      "target": "active",
+      "operator": "=",
+      "binding": "member name match; local shadowing unresolved"
+    },
+    {
+      "file": "quality.gd",
+      "line": 23,
+      "method": "run_checks",
+      "target": "root.size",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "quality.gd",
+      "line": 52,
+      "method": "run_checks",
+      "target": "root.size",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "state.gd",
+      "line": 7,
+      "method": "trigger",
+      "target": "charge",
+      "operator": "=",
+      "binding": "member name match; local shadowing unresolved"
+    },
+    {
+      "file": "state.gd",
+      "line": 11,
+      "method": "reset",
+      "target": "charge",
+      "operator": "=",
+      "binding": "member name match; local shadowing unresolved"
+    },
+    {
+      "file": "validation_probe.gd",
+      "line": 32,
+      "method": "send_action",
+      "target": "event.action",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    },
+    {
+      "file": "validation_probe.gd",
+      "line": 33,
+      "method": "send_action",
+      "target": "event.pressed",
+      "operator": "=",
+      "binding": "receiver unresolved"
+    }
+  ],
+  "cycles": [],
+  "warnings": [],
+  "source_fingerprints": {
+    "project.godot": "7472ec071da66206c8b9cc843d55e973a51d39e0618bcc0d8b62ccdea4fe50ec",
+    "capture.gd": "d6a66a7c83f233feea9f1988b355c131e9364f17981e1ce372a97df582c4d5d9",
+    "demo.gd": "22a8653dd9cce214cd3a8e9e41f24945548fd6d8cb298d8820a6eb7055c90a6a",
+    "demo.tscn": "b98fd0111b06211aa2939e3baff7af39e305ab221cccda7ebda66fda2e8bef09",
+    "pulse.gd": "a25043d0c52c17fd2b6980788959d57543bdacc7c565eb2127c8d1a9e958b524",
+    "quality.gd": "bd90d78aa833e00338337d2e27cd4b8763d4be3d803e3d730c9bd23a314a7704",
+    "smoke.gd": "e673d6a1bc50f962ae6abd24fe1a1c222e11b94e08c98cca5b7648c6926ae0f3",
+    "state.gd": "526a7e33be490487fd09e765f915cfb55511e0055de676235bf40d12c879fb95",
+    "validation_probe.gd": "a115639bbd63670d8ebee3515d70fc6a1d66843893fc7718028e7bd056e15c09"
+  },
+  "scope": {
+    "excluded_directories": [
+      "addons",
+      "build",
+      "dist",
+      "node_modules",
+      "tests",
+      "vendor"
+    ],
+    "hidden_and_symlinks": "excluded",
+    "max_files": 3000,
+    "max_bytes_per_file": 2000000
+  },
+  "limits": [
+    "No AST/type/scope resolution; bare member matches may be shadowed by locals.",
+    "Matching property names on different receivers do not prove shared state.",
+    "Dynamic paths, UIDs, runtime groups and signal calls are not a complete dependency graph.",
+    "No private file content or credentials are collected; output can still reveal project structure."
+  ]
+}

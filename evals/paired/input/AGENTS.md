@@ -1,0 +1,2 @@
+# Task-local rules
+Preserve the public method names, signal names and fields in the supplied scripts. All production edits belong in this fixture. Do not edit the parent game's files. Use Godot 4.7.2 official. Do not add dependencies, autoloads, generated production files or remote operations. Keep state owned by its model and avoid multiple clocks. No need for design interview: requirements are fixed below. Review and fix the existing feature, not a new feature.

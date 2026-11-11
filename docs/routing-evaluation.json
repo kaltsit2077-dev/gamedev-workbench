@@ -1,0 +1,146 @@
+{
+  "scope": "deterministic keyword routing regression; no agent comparison",
+  "cases": 12,
+  "before_pass": 8,
+  "after_pass": 12,
+  "results": [
+    {
+      "task": "build a model",
+      "before": [
+        "ui",
+        "art"
+      ],
+      "after": [
+        "art"
+      ],
+      "before_pass": false,
+      "after_pass": true
+    },
+    {
+      "task": "build tools for shaders",
+      "before": [
+        "ui",
+        "effects"
+      ],
+      "after": [
+        "effects"
+      ],
+      "before_pass": false,
+      "after_pass": true
+    },
+    {
+      "task": "testament draft",
+      "before": [
+        "validation"
+      ],
+      "after": [
+        "guide"
+      ],
+      "before_pass": false,
+      "after_pass": true
+    },
+    {
+      "task": "redesignation field",
+      "before": [
+        "design"
+      ],
+      "after": [
+        "guide"
+      ],
+      "before_pass": false,
+      "after_pass": true
+    },
+    {
+      "task": "native HUD focus",
+      "before": [
+        "ui"
+      ],
+      "after": [
+        "ui"
+      ],
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "task": "整体代码架构与依赖",
+      "before": [
+        "architecture"
+      ],
+      "after": [
+        "architecture"
+      ],
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "task": "实现粒子效果",
+      "before": [
+        "effects",
+        "feature"
+      ],
+      "after": [
+        "effects",
+        "feature"
+      ],
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "task": "剧情人物与分支",
+      "before": [
+        "narrative"
+      ],
+      "after": [
+        "narrative"
+      ],
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "task": "模型和贴图",
+      "before": [
+        "art"
+      ],
+      "after": [
+        "art"
+      ],
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "task": "find MCP skill",
+      "before": [
+        "research"
+      ],
+      "after": [
+        "research"
+      ],
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "task": "什么也没有指定",
+      "before": [
+        "guide"
+      ],
+      "after": [
+        "guide"
+      ],
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "task": "实现UI焦点",
+      "before": [
+        "ui",
+        "feature"
+      ],
+      "after": [
+        "ui",
+        "feature"
+      ],
+      "before_pass": true,
+      "after_pass": true
+    }
+  ]
+}

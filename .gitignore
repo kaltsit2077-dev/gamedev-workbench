@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.godot/
+dist/
+local-profile.json
+.env
+.env.*
+.cache/
+private/

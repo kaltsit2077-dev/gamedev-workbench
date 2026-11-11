@@ -1,0 +1,6 @@
+{
+  "algorithm": "sha256",
+  "input": "UTF-8 text normalized to LF before hashing",
+  "reason": "The fixture was authored as text and Windows write_text uses platform line endings. The hashes freeze logical task content across platforms; prepared A/B copies are byte-identical to each other.",
+  "scope": "Original task files, not agent output files"
+}

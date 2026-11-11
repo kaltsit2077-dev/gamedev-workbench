@@ -1,0 +1,15 @@
+name: 真实任务、能力或资料建议
+description: 从具体游戏开发问题出发提出完善建议
+body:
+  - type: textarea
+    id: task
+    attributes:
+      label: 想完成的具体任务
+      description: 引擎、制作阶段、现有方法的障碍，以及怎样才算完成
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: 可用来源或工具
+      description: 可选；提供原始链接、版本、许可、依赖/费用与验证状态

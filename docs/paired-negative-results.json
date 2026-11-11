@@ -1,0 +1,199 @@
+{
+  "task": "one executable charge-feedback repair pilot",
+  "model_configuration": "same inherited parent configuration; no overrides; exact backend ID unavailable",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "records": [
+    {
+      "checks": [
+        {
+          "name": "model starts at zero",
+          "passed": true
+        },
+        {
+          "name": "model increments",
+          "passed": true
+        },
+        {
+          "name": "model saturates at five",
+          "passed": false
+        },
+        {
+          "name": "reset updates state and notifies",
+          "passed": false
+        },
+        {
+          "name": "zero reset still notifies",
+          "passed": false
+        },
+        {
+          "name": "native button obeys model bound",
+          "passed": false
+        },
+        {
+          "name": "reset button immediately updates view",
+          "passed": false
+        },
+        {
+          "name": "model signal updates view without polling frame",
+          "passed": false
+        },
+        {
+          "name": "active feedback restarts",
+          "passed": false
+        },
+        {
+          "name": "feedback stays active before duration",
+          "passed": false
+        },
+        {
+          "name": "feedback stops after duration",
+          "passed": true
+        },
+        {
+          "name": "finished feedback is reusable",
+          "passed": true
+        },
+        {
+          "name": "repeated use does not accumulate nodes",
+          "passed": true
+        },
+        {
+          "name": "scene pause stops feedback clock",
+          "passed": true
+        },
+        {
+          "name": "scene cleanup completes",
+          "passed": true
+        }
+      ],
+      "passed": false,
+      "exit_code": 1,
+      "arm": "arm-a",
+      "elapsed_seconds": null,
+      "elapsed_source": "arm-recorded first-to-last work timer",
+      "tokens": null,
+      "cost_usd": null,
+      "production_changes": [
+        {
+          "file": "state.gd",
+          "added_lines": 0,
+          "removed_lines": 0
+        },
+        {
+          "file": "feedback.gd",
+          "added_lines": 0,
+          "removed_lines": 0
+        },
+        {
+          "file": "ui.gd",
+          "added_lines": 0,
+          "removed_lines": 0
+        }
+      ],
+      "documents_present": {
+        "AUDIT.md": false,
+        "RESULT.md": false
+      }
+    },
+    {
+      "checks": [
+        {
+          "name": "model starts at zero",
+          "passed": true
+        },
+        {
+          "name": "model increments",
+          "passed": true
+        },
+        {
+          "name": "model saturates at five",
+          "passed": false
+        },
+        {
+          "name": "reset updates state and notifies",
+          "passed": false
+        },
+        {
+          "name": "zero reset still notifies",
+          "passed": false
+        },
+        {
+          "name": "native button obeys model bound",
+          "passed": false
+        },
+        {
+          "name": "reset button immediately updates view",
+          "passed": false
+        },
+        {
+          "name": "model signal updates view without polling frame",
+          "passed": false
+        },
+        {
+          "name": "active feedback restarts",
+          "passed": false
+        },
+        {
+          "name": "feedback stays active before duration",
+          "passed": false
+        },
+        {
+          "name": "feedback stops after duration",
+          "passed": true
+        },
+        {
+          "name": "finished feedback is reusable",
+          "passed": true
+        },
+        {
+          "name": "repeated use does not accumulate nodes",
+          "passed": true
+        },
+        {
+          "name": "scene pause stops feedback clock",
+          "passed": true
+        },
+        {
+          "name": "scene cleanup completes",
+          "passed": true
+        }
+      ],
+      "passed": false,
+      "exit_code": 1,
+      "arm": "arm-b",
+      "elapsed_seconds": null,
+      "elapsed_source": "arm-recorded first-to-last work timer",
+      "tokens": null,
+      "cost_usd": null,
+      "production_changes": [
+        {
+          "file": "state.gd",
+          "added_lines": 0,
+          "removed_lines": 0
+        },
+        {
+          "file": "feedback.gd",
+          "added_lines": 0,
+          "removed_lines": 0
+        },
+        {
+          "file": "ui.gd",
+          "added_lines": 0,
+          "removed_lines": 0
+        }
+      ],
+      "documents_present": {
+        "AUDIT.md": false,
+        "RESULT.md": false
+      }
+    }
+  ],
+  "limits": [
+    "One pair is not a statistical productivity study.",
+    "Shared host instructions and skill metadata remain.",
+    "A had environment retries; B received workaround before engine runs.",
+    "Wall timers include tools/environment and are not model-only latency.",
+    "Token usage and actual fees are not exposed.",
+    "No independent human blind quality review."
+  ]
+}

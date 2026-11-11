@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-11",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "headless_behavior": "passed",
+  "exit_code": 0,
+  "marker": "WORKBENCH_SMOKE: PASS",
+  "rendering": "single OpenGL 960x540 frame captured and inspected separately",
+  "native_input": "not tested",
+  "performance": "not measured",
+  "diagnostics": [
+    "Local Windows root certificate store unavailable; TLS/network behavior not tested."
+  ]
+}

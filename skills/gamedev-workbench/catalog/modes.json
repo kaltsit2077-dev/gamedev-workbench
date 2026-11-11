@@ -1,0 +1,188 @@
+[
+  {
+    "id": "architecture",
+    "keywords": [
+      "架构",
+      "依赖",
+      "模块",
+      "architecture",
+      "ownership",
+      "ecs"
+    ],
+    "workflow": "references/workflows/architecture-review.md",
+    "template": "templates/architecture.md",
+    "source_ids": [
+      "E01",
+      "K11",
+      "S04"
+    ]
+  },
+  {
+    "id": "ui",
+    "keywords": [
+      "界面",
+      "菜单",
+      "hud",
+      "ui",
+      "focus",
+      "焦点",
+      "布局"
+    ],
+    "workflow": "references/workflows/game-ui-delivery.md",
+    "template": "templates/ui.md",
+    "source_ids": [
+      "S03",
+      "S04",
+      "T09",
+      "K06",
+      "K07"
+    ]
+  },
+  {
+    "id": "effects",
+    "keywords": [
+      "特效",
+      "效果",
+      "shader",
+      "vfx",
+      "粒子",
+      "动效"
+    ],
+    "workflow": "references/workflows/effects-delivery.md",
+    "template": "templates/effect.md",
+    "source_ids": [
+      "E03",
+      "E06",
+      "E07",
+      "E08",
+      "A04",
+      "A05"
+    ]
+  },
+  {
+    "id": "feature",
+    "keywords": [
+      "功能",
+      "feature",
+      "实现",
+      "implement"
+    ],
+    "workflow": "references/workflows/feature-delivery.md",
+    "template": "templates/delivery.md",
+    "source_ids": [
+      "S03",
+      "E01"
+    ]
+  },
+  {
+    "id": "validation",
+    "keywords": [
+      "测试",
+      "报错",
+      "性能",
+      "debug",
+      "test",
+      "profile",
+      "试玩"
+    ],
+    "workflow": "references/workflows/game-validation.md",
+    "template": "templates/evidence.md",
+    "source_ids": [
+      "E02",
+      "E05",
+      "A05",
+      "A06"
+    ]
+  },
+  {
+    "id": "design",
+    "keywords": [
+      "创意",
+      "受众",
+      "机制",
+      "关卡",
+      "genre",
+      "design",
+      "玩法"
+    ],
+    "workflow": "references/workflows/game-design-lab.md",
+    "template": "templates/concept.md",
+    "source_ids": [
+      "K01",
+      "K02",
+      "K12",
+      "K13",
+      "K15",
+      "T10"
+    ]
+  },
+  {
+    "id": "narrative",
+    "keywords": [
+      "剧情",
+      "叙事",
+      "人物",
+      "story",
+      "dialogue"
+    ],
+    "workflow": "references/workflows/narrative-lab.md",
+    "template": "templates/narrative.md",
+    "source_ids": [
+      "K03",
+      "K04",
+      "K05"
+    ]
+  },
+  {
+    "id": "art",
+    "keywords": [
+      "美术",
+      "模型",
+      "音频",
+      "贴图",
+      "asset",
+      "model",
+      "texture"
+    ],
+    "workflow": "references/workflows/art-and-assets.md",
+    "template": "templates/art.md",
+    "source_ids": [
+      "A02",
+      "A03",
+      "A06",
+      "A07",
+      "A08",
+      "A09",
+      "A10",
+      "A11",
+      "K08",
+      "K09"
+    ]
+  },
+  {
+    "id": "research",
+    "keywords": [
+      "查找",
+      "搜寻",
+      "skill",
+      "mcp",
+      "资源",
+      "工具",
+      "research"
+    ],
+    "workflow": "references/workflows/resource-research.md",
+    "template": "templates/source.md",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "guide",
+    "keywords": [],
+    "workflow": "references/workflows/gamedev-guide.md",
+    "template": "templates/delivery.md",
+    "source_ids": []
+  }
+]
