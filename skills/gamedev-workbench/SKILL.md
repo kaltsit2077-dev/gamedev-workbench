@@ -44,6 +44,7 @@ license: Apache-2.0
 - `assets/godot-demo/validation_probe.gd` 是可复用的原创测试助手，供授权的场景夹具显式选择控件和注入动作。不会自动接管用户工程。
 - `python scripts/workbench.py report-analysis "分析.json" --output "新的阅读稿.md"`：把原始线索整理为有行数上限的 Markdown；保留未知项，不自动下架构结论。
 - `python scripts/workbench.py compare-analysis "改动前.json" "改动后.json" --output "新的对比.json"`：比较文件 hash、引用、autoload、循环和写入线索，忽略单纯行号变化。先确认是同一项目；扫描范围不同或不完整时不得把增删直接认定为回归。
+- `python scripts/workbench.py gallery "UI证据目录" --output "新的画面浏览.html"`：把 report.json 与原始 PNG 打包为离线双画面浏览器，可筛选视口、逐帧对照、筛选失败项及下载报告。不运行引擎，不产生新的测试证据。
 
 工具通过只背书其报告明确覆盖的维度；其他引擎、真实硬件输入、性能和玩法仍须各自验证。
 

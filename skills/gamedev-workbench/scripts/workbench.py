@@ -105,7 +105,7 @@ def validate(root=ROOT):
     try:
         for name in ['SKILL.md','LICENSE','catalog/modes.json','assets/godot-demo/smoke.gd','assets/godot-demo/quality.gd','assets/godot-demo/validation_probe.gd','scripts/project_analysis.py','scripts/quality_checks.py','scripts/analysis_reports.py']:
             if not (root/name).is_file(): errors.append('missing package file: '+name)
-        for name in ['gd_references.py','manual_input.py','editor_cases.py','narrative_checks.py','economy_simulation.py','asset_preflight.py','evaluation_ledger.py']:
+        for name in ['gd_references.py','manual_input.py','editor_cases.py','narrative_checks.py','economy_simulation.py','asset_preflight.py','evaluation_ledger.py','evidence_gallery.py']:
             if not (root/'scripts'/name).is_file(): errors.append('missing package script: '+name)
         for name in ['godot-menu/quality.gd','godot-menu/manual.gd','design/narrative.json','design/economy.json','unity-smoke/Assets/Editor/WorkbenchSmoke.cs','unreal-smoke/WorkbenchSmoke.uproject']:
             if not (root/'assets'/name).is_file(): errors.append('missing package case: '+name)
@@ -178,6 +178,7 @@ def main(argv=None):
     p = sub.add_parser('check-ui-effects'); p.add_argument('--engine',required=True); p.add_argument('--expect',default='4.7.2'); p.add_argument('--scratch'); p.add_argument('--output-dir',required=True); p.add_argument('--graphical',action='store_true'); p.add_argument('--case',choices=['basic','menu'],default='basic')
     p = sub.add_parser('report-analysis'); p.add_argument('input'); p.add_argument('--output',required=True); p.add_argument('--max-rows',type=int,default=40)
     p = sub.add_parser('compare-analysis'); p.add_argument('before'); p.add_argument('after'); p.add_argument('--output',required=True)
+    p = sub.add_parser('gallery'); p.add_argument('evidence_dir'); p.add_argument('--output',required=True)
     p = sub.add_parser('manual-input'); p.add_argument('--engine',required=True); p.add_argument('--scratch',required=True); p.add_argument('--output-dir',required=True); p.add_argument('--mode',choices=['operator','os-automation'],default='operator')
     for command in ['check-narrative','simulate-economy','summarize-evals']:
         p=sub.add_parser(command); p.add_argument('input'); p.add_argument('--output')
@@ -211,6 +212,9 @@ def main(argv=None):
                 text=json.dumps(compare_analysis(read_analysis(args.before),read_analysis(args.after)),ensure_ascii=False,indent=2)+'\n'
             write_new(args.output,text)
             emit({'output':args.output,'source_reports':'unchanged'})
+        elif args.command=='gallery':
+            from evidence_gallery import export_gallery
+            emit(export_gallery(args.evidence_dir,args.output))
         elif args.command=='verify-editor-case':
             from editor_cases import verify_editor_case
             result=verify_editor_case(args.editor_kind,args.editor,args.expect,args.scratch,args.output_dir)

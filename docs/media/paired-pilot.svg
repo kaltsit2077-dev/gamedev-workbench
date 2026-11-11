@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="482" viewBox="0 0 1080 482" role="img" aria-labelledby="title desc">
+<title id="title">Paired pilot results</title><desc id="desc">The with-skill arms were slower; no productivity or cost improvement was established.</desc>
+<rect width="1080" height="100%" rx="12" fill="#101c28"/>
+<g font-family="Segoe UI,Microsoft YaHei,sans-serif">
+<text x="36" y="48" font-size="30" fill="#e4ecee" font-weight="600">Did the skill make the task faster?</text>
+<text x="36" y="82" font-size="19" fill="#a8b8c1" font-weight="400">Settings transaction repair · two paired pilots · skill treatment 0.4</text>
+<text x="36" y="133" font-size="20" fill="#e4ecee" font-weight="400">Run 1 · without skill</text>
+<rect x="300" y="117" width="345.04" height="18" rx="3" fill="#75d6cc"/>
+<text x="755" y="133" font-size="22" fill="#75d6cc" font-weight="600">195.8 s</text>
+<text x="905" y="133" font-size="20" fill="#e4ecee" font-weight="400">10/10 pass</text>
+<text x="36" y="185" font-size="20" fill="#e4ecee" font-weight="400">Run 1 · with skill</text>
+<rect x="300" y="169" width="396.80" height="18" rx="3" fill="#ffd28b"/>
+<text x="755" y="185" font-size="22" fill="#ffd28b" font-weight="600">225.2 s</text>
+<text x="905" y="185" font-size="20" fill="#e4ecee" font-weight="400">10/10 pass</text>
+<text x="36" y="237" font-size="20" fill="#e4ecee" font-weight="400">Run 2 · without skill</text>
+<rect x="300" y="221" width="398.55" height="18" rx="3" fill="#75d6cc"/>
+<text x="755" y="237" font-size="22" fill="#75d6cc" font-weight="600">226.2 s</text>
+<text x="905" y="237" font-size="20" fill="#e4ecee" font-weight="400">10/10 pass</text>
+<text x="36" y="289" font-size="20" fill="#e4ecee" font-weight="400">Run 2 · with skill</text>
+<rect x="300" y="273" width="430.00" height="18" rx="3" fill="#ffd28b"/>
+<text x="755" y="289" font-size="22" fill="#ffd28b" font-weight="600">244.0 s</text>
+<text x="905" y="289" font-size="20" fill="#e4ecee" font-weight="400">10/10 pass</text>
+<text x="36" y="347" font-size="23" fill="#ffd28b" font-weight="600">With-skill median paired difference: +23.6 s. No speed gain demonstrated.</text>
+<text x="36" y="386" font-size="19" fill="#a8b8c1" font-weight="400">Both arms: 0 post-grading rework rounds. Tokens and actual fees unavailable.</text>
+<text x="36" y="421" font-size="18" fill="#a8b8c1" font-weight="400">Shared-host wall time; inherited model config, exact backend ID unavailable.</text>
+<text x="36" y="451" font-size="18" fill="#a8b8c1" font-weight="400">Small descriptive pilots; no causal claim. New 0.5 / 0.6 tools were not the treatment.</text>
+</g></svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="496" viewBox="0 0 1080 496" role="img" aria-labelledby="title desc">
+<title id="title">Measured tool changes</title><desc id="desc">Finite reference-regression results and native fixture coverage. Limits are stated beside each result.</desc>
+<rect width="1080" height="100%" rx="12" fill="#101c28"/>
+<g font-family="Segoe UI,Microsoft YaHei,sans-serif">
+<text x="36" y="48" font-size="30" fill="#e4ecee" font-weight="600">What changed in the tools</text>
+<text x="36" y="81" font-size="18" fill="#a8b8c1" font-weight="400">Recorded snapshots · analyzer 0.4 → 0.5 · native fixtures 0.3 / 0.5</text>
+<text x="36" y="132" font-size="24" fill="#e4ecee" font-weight="600">Explicit resource references</text>
+<text x="36" y="172" font-size="20" fill="#e4ecee" font-weight="400">0.4 baseline</text>
+<rect x="220" y="156" width="234.00" height="18" rx="3" fill="#ffd28b"/>
+<text x="635" y="172" font-size="23" fill="#ffd28b" font-weight="600">12 / 20 cases</text>
+<text x="830" y="172" font-size="20" fill="#e4ecee" font-weight="400">FP 2  /  FN 6</text>
+<text x="36" y="223" font-size="20" fill="#e4ecee" font-weight="400">0.5 current</text>
+<rect x="220" y="207" width="390.00" height="18" rx="3" fill="#75d6cc"/>
+<text x="635" y="223" font-size="23" fill="#75d6cc" font-weight="600">20 / 20 cases</text>
+<text x="830" y="223" font-size="20" fill="#e4ecee" font-weight="400">FP 0  /  FN 0</text>
+<text x="36" y="267" font-size="18" fill="#a8b8c1" font-weight="400">Hand-labeled regression corpus; not held-out or whole-project accuracy.</text>
+<path d="M36 292H1044" stroke="#3d5663"/>
+<text x="36" y="335" font-size="24" fill="#e4ecee" font-weight="600">Native UI + effects coverage</text>
+<text x="36" y="377" font-size="20" fill="#e4ecee" font-weight="400">Basic fixture (0.3)</text>
+<text x="340" y="377" font-size="22" fill="#75d6cc" font-weight="400">60 checks</text>
+<text x="565" y="377" font-size="22" fill="#e4ecee" font-weight="400">20 PNG captures</text>
+<text x="850" y="377" font-size="22" fill="#e4ecee" font-weight="400">5 viewports</text>
+<text x="36" y="418" font-size="20" fill="#e4ecee" font-weight="400">Menu fixture (0.5)</text>
+<text x="340" y="418" font-size="22" fill="#75d6cc" font-weight="400">121 checks</text>
+<text x="565" y="418" font-size="22" fill="#e4ecee" font-weight="400">40 PNG captures</text>
+<text x="850" y="418" font-size="22" fill="#e4ecee" font-weight="400">5 viewports</text>
+<text x="36" y="465" font-size="18" fill="#a8b8c1" font-weight="400">Different original fixtures. Counts show coverage, not visual quality or speed.</text>
+</g></svg>

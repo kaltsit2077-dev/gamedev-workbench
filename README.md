@@ -1,113 +1,150 @@
 # GameDev Workbench
 
-面向个人与小团队的游戏开发工作台：可安装技能 + 离线工具 + 知识导引。优先支持工程架构、原生游戏 UI、功能与视觉效果实现，同时覆盖创意、受众、机制、剧情、美术资产和验证。
+给独立开发者和小团队的游戏开发工作台。把**架构、原生 UI、功能与效果实现**放进可执行的工作流程，也提供设计、叙事、美术和资源研究导引。
 
-**当前版本：0.5.0-preview。** 新增源 UID/有限常量路径解析、可操作的嵌套菜单与分层命中特效、叙事检查、整数经济模拟、资产依赖预检及重复评估汇总。新菜单案例完成五种视口、两种字号、四十帧真实 OpenGL 捕获和一百二十一项检查。新增两轮对照四组均通过，仍未证明技能提效。Unity/Unreal 原创案例和运行入口已准备，本机未安装引擎；实体输入、第三方 MCP 与性能保持单独验收状态。见 [能力矩阵](docs/CAPABILITIES.md)、[验证报告](docs/VALIDATION.md) 与 [对照结果](docs/PAIRED-EVALUATION.md)。
+**可安装技能 + Python 离线工具 + 原创引擎案例 + 有来源的知识库。** Python 工具只用标准库，无 API key；运行引擎案例才需要相应编辑器。
 
-[GitHub](https://github.com/kaltsit2077-dev/gamedev-workbench) · [预览版下载](https://github.com/kaltsit2077-dev/gamedev-workbench/releases) · [后续路线](docs/ROADMAP.md) · [English](README.en.md)
+[快速上手](docs/QUICKSTART.md) · [下载 0.6 预览版](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.6.0-preview) · [能力与边界](docs/CAPABILITIES.md) · [路线](docs/ROADMAP.md) · [English](README.en.md)
 
-## 立即使用
+[![Toolbox checks](https://github.com/kaltsit2077-dev/gamedev-workbench/actions/workflows/ci.yml/badge.svg)](https://github.com/kaltsit2077-dev/gamedev-workbench/actions/workflows/ci.yml)
 
-需要 Python 3.11+，不需要第三方 Python 包或 API key。在项目根目录：
+## 先看实际产物
+
+下面是原创 Godot 案例的**原始 OpenGL 截图**。从基础控件/单效果夹具，扩展到可操作的嵌套菜单、长文本、字号调节、焦点恢复与分层命中反馈。
+
+<table>
+<tr><th>早期基础夹具 · 0.3</th><th>菜单与分层效果夹具 · 0.5</th></tr>
+<tr><td><img src="docs/quality-v03/frame_960x540_020.png" alt="旧夹具的原生按钮与环形效果" width="480"></td><td><img src="docs/quality-v05/impact_1280x720_060.png" alt="新夹具的完整菜单、焦点高亮和命中效果" width="480"></td></tr>
+</table>
+
+这是**两个不同的自有验证案例**，用来展示功能覆盖的扩展，不是同一游戏 UI 的审美评分，也不是技能带来视觉提升的对照实验。[旧报告](docs/quality-v03/report.json) / [新报告与原始图片](docs/quality-v05/report.json)。
+
+<details>
+<summary>查看窄屏、大字号与长文本的真实截图</summary>
+
+<table>
+<tr><th>360 × 640 / 30 字号 / 顶部操作</th><th>同视口 / 滚动阅读</th><th>960 × 540 / 30 字号 / 滚动阅读</th></tr>
+<tr><td><img src="docs/quality-v05/menu_360x640_text30.png" alt="窄屏大字号菜单顶部" width="220"></td><td><img src="docs/quality-v05/menu_360x640_text30_reading.png" alt="窄屏长文本实际滚动阅读位置" width="220"></td><td><img src="docs/quality-v05/menu_960x540_text30_reading.png" alt="横屏长文本阅读位置" width="430"></td></tr>
+</table>
+
+截图是离散采样，不能证明所有动态过程、翻译长度或硬件输入都正确。
+
+</details>
+
+**0.6 新增：离线画面证据浏览器。** 下载发行页的 `gamedev-workbench-gallery-0.6.0-preview.html`，双击即可按视口筛选、两侧独立逐帧对照、查看失败项与下载原报告。它包含上述 0.5 案例的 40 张原始 PNG；不运行引擎、不联网，也不把旧记录算作新的测试。
+
+<details>
+<summary>查看新浏览器的实际页面</summary>
+
+![浏览器实测：窄屏大字号两帧对照、检查明细与环境诊断](docs/media/gallery-preview.png)
+
+</details>
+
+## 已实测的改变，以及尚未证明的提升
+
+![从归档 JSON 派生的资源引用识别回归与原生 UI 验证覆盖图](docs/media/evidence-changes.svg)
+
+- **资源识别修正：12/20 → 20/20。** 同一有限标注集上，显式资源引用误报 2 → 0、漏报 6 → 0；补到的情况包括常量拼接、UID 和简单替换，过滤了不支持的方法调用。这是随实现建立的回归集，**不是独立留出集，也不是全工程准确率**。[逐例结果](docs/analysis-labels-v05.json) · [夹具](evals/analysis/labeled-cases.json)。
+- **UI/效果检查扩展：基础案例 60 项/20 帧，新菜单案例 121 项/40 帧。** 新增嵌套返回焦点、长文本滚动、20/30 字号、100 次菜单往返、1000 次效果复用和暂停/隐藏/清理检查。计数表示这些夹具的覆盖；不代表帧率、质量分数或任意用户工程已经通过。[验证范围](docs/VALIDATION.md)。
+
+![两轮设置事务任务的真实墙钟耗时：处理组更慢，没有证明提效](docs/media/paired-pilot.svg)
+
+**生产力结论保留为“尚未证明”。** 两轮设置事务任务四组均 10/10，共同验收后返工均 0；带 0.4 技能组的配对耗时差中位数是 **+23.6 秒**。两组沿用相同父级模型配置，但精确后端 ID 不可得；并发、宿主负载和文档时间影响墙钟。实际 token/费用缺失，不能据此宣传省钱。新增 0.5/0.6 工具未作为这些实验的处理项。[原始记录](docs/transactions-results.json) · [完整方法和首轮实验](docs/PAIRED-EVALUATION.md)。
+
+两张图由 `python tools/readme_visuals.py` 读取归档 JSON 生成，CI 用 `--check` 防止图表与记录漂移。
+
+## 现在能做什么
+
+| 你要处理的工作 | 已有能力 | 直接产物 / 入口 |
+|---|---|---|
+| 整体代码架构 | 读项目约束、梳理状态归属、接口与迁移；Godot 只读扫描入口/autoload/引用/UID/循环/赋值线索 | 架构评审技能；`analyze-project`、`report-analysis`、`compare-analysis` |
+| 菜单、HUD、效果 | 原生布局、主题、状态栈、键鼠/手柄焦点与事件驱动绑定；Shader/VFX 单时钟、复用与清理方法 | UI/效果技能；原创 Godot 案例、`check-ui-effects`、`gallery` |
+| 功能实现与回归 | 从项目契约到代码、资源、场景接入，区分解析/行为/画面/输入等证据 | feature / validation 模式、模板、验证助手 |
+| 剧情与分支 | 布尔状态图的断链、软锁和无法到达结局的状态检查 | `check-narrative`；不评判故事质量 |
+| 数值经济 | 确定性整数收入、升级策略、敏感性与收支守恒 | `simulate-economy`；不预测玩家或收入 |
+| 美术与导入 | 风格参考、资产规格、建模/材质/声音导引；清单路径、hash、PNG 尺寸、glTF/GLB 外部依赖预检 | art 模式、`audit-assets`；不替代编辑器导入 |
+| 创意、类型、受众、机制、关卡 | 体验目标、比较方向、最小原型和验证问题 | design 模式与设计模板；由代理结合项目执行 |
+| 技能、MCP、开发资料 | 带来源与许可说明的本地目录、工作流与学习导引 | `search`、`inspect`、`brief`；外部工具保留未运行状态 |
+| 比较工具是否值得用 | 一致输入、冻结验收、真实产物评分、重复记录与费用来源区分 | `tools/repeated_eval.py`、`summarize-evals` |
+
+技能共十种按需模式，另含 Godot / Unity / Unreal / Web / Blender 适配指引。[技能入口](skills/gamedev-workbench/SKILL.md) · [学习导引](skills/gamedev-workbench/references/learning-path.md) · [完整能力矩阵](docs/CAPABILITIES.md)。方法指导由代理执行；本地 CLI 不会自动完成整套游戏。
+
+## 三种开始方式
+
+### 已安装技能：直接说任务
+
+本机已有 `gamedev-workbench` 时，在支持该技能的客户端中发起：
+
+```text
+$gamedev-workbench 审查当前项目整体代码架构。先读项目约束，再只读收集入口、依赖与状态写入线索，给出可执行的改进顺序。
+$gamedev-workbench 制作原生设置菜单，验证窄屏、长文本、返回焦点和重复打开后的清理。
+$gamedev-workbench 实现可重复播放的命中特效，并提供触发、暂停、结束与清理证据。
+```
+
+### 想先看工具：无需引擎
+
+需要 Python 3.11+，在克隆目录执行：
 
 ```text
 git clone https://github.com/kaltsit2077-dev/gamedev-workbench.git
 cd gamedev-workbench
-python tools/gdw.py search "架构"
-python tools/gdw.py search "粒子"
-python tools/gdw.py search --category mcp
-python tools/gdw.py inspect T09
-python tools/gdw.py route "制作游戏菜单和焦点导航"
-python tools/gdw.py brief "制作游戏菜单和焦点导航" --engine godot --project "你的项目目录"
-python tools/gdw.py analyze-project "你的Godot项目目录" --output "工程分析.json"
-python tools/gdw.py report-analysis "工程分析.json" --output "工程阅读稿.md"
-python tools/gdw.py doctor
 python tools/gdw.py validate
-python -m unittest discover -s tests -v
+python tools/gdw.py gallery docs/quality-v05 --output menu-gallery.html
 ```
 
-工具输出 JSON；search 是本地快照全文检索，route 是关键词建议，不是完整语义推理。资源来源、许可限制和未验证状态随记录返回。brief 整理工作流、模板、来源和项目规则指针，不自动编写代码。doctor 不扫描磁盘、不导入游戏、不写编辑器缓存；指定 --engine 后只执行该文件的 --version：
+双击新生成的 `menu-gallery.html` 查看已有真实截图。另可直接体验叙事和经济样例：
 
 ```text
-python tools/gdw.py doctor --engine "完整引擎可执行文件路径" --expect 4.7.2
+python tools/gdw.py check-narrative skills/gamedev-workbench/assets/design/narrative.json
+python tools/gdw.py simulate-economy skills/gamedev-workbench/assets/design/economy.json
 ```
 
-## 安装技能
+### 用在自己的 Godot 工程：先只读
 
-一个自包含技能，内部提供十个按需工作模式。完整技能目录为 skills/gamedev-workbench；可单独复制到支持 Agent Skills 的客户端技能目录，或先预览再安装：
+```text
+python tools/gdw.py analyze-project "你的Godot工程目录" --output architecture.json
+python tools/gdw.py report-analysis architecture.json --output architecture.md
+```
+
+工具不启动游戏，不改源码；报告是**有范围和未知项的文本线索**，需人工核对架构结论。改动后另存快照，可用 `compare-analysis` 找出结构变化。输出采用独占创建，再运行请换新文件名。[从安装到真实工程的完整步骤](docs/QUICKSTART.md)。
+
+## 安装与运行引擎案例
 
 ```text
 python tools/gdw.py install-plan --dest "你的客户端技能目录"
 python tools/gdw.py install --dest "你的客户端技能目录"
 ```
 
-安装只复制此技能，不安装任何上游包、不注册 MCP、不覆盖同名技能。更新时先保留旧版，再自行选择新目标；卸载时移除安装计划中指明的 gamedev-workbench 目录。客户端需要重新发现技能后才可调用；具体刷新方式以客户端为准。
+安装只复制自包含技能，不安装上游软件、不注册 MCP、不覆盖同名技能。已有旧版时先备份或选择新目录；客户端重新发现后可用。技能 ZIP 可独立分发，完整项目 ZIP 包含案例、证据、评估与开发工具。[工具配方](skills/gamedev-workbench/references/tool-recipes.md)。
 
-Codex 示例：将 --dest 指向自己的技能目录，之后可用 `$gamedev-workbench` 发起任务。安装前可用 install-plan 检查目标目录。
-
-## 工作方式
-
-| 请求 | 使用模式 | 产物 |
-|---|---|---|
-| 整体架构怎样安排 | architecture | 状态归属、依赖、契约和迁移 |
-| 把功能接入游戏 | feature | 代码/资源/场景与回归 |
-| 做 HUD 或菜单 | ui | 原生控件、主题、绑定、导航与画面 |
-| 实现 Shader/粒子/反馈 | effects | 源资源、触发、生命周期与预算 |
-| 错误/性能/试玩 | validation | 复现、证据与复测 |
-| 创意/机制/类型/受众/关卡 | design | 体验目标、原型与验证问题 |
-| 剧情/选择/演出 | narrative | 分支、变量与恢复契约 |
-| 美术/模型/材质/声音 | art | 风格、资产规格、导入与致谢 |
-| 查技能、MCP、开发资料 | research | 来源、许可、版本与试验计划 |
-| 不知道从哪开始 | guide | 最小任务路径 |
-
-读取 [技能入口](skills/gamedev-workbench/SKILL.md) 或 [学习导引](skills/gamedev-workbench/references/learning-path.md)。Godot、Unity、Unreal 的适配步骤分别提供；可执行验证按引擎单独登记，不把通用方法可用写成所有引擎已测。
-
-## 实际执行内置样例
+原创 Godot 菜单/效果案例需要官方 **4.7.2**，在临时副本执行：
 
 ```text
-python tools/gdw.py verify-godot --engine "你的 Godot 官方版路径" --scratch "引擎可写的临时目录" --output "本次验证.json"
+python tools/gdw.py check-ui-effects --case menu --engine "Godot官方可执行文件路径" --scratch "引擎可写缓存目录" --output-dir "新的菜单证据目录" --graphical
+python tools/gdw.py gallery "新的菜单证据目录" --output "新的菜单浏览.html"
 ```
 
-默认要求 4.7.2 官方版。先检查版本，再复制自有样例到临时目录执行并清理；不会运行你的游戏。无匹配引擎则报告 blocked。验证通过仅证明样例的 headless 行为，真实输入、画面和性能分别验证。
+省略 `--graphical` 不产画面。此命令运行**包内案例**，不会接管你的游戏。
 
-进一步检查布局、焦点、注入动作、重播/暂停/清理和时间序列画面：
+| 验证对象 | 当前状态 |
+|---|---|
+| Python 工具 | Windows 本地测试；CI 覆盖 Windows / Linux / macOS × 3.11 / 3.14 |
+| Godot 自有案例 | Windows / 官方 4.7.2 / OpenGL 实跑；有检查与原始画面 |
+| 实体键鼠 / 手柄、真人试玩、性能 | 完整实体键鼠流程尚未通过，实体手柄未验证；OS 自动化独立记录，性能未测 |
+| Unity / Unreal | 原创源码案例与运行入口已准备；本机无编辑器，真实执行 blocked |
+| 第三方技能 / 编辑器 MCP | 目录与研究指引可用，未安装验证；不把来源声明当实测 |
 
-```text
-python tools/gdw.py check-ui-effects --engine "你的Godot官方版路径" --scratch "引擎可写临时目录" --output-dir "新的证据目录" --graphical
-```
+## 下一步优先做什么
 
-这条命令运行本包自有样例；将测试助手接入自己的场景夹具后，才能验证具体游戏。分析报告是文本线索，不是完整依赖图或自动架构结论。详见 [执行工具与边界](docs/EXECUTION-TOOLS.md)。
+1. **接入一个真实项目的 UI/效果验证夹具。** 显式选择场景、控件和触发点，复用报告/浏览器；让现有检查真正进入日常回归。先保留项目自己的装配和测试约定。
+2. **独立留出案例检验架构扫描。** 加入未参与开发的 UID/动态引用样本，复核误报/漏报；运行时资源保留未知，避免假装完整理解源码。
+3. **评估新工具而非只评估提示词。** 用真实架构/UI任务比较有无分析器、浏览器的结果、返工、总耗时和可追溯账单，再判断是否值得默认启用。
+4. **补实体键鼠与真实引擎记录。** 完成现有人工步骤；Unity/Unreal 安装后先跑独立案例，有明确编辑器操作缺口才接 MCP。
 
-改动前后各保存一份分析，可检查结构线索的变化：
+项目可以作为开源预览版使用和反馈，尚不以“全面自动开发”或“已证明提效”作发布承诺。[详细路线和触发条件](docs/ROADMAP.md)。
 
-```text
-python tools/gdw.py compare-analysis "改动前.json" "改动后.json" --output "架构变化.json"
-```
+## 参与与许可
 
-它比较文件、引用、autoload、循环和状态写入线索，忽略纯行号变化。扫描范围或完整性不同会标明不可直接比较；新写入线索不是“多个写者冲突”的自动证明。[阅读稿示例](docs/sample-analysis.md)可直接查看输出形式。
+[贡献指南](CONTRIBUTING.md) · [验证报告](docs/VALIDATION.md) · [变更记录](CHANGELOG.md) · [第三方声明](THIRD_PARTY_NOTICES.md)
 
-完整项目另含 [配对任务与统一验收工具](evals/paired/README.md)，可准备相同任务、保留两组修改、运行共同验收；它不自动调用模型或读取账单。首轮使用 0.2；新增两轮设置事务任务使用 0.4。完整验收在新两轮派发前冻结，仍没有测量新增 0.5 工具的提效幅度。
-
-## 专项工具与新菜单
-
-```text
-python tools/gdw.py check-ui-effects --case menu --engine "官方Godot路径" --scratch "可写缓存" --output-dir "新的证据目录" --graphical
-python tools/gdw.py check-narrative skills/gamedev-workbench/assets/design/narrative.json
-python tools/gdw.py simulate-economy skills/gamedev-workbench/assets/design/economy.json
-python tools/gdw.py audit-assets skills/gamedev-workbench/assets/design --manifest skills/gamedev-workbench/assets/design/assets.json
-python tools/gdw.py summarize-evals docs/transactions-results.json
-```
-
-[输入格式、人工输入窗口与跨引擎案例](skills/gamedev-workbench/references/tool-recipes.md)。[新菜单证据](docs/quality-v05/report.json)覆盖长文本、20/30 字号、嵌套返回焦点、合成键鼠/数字手柄、100 次菜单循环和 1000 次效果复用。实体硬件与合成事件分别登记，预检通过不等于引擎导入或玩法品质通过。
-
-## 示例与当前项目接入
-
-[Godot 小样例](examples/godot/README.md)将模型、原生 UI 和短时效果分离。先在隔离样例运行，之后在你的项目中读取 AGENTS、ADR 与现有回归入口，选一个边界清楚的任务使用。不要把本例脚本直接覆盖项目的正式类型。
-
-本包没有包含私有游戏源码、未公开剧情、账号或第三方美术/书籍正文。第三方工具都只是来源索引，见 [第三方说明](THIRD_PARTY_NOTICES.md)。
-
-## 发布与维护
-
-自有代码、技能、模板和样例采用 Apache-2.0，完整条款见 LICENSE 和 NOTICE。外部网页、工具和素材保留其原有权利。公开发行使用 preview 标识，源码与附件以 GitHub 仓库和 Releases 为准。见 [贡献规则](CONTRIBUTING.md)、[发布流程](docs/RELEASING.md)、[设计](DESIGN.md) 与 [使用与价值评估](docs/USAGE-AND-VALUE.md)。
-
-CI 对 Windows、Linux、macOS 的 Python 3.11/3.14 运行工具测试与发布检查；CI 不运行 Godot、第三方 MCP 或玩家试玩。维护者可用 `python tools/package.py --output-dir dist` 重建完整项目包、单独技能包和 SHA256 校验和。
+原创代码与文档采用 [Apache-2.0](LICENSE)。来源目录主要保存链接和元数据，不重新打包第三方书籍、课程、技能或资产；使用外部资源时遵守其许可。公开包不包含私有游戏源码或私有工程分析报告。

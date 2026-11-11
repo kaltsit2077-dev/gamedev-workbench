@@ -46,6 +46,14 @@ python tools/gdw.py check-ui-effects --engine "官方Godot路径" --scratch "可
 
 [20 项分析标注回归](analysis-labels-v05.json)相对于公开 0.4 源码快照从 12/20 到 20/20；该集合随实现建立，不是独立留出集。新工具折叠的是有限静态表达式，不会执行任意动态代码；源 UID 也不等同于引擎缓存结果。
 
+## 0.6 离线画面浏览
+
+```text
+python tools/gdw.py gallery docs/quality-v05 --output "新的画面浏览.html"
+```
+
+将 report.json 与原始 PNG 变成自包含 HTML，可按视口筛选、双画面选帧、查看失败项和下载原报告。使用已经存在的记录，不产生新的引擎测试。限额与预检边界见 [配方](../skills/gamedev-workbench/references/tool-recipes.md) 的「离线画面浏览」。完整使用路径见 [快速上手](QUICKSTART.md)。发行附件另提供可直接双击的样例 HTML。
+
 ## MCP 接入条件
 
 本轮只读分析、场景副本运行、截图和合成输入均可由文件与 CLI 完成，没有出现必须连接编辑器 MCP 的缺口，因此没有自动安装或连接。

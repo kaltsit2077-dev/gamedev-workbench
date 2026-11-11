@@ -33,6 +33,12 @@ def build(output_dir):
     skill_zip=output/f'gamedev-workbench-skill-{version}.zip'
     source=ROOT/'skills/gamedev-workbench'
     hashes={project_zip.name:archive(ROOT,project_zip),skill_zip.name:archive(source,skill_zip,skill_files(source))}
+    sys.path.insert(0,str(source/'scripts'))
+    from evidence_gallery import load_evidence,render_gallery
+    report,images=load_evidence(ROOT/'docs/quality-v05')
+    gallery=output/f'gamedev-workbench-gallery-{version}.html'
+    gallery.write_text(render_gallery(report,images),encoding='utf-8',newline='\n')
+    hashes[gallery.name]=hashlib.sha256(gallery.read_bytes()).hexdigest()
     env=dict(os.environ,PYTHONUTF8='1')
     with tempfile.TemporaryDirectory(prefix='gdw-release-') as d:
         with zipfile.ZipFile(project_zip) as z: z.extractall(d)

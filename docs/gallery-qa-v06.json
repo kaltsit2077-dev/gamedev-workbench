@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-11",
+  "kind": "offline-gallery-browser-qa",
+  "source_report": "quality-v05/report.json",
+  "new_engine_run": false,
+  "native_frames": 40,
+  "checks": {
+    "viewport_filter_360x640_shows_8": true,
+    "independent_large_text_frames_loaded": true,
+    "failed_filter_empty_for_passed_report": true,
+    "failed_headless_report_keeps_failure_and_empty_state": true,
+    "untrusted_script_label_rendered_as_text": true,
+    "downloaded_json_matches_source": true,
+    "responsive_390_no_horizontal_overflow": true
+  },
+  "screenshot": "media/gallery-preview.png",
+  "limits": [
+    "Browser UI automation, not physical input verification.",
+    "UI screenshot records the 0.6 gallery viewing archived 0.5 frames."
+  ]
+}

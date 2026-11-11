@@ -1,9 +1,45 @@
 # GameDev Workbench
 
-A portable Agent Skill and offline Python toolbox for independent game developers. Focus: architecture, native game UI, gameplay features and visual effects. Includes design, narrative, audience, asset and validation guidance.
+An installable skill, offline Python toolbox and learning guide for independent developers and small game teams. Priorities: code architecture, native UI, gameplay features and effects, with design, narrative, art and resource-discovery workflows.
 
-Python 3.11+, no third-party packages. Run `python tools/gdw.py --help`. Copy the entire `skills/gamedev-workbench` directory into your client's skill directory, or use install-plan/install with an explicit destination. No overwrite, remote installer, MCP connection or engine modification is performed.
+[中文与实际截图](README.md) · [Quickstart (Chinese)](docs/QUICKSTART.md) · [0.6 preview](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.6.0-preview) · [Support boundaries](docs/CAPABILITIES.md)
 
-Release: 0.5.0-preview. Includes source UID/finite constant resolution, readable analysis and snapshot comparison, a nested native menu with layered shader/spark effects, finite-state narrative checks, integer economy scenarios, asset preflight and repeated evaluation tooling. The new menu passed 121 checks across five viewports and two font sizes with 40 OpenGL captures; the earlier sample retains its dated 60-check record. Both arms passed the first repair pilot and all four arms passed two additional transaction-task pairs; no productivity gain was established. Trials used 0.2/0.4 skills, not the new 0.5 tools. Original Unity/Unreal editor cases and explicit runners are included, but the editors are not installed locally. External integrations, physical input and performance remain separately unverified. See [capabilities](docs/CAPABILITIES.md), [validation](docs/VALIDATION.md), [tools](docs/EXECUTION-TOOLS.md) and [paired results](docs/PAIRED-EVALUATION.md). Original material is Apache-2.0; indexed external content retains its own license. Primary documentation and workflows are in Chinese.
+![Recorded tool changes, not a productivity claim](docs/media/evidence-changes.svg)
 
-[Repository](https://github.com/kaltsit2077-dev/gamedev-workbench) · [Preview downloads](https://github.com/kaltsit2077-dev/gamedev-workbench/releases) · [Roadmap](docs/ROADMAP.md). CI checks Python 3.11/3.14 on Windows/Linux/macOS; engine execution remains a separate validation dimension. Rebuild archives with `python tools/package.py --output-dir dist`.
+The finite resource-reference regression corpus improved from 12/20 to 20/20 matching cases (false positives 2→0; false negatives 6→0). It was developed alongside the implementation, not held out, and says nothing about whole-project semantic accuracy. [Raw results](docs/analysis-labels-v05.json).
+
+The original Godot menu fixture records 121 checks and 40 native PNG captures over five viewports, including large text, scrolling, nested focus restoration and layered effects. The earlier fixture records 60 checks and 20 frames. These are **different fixtures**, not an aesthetic A/B test or performance benchmark. [Native report](docs/quality-v05/report.json).
+
+![Paired pilots show no demonstrated speed gain](docs/media/paired-pilot.svg)
+
+Two settings-repair pairs passed the same 10 checks in all four arms, with zero post-grading rework. The with-skill arms (version 0.4) had a median paired wall-time difference of +23.6 seconds. Model configuration was inherited equally; exact backend ID and actual token/billing data were unavailable. Concurrent host load confounds time. **No productivity or cost improvement established; new 0.5/0.6 tools were not the treatment.** [Protocol and evidence](docs/PAIRED-EVALUATION.md).
+
+## Use
+
+Python 3.11+, standard library only. From a clone:
+
+```text
+python tools/gdw.py validate
+python tools/gdw.py gallery docs/quality-v05 --output menu-gallery.html
+python tools/gdw.py analyze-project "your Godot project" --output architecture.json
+python tools/gdw.py report-analysis architecture.json --output architecture.md
+```
+
+Open the HTML locally: viewport filtering, independent A/B frame selection, failed-check filtering and JSON download. It embeds original PNG bytes, makes no network requests and does not run an engine. A standalone sample gallery is also a release asset. Outputs refuse overwrite.
+
+Install the self-contained skill:
+
+```text
+python tools/gdw.py install-plan --dest "your client skills directory"
+python tools/gdw.py install --dest "your client skills directory"
+```
+
+Then ask `$gamedev-workbench` to review architecture, build native menus or implement an effect. Ten task modes load references on demand. No upstream software or MCP is installed automatically. Existing installations are not overwritten.
+
+Other tools: narrative boolean-state checks, deterministic integer-economy simulation, manifest-based asset dependency preflight, analysis snapshot comparison, resource search, task briefs and paired-evaluation summaries. [Recipes](skills/gamedev-workbench/references/tool-recipes.md).
+
+Godot fixtures have real Windows / official 4.7.2 / OpenGL evidence. Unity/Unreal original cases and runners exist, but editors are absent and real execution is blocked. Complete physical keyboard/mouse acceptance, hardware gamepad, player testing, performance and third-party MCP validation remain unverified. OS automation is recorded separately. Python CI covers three OSes and two versions; it does not run game engines.
+
+Next: integrate an explicit real-project test adapter; add independent held-out analysis cases; evaluate new tools with traceable costs; finish hardware input and cross-engine runs when environments exist.
+
+[Apache-2.0](LICENSE) for original work. External books, courses, skills and assets remain links/metadata governed by their own licenses. No private game sources or private analysis reports are distributed.
