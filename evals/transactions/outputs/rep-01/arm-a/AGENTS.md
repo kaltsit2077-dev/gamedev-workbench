@@ -1,0 +1,1 @@
+This is an original isolated evaluation fixture. Read REQUIREMENTS.md. Only settings.py is production code; add your own tests and AUDIT.md/RESULT.md. Do not edit requirements or this file. No network, dependencies, private game access or sibling/parent trial reads. Do not search for the common grader. Use Python standard library. Preserve the public interface.

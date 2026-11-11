@@ -28,6 +28,7 @@ class PackagingTests(unittest.TestCase):
             for name in ['local-profile.json','.env','notes.txt','docs/local-profile.json','skills/.env.local','docs/debug.log']:
                 (root/name).write_text('private local data',encoding='utf-8')
             (root/'README.md').write_text('public',encoding='utf-8')
+            (root/'skills/Library').mkdir(); (root/'skills/Library/cache.txt').write_text('local editor cache')
             self.assertEqual([f.relative_to(root).as_posix() for f in p.release_files(root)],['README.md'])
     def test_audit_detects_paths_and_credentials_without_echoing_values(self):
         with tempfile.TemporaryDirectory() as d:

@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-11",
+  "model_configuration": "same inherited parent configuration; no model overrides; exact backend model identifier unavailable",
+  "skill_version": "0.4.0-preview",
+  "rework_rounds_by_run": {"rep-01/arm-a": 0, "rep-01/arm-b": 0, "rep-02/arm-a": 0, "rep-02/arm-b": 0},
+  "notes": [
+    "Each arm used a fresh context and isolated equal inputs; sibling results and grader were withheld.",
+    "Requirements and the full common grader were frozen before the first dispatch.",
+    "First pair dispatch A then B; second pair B then A. Within each pair, arms ran concurrently while parent work also continued.",
+    "Epoch wall timers include reading, tools, self-tests, documentation and host contention; not model-only latency.",
+    "No independent human blind architecture review and no exposed token/billing telemetry.",
+    "The 0.5 tools were not part of the treatment; do not infer their effect from this pilot."
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "protocol_snapshot": {
+    "task": "settings transaction repair",
+    "grader_sha256": "25835911047283a86a88f27e3ad95f3fd7ad61d723b5788be8f10162756a1738",
+    "repetitions": 2,
+    "model_configuration": "same inherited parent configuration; no model override; exact backend identifier unavailable",
+    "skill_version": "0.4.0-preview",
+    "cost": "unavailable unless traceable provider record is supplied",
+    "grader_frozen_before_dispatch": true
+  },
+  "run_metadata": {
+    "date": "2026-11-11",
+    "model_configuration": "same inherited parent configuration; no model overrides; exact backend model identifier unavailable",
+    "skill_version": "0.4.0-preview",
+    "rework_rounds_by_run": {
+      "rep-01/arm-a": 0,
+      "rep-01/arm-b": 0,
+      "rep-02/arm-a": 0,
+      "rep-02/arm-b": 0
+    },
+    "notes": [
+      "Each arm used a fresh context and isolated equal inputs; sibling results and grader were withheld.",
+      "Requirements and the full common grader were frozen before the first dispatch.",
+      "First pair dispatch A then B; second pair B then A. Within each pair, arms ran concurrently while parent work also continued.",
+      "Epoch wall timers include reading, tools, self-tests, documentation and host contention; not model-only latency.",
+      "No independent human blind architecture review and no exposed token/billing telemetry.",
+      "The 0.5 tools were not part of the treatment; do not infer their effect from this pilot."
+    ]
+  },
+  "records": [
+    {
+      "run_id": "rep-01/arm-a",
+      "task": "settings-transaction-v1",
+      "repetition": 1,
+      "arm": "a",
+      "model_configuration": "same inherited parent configuration; no model overrides; exact backend model identifier unavailable",
+      "skill_version": null,
+      "passed": true,
+      "checks": [
+        {
+          "name": "initial and deep-copy read",
+          "passed": true
+        },
+        {
+          "name": "invalid inputs have no effects",
+          "passed": true
+        },
+        {
+          "name": "strict persistence result and recovery",
+          "passed": true
+        },
+        {
+          "name": "persist before commit before notify",
+          "passed": true
+        },
+        {
+          "name": "binding patch and caller ownership",
+          "passed": true
+        },
+        {
+          "name": "callback snapshots isolated",
+          "passed": true
+        },
+        {
+          "name": "no-op is silent",
+          "passed": true
+        },
+        {
+          "name": "reentrant writes rejected",
+          "passed": true
+        },
+        {
+          "name": "notification exception keeps commit",
+          "passed": true
+        },
+        {
+          "name": "mixed invalid patch atomicity",
+          "passed": true
+        }
+      ],
+      "protected_requirements_unchanged": true,
+      "elapsed_seconds": 195.805899143219,
+      "rework_rounds": 0,
+      "rework_scope": "caller-recorded rounds after common grading; unknown if not supplied",
+      "usage": {
+        "source": "unavailable",
+        "input_tokens": null,
+        "output_tokens": null,
+        "cost_usd": null
+      }
+    },
+    {
+      "run_id": "rep-01/arm-b",
+      "task": "settings-transaction-v1",
+      "repetition": 1,
+      "arm": "b",
+      "model_configuration": "same inherited parent configuration; no model overrides; exact backend model identifier unavailable",
+      "skill_version": "0.4.0-preview",
+      "passed": true,
+      "checks": [
+        {
+          "name": "initial and deep-copy read",
+          "passed": true
+        },
+        {
+          "name": "invalid inputs have no effects",
+          "passed": true
+        },
+        {
+          "name": "strict persistence result and recovery",
+          "passed": true
+        },
+        {
+          "name": "persist before commit before notify",
+          "passed": true
+        },
+        {
+          "name": "binding patch and caller ownership",
+          "passed": true
+        },
+        {
+          "name": "callback snapshots isolated",
+          "passed": true
+        },
+        {
+          "name": "no-op is silent",
+          "passed": true
+        },
+        {
+          "name": "reentrant writes rejected",
+          "passed": true
+        },
+        {
+          "name": "notification exception keeps commit",
+          "passed": true
+        },
+        {
+          "name": "mixed invalid patch atomicity",
+          "passed": true
+        }
+      ],
+      "protected_requirements_unchanged": true,
+      "elapsed_seconds": 225.17777466773987,
+      "rework_rounds": 0,
+      "rework_scope": "caller-recorded rounds after common grading; unknown if not supplied",
+      "usage": {
+        "source": "unavailable",
+        "input_tokens": null,
+        "output_tokens": null,
+        "cost_usd": null
+      }
+    },
+    {
+      "run_id": "rep-02/arm-a",
+      "task": "settings-transaction-v1",
+      "repetition": 2,
+      "arm": "a",
+      "model_configuration": "same inherited parent configuration; no model overrides; exact backend model identifier unavailable",
+      "skill_version": null,
+      "passed": true,
+      "checks": [
+        {
+          "name": "initial and deep-copy read",
+          "passed": true
+        },
+        {
+          "name": "invalid inputs have no effects",
+          "passed": true
+        },
+        {
+          "name": "strict persistence result and recovery",
+          "passed": true
+        },
+        {
+          "name": "persist before commit before notify",
+          "passed": true
+        },
+        {
+          "name": "binding patch and caller ownership",
+          "passed": true
+        },
+        {
+          "name": "callback snapshots isolated",
+          "passed": true
+        },
+        {
+          "name": "no-op is silent",
+          "passed": true
+        },
+        {
+          "name": "reentrant writes rejected",
+          "passed": true
+        },
+        {
+          "name": "notification exception keeps commit",
+          "passed": true
+        },
+        {
+          "name": "mixed invalid patch atomicity",
+          "passed": true
+        }
+      ],
+      "protected_requirements_unchanged": true,
+      "elapsed_seconds": 226.17256140708923,
+      "rework_rounds": 0,
+      "rework_scope": "caller-recorded rounds after common grading; unknown if not supplied",
+      "usage": {
+        "source": "unavailable",
+        "input_tokens": null,
+        "output_tokens": null,
+        "cost_usd": null
+      }
+    },
+    {
+      "run_id": "rep-02/arm-b",
+      "task": "settings-transaction-v1",
+      "repetition": 2,
+      "arm": "b",
+      "model_configuration": "same inherited parent configuration; no model overrides; exact backend model identifier unavailable",
+      "skill_version": "0.4.0-preview",
+      "passed": true,
+      "checks": [
+        {
+          "name": "initial and deep-copy read",
+          "passed": true
+        },
+        {
+          "name": "invalid inputs have no effects",
+          "passed": true
+        },
+        {
+          "name": "strict persistence result and recovery",
+          "passed": true
+        },
+        {
+          "name": "persist before commit before notify",
+          "passed": true
+        },
+        {
+          "name": "binding patch and caller ownership",
+          "passed": true
+        },
+        {
+          "name": "callback snapshots isolated",
+          "passed": true
+        },
+        {
+          "name": "no-op is silent",
+          "passed": true
+        },
+        {
+          "name": "reentrant writes rejected",
+          "passed": true
+        },
+        {
+          "name": "notification exception keeps commit",
+          "passed": true
+        },
+        {
+          "name": "mixed invalid patch atomicity",
+          "passed": true
+        }
+      ],
+      "protected_requirements_unchanged": true,
+      "elapsed_seconds": 244.0180037021637,
+      "rework_rounds": 0,
+      "rework_scope": "caller-recorded rounds after common grading; unknown if not supplied",
+      "usage": {
+        "source": "unavailable",
+        "input_tokens": null,
+        "output_tokens": null,
+        "cost_usd": null
+      }
+    }
+  ],
+  "summary": {
+    "kind": "evaluation-summary",
+    "paired_runs": 2,
+    "pairs": [
+      {
+        "task": "settings-transaction-v1",
+        "repetition": 1,
+        "a_passed": true,
+        "b_passed": true,
+        "b_minus_a_seconds": 29.371875524520874,
+        "b_minus_a_rework_rounds": 0
+      },
+      {
+        "task": "settings-transaction-v1",
+        "repetition": 2,
+        "a_passed": true,
+        "b_passed": true,
+        "b_minus_a_seconds": 17.845442295074463,
+        "b_minus_a_rework_rounds": 0
+      }
+    ],
+    "unpaired_or_mismatched": [],
+    "median_b_minus_a_seconds": 23.60865890979767,
+    "b_only_passed": 0,
+    "a_only_passed": 0,
+    "reported_measured_cost_usd_total": null,
+    "cost_records_missing_or_not_measured": 4,
+    "limits": [
+      "Caller supplies model/isolation/timing records; this tool cannot verify backend identity or an invoice.",
+      "Estimated costs never enter measured-cost totals; missing fees remain null.",
+      "Descriptive pairs are not causal, statistically significant productivity evidence.",
+      "Behavioral acceptance and post-grading rework do not replace independent architecture/design review."
+    ]
+  }
+}

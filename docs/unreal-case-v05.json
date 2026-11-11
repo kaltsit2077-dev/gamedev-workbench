@@ -1,0 +1,12 @@
+{
+  "engine": "unreal",
+  "status": "blocked",
+  "passed": false,
+  "rendering": "not-run",
+  "physical_input": "not-run",
+  "limits": [
+    "Original editor-only fixture; not a gameplay/UI/rendering integration test.",
+    "The licensed editor uses its normal user environment; only project files are copied."
+  ],
+  "reason": "Editor executable not supplied or not found; no editor process started"
+}

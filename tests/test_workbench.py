@@ -6,6 +6,8 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import contextlib
+import io
 from unittest.mock import patch
 
 PROJECT=Path(__file__).resolve().parents[1]
@@ -14,6 +16,16 @@ spec=importlib.util.spec_from_file_location('workbench', SOURCE/'scripts/workben
 w=importlib.util.module_from_spec(spec); spec.loader.exec_module(w)
 
 class ToolboxTests(unittest.TestCase):
+    def test_analysis_and_smoke_outputs_cannot_replace_game_files(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d); config=root/'project.godot'; original='[application]\nconfig/name="Original"\n'
+            config.write_text(original,encoding='utf-8')
+            with contextlib.redirect_stderr(io.StringIO()),contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(w.main(['analyze-project',str(root),'--output',str(config)]),2)
+                with patch.object(w,'verify_godot') as execute:
+                    self.assertEqual(w.main(['verify-godot','--engine','unused','--output',str(config)]),2)
+                    execute.assert_not_called()
+            self.assertEqual(config.read_text(encoding='utf-8'),original)
     def test_bundle_references_and_catalog(self): self.assertEqual(w.validate(),[])
     def test_unicode_search_and_category(self):
         rows=w.search('粒子'); self.assertTrue(rows)

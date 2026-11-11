@@ -1,0 +1,297 @@
+{
+  "kind": "economy-simulation",
+  "passed": true,
+  "errors": [],
+  "limits": [
+    "One cheapest-affordable purchase per step after income.",
+    "Integer growth uses ceiling after each purchase.",
+    "Scenarios are assumptions, not calibrated player behavior, fun or revenue forecasts."
+  ],
+  "scenarios": [
+    {
+      "income_scale_percent": 80,
+      "final_currency": 332,
+      "total_earned": 2647,
+      "total_spent": 2315,
+      "conservation_holds": true,
+      "levels": {
+        "relay": 6,
+        "survey": 4,
+        "archive": 3
+      },
+      "purchase_count": 13,
+      "first_purchase_step": 8,
+      "purchases": [
+        {
+          "step": 8,
+          "upgrade": "relay",
+          "cost": 30,
+          "currency_after": 2
+        },
+        {
+          "step": 16,
+          "upgrade": "relay",
+          "cost": 41,
+          "currency_after": 1
+        },
+        {
+          "step": 24,
+          "upgrade": "relay",
+          "cost": 56,
+          "currency_after": 1
+        },
+        {
+          "step": 34,
+          "upgrade": "relay",
+          "cost": 76,
+          "currency_after": 5
+        },
+        {
+          "step": 43,
+          "upgrade": "survey",
+          "cost": 90,
+          "currency_after": 5
+        },
+        {
+          "step": 50,
+          "upgrade": "relay",
+          "cost": 103,
+          "currency_after": 0
+        },
+        {
+          "step": 59,
+          "upgrade": "survey",
+          "cost": 135,
+          "currency_after": 9
+        },
+        {
+          "step": 66,
+          "upgrade": "relay",
+          "cost": 140,
+          "currency_after": 9
+        },
+        {
+          "step": 76,
+          "upgrade": "survey",
+          "cost": 203,
+          "currency_after": 16
+        },
+        {
+          "step": 85,
+          "upgrade": "archive",
+          "cost": 220,
+          "currency_after": 21
+        },
+        {
+          "step": 94,
+          "upgrade": "survey",
+          "cost": 305,
+          "currency_after": 31
+        },
+        {
+          "step": 103,
+          "upgrade": "archive",
+          "cost": 352,
+          "currency_after": 30
+        },
+        {
+          "step": 115,
+          "upgrade": "archive",
+          "cost": 564,
+          "currency_after": 42
+        }
+      ],
+      "trace_truncated": false
+    },
+    {
+      "income_scale_percent": 100,
+      "final_currency": 2269,
+      "total_earned": 4584,
+      "total_spent": 2315,
+      "conservation_holds": true,
+      "levels": {
+        "relay": 6,
+        "survey": 4,
+        "archive": 3
+      },
+      "purchase_count": 13,
+      "first_purchase_step": 6,
+      "purchases": [
+        {
+          "step": 6,
+          "upgrade": "relay",
+          "cost": 30,
+          "currency_after": 0
+        },
+        {
+          "step": 12,
+          "upgrade": "relay",
+          "cost": 41,
+          "currency_after": 1
+        },
+        {
+          "step": 19,
+          "upgrade": "relay",
+          "cost": 56,
+          "currency_after": 8
+        },
+        {
+          "step": 26,
+          "upgrade": "relay",
+          "cost": 76,
+          "currency_after": 9
+        },
+        {
+          "step": 33,
+          "upgrade": "survey",
+          "cost": 90,
+          "currency_after": 10
+        },
+        {
+          "step": 39,
+          "upgrade": "relay",
+          "cost": 103,
+          "currency_after": 15
+        },
+        {
+          "step": 45,
+          "upgrade": "survey",
+          "cost": 135,
+          "currency_after": 0
+        },
+        {
+          "step": 51,
+          "upgrade": "relay",
+          "cost": 140,
+          "currency_after": 10
+        },
+        {
+          "step": 59,
+          "upgrade": "survey",
+          "cost": 203,
+          "currency_after": 23
+        },
+        {
+          "step": 66,
+          "upgrade": "archive",
+          "cost": 220,
+          "currency_after": 27
+        },
+        {
+          "step": 73,
+          "upgrade": "survey",
+          "cost": 305,
+          "currency_after": 30
+        },
+        {
+          "step": 80,
+          "upgrade": "archive",
+          "cost": 352,
+          "currency_after": 21
+        },
+        {
+          "step": 89,
+          "upgrade": "archive",
+          "cost": 564,
+          "currency_after": 6
+        }
+      ],
+      "trace_truncated": false
+    },
+    {
+      "income_scale_percent": 120,
+      "final_currency": 3872,
+      "total_earned": 6187,
+      "total_spent": 2315,
+      "conservation_holds": true,
+      "levels": {
+        "relay": 6,
+        "survey": 4,
+        "archive": 3
+      },
+      "purchase_count": 13,
+      "first_purchase_step": 5,
+      "purchases": [
+        {
+          "step": 5,
+          "upgrade": "relay",
+          "cost": 30,
+          "currency_after": 0
+        },
+        {
+          "step": 11,
+          "upgrade": "relay",
+          "cost": 41,
+          "currency_after": 7
+        },
+        {
+          "step": 16,
+          "upgrade": "relay",
+          "cost": 56,
+          "currency_after": 1
+        },
+        {
+          "step": 22,
+          "upgrade": "relay",
+          "cost": 76,
+          "currency_after": 3
+        },
+        {
+          "step": 28,
+          "upgrade": "survey",
+          "cost": 90,
+          "currency_after": 3
+        },
+        {
+          "step": 33,
+          "upgrade": "relay",
+          "cost": 103,
+          "currency_after": 5
+        },
+        {
+          "step": 39,
+          "upgrade": "survey",
+          "cost": 135,
+          "currency_after": 14
+        },
+        {
+          "step": 44,
+          "upgrade": "relay",
+          "cost": 140,
+          "currency_after": 24
+        },
+        {
+          "step": 50,
+          "upgrade": "survey",
+          "cost": 203,
+          "currency_after": 13
+        },
+        {
+          "step": 56,
+          "upgrade": "archive",
+          "cost": 220,
+          "currency_after": 21
+        },
+        {
+          "step": 62,
+          "upgrade": "survey",
+          "cost": 305,
+          "currency_after": 28
+        },
+        {
+          "step": 68,
+          "upgrade": "archive",
+          "cost": 352,
+          "currency_after": 24
+        },
+        {
+          "step": 76,
+          "upgrade": "archive",
+          "cost": 564,
+          "currency_after": 44
+        }
+      ],
+      "trace_truncated": false
+    }
+  ]
+}

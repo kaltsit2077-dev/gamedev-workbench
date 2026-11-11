@@ -1,0 +1,9 @@
+{
+  "task": "settings transaction repair",
+  "grader_sha256": "25835911047283a86a88f27e3ad95f3fd7ad61d723b5788be8f10162756a1738",
+  "repetitions": 2,
+  "model_configuration": "same inherited parent configuration; no model override; exact backend identifier unavailable",
+  "skill_version": "0.4.0-preview",
+  "cost": "unavailable unless traceable provider record is supplied",
+  "grader_frozen_before_dispatch": true
+}

@@ -4,7 +4,8 @@ from pathlib import Path
 ROOT_FILES={'.gitignore','.gitattributes','README.md','README.en.md','LICENSE','NOTICE',
             'CHANGELOG.md','CONTRIBUTING.md','THIRD_PARTY_NOTICES.md','DESIGN.md','PLAN.md','RESEARCH.md'}
 SOURCE_DIRS={'skills','tools','tests','docs','examples','evals','.github'}
-IGNORED_PARTS={'.git','.godot','__pycache__','dist','.cache','.venv','node_modules','private'}
+IGNORED_PARTS={'.git','.godot','__pycache__','dist','.cache','.venv','node_modules','private',
+               'Library','Temp','Logs','UserSettings','Intermediate','Saved','DerivedDataCache','Binaries'}
 
 def release_files(root):
     root=Path(root).resolve(); files=[]
@@ -17,7 +18,7 @@ def release_files(root):
         if not path.is_file(): continue
         if path.name.startswith('.env') or path.name=='local-profile.json' or path.suffix in {'.pyc','.pem','.key','.p12'}: continue
         if '.run' in relative.parts and path.name not in {'timing-start.json','timing-end.json'}: continue
-        if path.suffix=='.log' and relative.as_posix()!='docs/quality-v03/engine.log': continue
+        if path.suffix=='.log' and relative.as_posix() not in {'docs/quality-v03/engine.log','docs/quality-v05/engine.log'}: continue
         files.append(path)
     return files
 

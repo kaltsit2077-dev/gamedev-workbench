@@ -1,0 +1,6 @@
+{
+  "assets": [
+    {"path": "signal-mark.svg", "license": "Apache-2.0", "source": "Original Workbench example"},
+    {"path": "triangle.gltf", "license": "Apache-2.0", "source": "Original Workbench example"}
+  ]
+}

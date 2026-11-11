@@ -40,10 +40,18 @@ python tools/gdw.py check-ui-effects --engine "官方Godot路径" --scratch "可
 
 将 quality.gd 的场景实例换成自己的夹具，并显式绑定效果触发/推进/清理接口，才可用于具体界面或效果。本版没有自动扫描并运行任意用户场景，避免误启动写档和自动加载副作用。
 
+## 0.5 专项工具与新案例
+
+完整输入格式与命令见 [工具配方](../skills/gamedev-workbench/references/tool-recipes.md)。新增 --case menu、manual-input、check-narrative、simulate-economy、audit-assets、summarize-evals、verify-editor-case。新菜单证据为 [121 项/40 帧](quality-v05/report.json)，人工输入单列 [当前状态](manual-input-v05.json)。Unity/Unreal 的 [运行状态](unity-case-v05.json) 为 [blocked](unreal-case-v05.json)，符合本机未安装事实。
+
+[20 项分析标注回归](analysis-labels-v05.json)相对于公开 0.4 源码快照从 12/20 到 20/20；该集合随实现建立，不是独立留出集。新工具折叠的是有限静态表达式，不会执行任意动态代码；源 UID 也不等同于引擎缓存结果。
+
 ## MCP 接入条件
 
 本轮只读分析、场景副本运行、截图和合成输入均可由文件与 CLI 完成，没有出现必须连接编辑器 MCP 的缺口，因此没有自动安装或连接。
 
 需要读取正在运行的远程场景树、在编辑器中选择/修改对象并撤回、检查运行时 Inspector 或持续交互调参时，再对目录内 Godot 桥做同一任务比较。比较必须覆盖读取、编辑、撤回、运行、停止和权限/版本，不能只看工具数量。
 
-Unity/Unreal 目前仍为方法映射与参考，未宣称本机执行能力。取得相应环境并出现真实操作需求后，再补独立案例与适配，不借 Godot 结果背书。
+Unity/Unreal 已提供原创案例与显式运行入口；本机未安装，尚无真实运行证据。取得环境后逐项运行，不借 Godot 或模拟单测结果背书。
+
+Windows 窗口 OS 自动交互记录见 os-input-v05.json：已走 Tab/Enter/Right/Escape 和鼠标路径，operator_completed=false；它不替代实体输入验收。

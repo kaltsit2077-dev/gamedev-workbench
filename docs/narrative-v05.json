@@ -1,0 +1,17 @@
+{
+  "kind": "narrative-check",
+  "passed": true,
+  "complete": true,
+  "errors": [],
+  "states_explored": 4,
+  "limits": [
+    "Only declared boolean flags and choice require/set maps are modeled.",
+    "Reachability and termination are structural checks, not narrative quality or player behavior."
+  ],
+  "reachable_endings": [
+    "departure"
+  ],
+  "unreachable_nodes": [],
+  "softlocks": [],
+  "non_terminating_states": 0
+}

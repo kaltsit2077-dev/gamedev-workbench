@@ -1,0 +1,55 @@
+{
+  "passed": false,
+  "checks": [
+    {
+      "name": "initial and deep-copy read",
+      "passed": false,
+      "error_type": "AssertionError"
+    },
+    {
+      "name": "invalid inputs have no effects",
+      "passed": false,
+      "error_type": "TypeError"
+    },
+    {
+      "name": "strict persistence result and recovery",
+      "passed": false,
+      "error_type": "AssertionError"
+    },
+    {
+      "name": "persist before commit before notify",
+      "passed": false,
+      "error_type": "AssertionError"
+    },
+    {
+      "name": "binding patch and caller ownership",
+      "passed": false,
+      "error_type": "AssertionError"
+    },
+    {
+      "name": "callback snapshots isolated",
+      "passed": false,
+      "error_type": "AssertionError"
+    },
+    {
+      "name": "no-op is silent",
+      "passed": false,
+      "error_type": "AssertionError"
+    },
+    {
+      "name": "reentrant writes rejected",
+      "passed": false,
+      "error_type": "RecursionError"
+    },
+    {
+      "name": "notification exception keeps commit",
+      "passed": false,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "mixed invalid patch atomicity",
+      "passed": false,
+      "error_type": "AssertionError"
+    }
+  ]
+}

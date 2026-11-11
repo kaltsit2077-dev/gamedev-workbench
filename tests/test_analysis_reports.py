@@ -25,6 +25,7 @@ class AnalysisReportTests(unittest.TestCase):
         after['references'][0]['line']=30; after['state_write_clues'][0]['line']=50
         after['references'].append({'source':'b.gd','target':'lost.tres','kind':'load','status':'missing'})
         after['cycles']=[['a.gd','b.gd','a.gd']]
+        after['uid_references']=[{'source':'a.gd','uid':'uid://unknown','status':'unknown','candidates':[]}]
         result=r.compare_analysis(before,after)
         self.assertEqual(result['files_modified'],['a.gd'])
         self.assertEqual(result['files_added'],['b.gd'])
@@ -32,6 +33,7 @@ class AnalysisReportTests(unittest.TestCase):
         self.assertEqual(result['write_clues_added'],[])
         self.assertEqual(len(result['new_unresolved_references']),1)
         self.assertEqual(len(result['cycles_added']),1)
+        self.assertEqual(len(result['uid_clues_added']),1)
         self.assertTrue(result['scope_comparable'])
         self.assertEqual(r.compare_analysis(before,before)['files_modified'],[])
     def test_scope_warnings_and_rotated_cycles(self):

@@ -1,0 +1,10 @@
+{
+  "status": "incomplete",
+  "physical_keyboard": "unverified",
+  "physical_mouse": "partial window events only; not a completed acceptance",
+  "physical_gamepad": "not-run; no connected device",
+  "operator_completed": false,
+  "automated_os_key_mouse_input_sent": false,
+  "window_activation_used": true,
+  "note": "Operator confirmed window visibility; complete keyboard/font/focus acceptance was not recorded at this snapshot."
+}

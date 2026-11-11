@@ -47,6 +47,10 @@ def render_analysis(report,max_rows=40):
         for row in rows[:max_rows]: lines.append('| '+' | '.join(cell(row.get(key,'')) for label,key in columns)+' |')
         if len(rows)>max_rows: lines.extend(['',f'省略 {len(rows)-max_rows} 条；完整内容保留在原始 JSON。'])
     table('Autoload',report['autoloads'],[('名称','name'),('路径','path')])
+    if report.get('uid_references'):
+        table('源 UID 线索',report['uid_references'],[('来源','source'),('UID','uid'),('状态','status'),('源候选','candidates'),('备用路径','fallback')])
+    if report.get('uid_conflicts'):
+        table('冲突 UID',report['uid_conflicts'],[('UID','uid'),('不同源路径','paths')])
     table('资源引用',report['references'],[('来源','source'),('目标','target'),('类型','kind'),('路径状态','status')])
     table('状态写入线索',report['state_write_clues'],[('文件','file'),('方法','method'),('目标','target'),('操作','operator'),('绑定限制','binding')])
     lines.extend(['','## 循环线索',''])
@@ -60,7 +64,7 @@ def compare_analysis(before,after):
     validate_snapshot(before); validate_snapshot(after)
     old=before['source_fingerprints']; new=after['source_fingerprints']
     def rows(data,key,fields):
-        return {tuple(str(row.get(field,'')) for field in fields) for row in data[key]}
+        return {tuple(str(row.get(field,'')) for field in fields) for row in data.get(key,[])}
     def difference(key,fields):
         left=rows(before,key,fields); right=rows(after,key,fields)
         encode=lambda values:[dict(zip(fields,row)) for row in sorted(values)]
@@ -68,6 +72,8 @@ def compare_analysis(before,after):
     refs_added,refs_removed=difference('references',['source','target','kind','status'])
     writes_added,writes_removed=difference('state_write_clues',['file','method','target','operator'])
     auto_added,auto_removed=difference('autoloads',['name','path'])
+    uid_added,uid_removed=difference('uid_references',['source','uid','status','candidates'])
+    conflict_added,conflict_removed=difference('uid_conflicts',['uid','paths'])
     def cycles(data):
         result=set()
         for cycle in data['cycles']:
@@ -84,6 +90,8 @@ def compare_analysis(before,after):
             'references_added':refs_added,'references_removed':refs_removed,
             'new_unresolved_references':[r for r in refs_added if r['status'] in {'missing','outside-project'}],
             'write_clues_added':writes_added,'write_clues_removed':writes_removed,
+            'uid_clues_added':uid_added,'uid_clues_removed':uid_removed,
+            'uid_conflicts_added':conflict_added,'uid_conflicts_removed':conflict_removed,
             'cycles_added':[list(c)+[c[0]] for c in sorted(new_cycles-old_cycles)],
             'cycles_removed':[list(c)+[c[0]] for c in sorted(old_cycles-new_cycles)],
             'warnings_before':before['warnings'],'warnings_after':after['warnings'],

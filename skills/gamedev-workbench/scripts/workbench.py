@@ -92,8 +92,8 @@ def verify_godot(engine, expected='4.7.2', scratch=None):
                                    stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=60,env=env)
             output=process.stdout.decode('utf-8',errors='replace')
             report.update(exit_code=process.returncode,log=output)
-            diagnostics=[line for line in output.splitlines() if line.startswith(('ERROR:','SCRIPT ERROR:'))]
-            blocking=[line for line in diagnostics if 'Failed to read the root certificate store.' not in line]
+            diagnostics=[line for line in output.splitlines() if line.startswith(('ERROR:','SCRIPT ERROR:')) or 'leaked at exit' in line or 'was leaked' in line]
+            blocking=[line for line in diagnostics if line.strip()!='ERROR: Failed to read the root certificate store.']
             report['diagnostics']=diagnostics
             report['headless_behavior']='passed' if process.returncode==0 and 'WORKBENCH_SMOKE: PASS' in output and not blocking else 'failed'
         except (OSError,subprocess.TimeoutExpired) as exc:
@@ -105,6 +105,10 @@ def validate(root=ROOT):
     try:
         for name in ['SKILL.md','LICENSE','catalog/modes.json','assets/godot-demo/smoke.gd','assets/godot-demo/quality.gd','assets/godot-demo/validation_probe.gd','scripts/project_analysis.py','scripts/quality_checks.py','scripts/analysis_reports.py']:
             if not (root/name).is_file(): errors.append('missing package file: '+name)
+        for name in ['gd_references.py','manual_input.py','editor_cases.py','narrative_checks.py','economy_simulation.py','asset_preflight.py','evaluation_ledger.py']:
+            if not (root/'scripts'/name).is_file(): errors.append('missing package script: '+name)
+        for name in ['godot-menu/quality.gd','godot-menu/manual.gd','design/narrative.json','design/economy.json','unity-smoke/Assets/Editor/WorkbenchSmoke.cs','unreal-smoke/WorkbenchSmoke.uproject']:
+            if not (root/'assets'/name).is_file(): errors.append('missing package case: '+name)
         records = catalog(root)
         schema = json.loads((root/'catalog/schema.json').read_text(encoding='utf-8'))['items']
         seen = set()
@@ -156,6 +160,11 @@ def install(destination):
 
 def emit(value): print(json.dumps(value, ensure_ascii=False, indent=2))
 
+def read_document(path):
+    path=Path(path)
+    if path.stat().st_size>10_000_000: raise ValueError('Input JSON exceeds 10 MB')
+    return json.loads(path.read_text(encoding='utf-8'))
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
@@ -166,9 +175,14 @@ def main(argv=None):
     p = sub.add_parser('doctor'); p.add_argument('--engine'); p.add_argument('--expect'); p.add_argument('--official',action='store_true')
     p = sub.add_parser('verify-godot'); p.add_argument('--engine',required=True); p.add_argument('--expect',default='4.7.2'); p.add_argument('--output'); p.add_argument('--scratch',help='optional writable directory for disposable run')
     p = sub.add_parser('analyze-project'); p.add_argument('project'); p.add_argument('--include-tests',action='store_true'); p.add_argument('--include-addons',action='store_true'); p.add_argument('--max-files',type=int,default=3000); p.add_argument('--output')
-    p = sub.add_parser('check-ui-effects'); p.add_argument('--engine',required=True); p.add_argument('--expect',default='4.7.2'); p.add_argument('--scratch'); p.add_argument('--output-dir',required=True); p.add_argument('--graphical',action='store_true')
+    p = sub.add_parser('check-ui-effects'); p.add_argument('--engine',required=True); p.add_argument('--expect',default='4.7.2'); p.add_argument('--scratch'); p.add_argument('--output-dir',required=True); p.add_argument('--graphical',action='store_true'); p.add_argument('--case',choices=['basic','menu'],default='basic')
     p = sub.add_parser('report-analysis'); p.add_argument('input'); p.add_argument('--output',required=True); p.add_argument('--max-rows',type=int,default=40)
     p = sub.add_parser('compare-analysis'); p.add_argument('before'); p.add_argument('after'); p.add_argument('--output',required=True)
+    p = sub.add_parser('manual-input'); p.add_argument('--engine',required=True); p.add_argument('--scratch',required=True); p.add_argument('--output-dir',required=True); p.add_argument('--mode',choices=['operator','os-automation'],default='operator')
+    for command in ['check-narrative','simulate-economy','summarize-evals']:
+        p=sub.add_parser(command); p.add_argument('input'); p.add_argument('--output')
+    p=sub.add_parser('audit-assets'); p.add_argument('project'); p.add_argument('--manifest',required=True); p.add_argument('--output')
+    p=sub.add_parser('verify-editor-case'); p.add_argument('editor_kind',choices=['unity','unreal']); p.add_argument('--editor'); p.add_argument('--expect'); p.add_argument('--scratch',default=tempfile.gettempdir()); p.add_argument('--output-dir',required=True)
     sub.add_parser('validate')
     for name in ['install-plan','install']:
         p = sub.add_parser(name); p.add_argument('--dest', required=True, help='parent skills directory')
@@ -185,7 +199,8 @@ def main(argv=None):
             from project_analysis import analyze_project
             result=analyze_project(args.project,args.include_tests,args.include_addons,args.max_files)
             if args.output:
-                Path(args.output).write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+                from analysis_reports import write_new
+                write_new(args.output,json.dumps(result,ensure_ascii=False,indent=2)+'\n')
                 emit({'output':args.output,'files':len(result['files']),'references':len(result['references']),'write_clues':len(result['state_write_clues']),'warnings':result['warnings']})
             else: emit(result)
         elif args.command in {'report-analysis','compare-analysis'}:
@@ -196,18 +211,47 @@ def main(argv=None):
                 text=json.dumps(compare_analysis(read_analysis(args.before),read_analysis(args.after)),ensure_ascii=False,indent=2)+'\n'
             write_new(args.output,text)
             emit({'output':args.output,'source_reports':'unchanged'})
+        elif args.command=='verify-editor-case':
+            from editor_cases import verify_editor_case
+            result=verify_editor_case(args.editor_kind,args.editor,args.expect,args.scratch,args.output_dir)
+            emit(result); return 0 if result['passed'] else 2
+        elif args.command in {'check-narrative','simulate-economy','audit-assets','summarize-evals'}:
+            if args.command=='check-narrative':
+                from narrative_checks import check_narrative
+                result=check_narrative(read_document(args.input))
+            elif args.command=='simulate-economy':
+                from economy_simulation import simulate_economy
+                result=simulate_economy(read_document(args.input))
+            elif args.command=='summarize-evals':
+                from evaluation_ledger import summarize_evaluations
+                result=summarize_evaluations(read_document(args.input))
+            else:
+                from asset_preflight import audit_assets
+                result=audit_assets(args.project,read_document(args.manifest))
+            if args.output:
+                from analysis_reports import write_new
+                write_new(args.output,json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+            emit(result); return 0 if result.get('passed',True) else 2
+        elif args.command == 'manual-input':
+            probe=doctor(args.engine,'4.7.2',official=True)
+            if probe['engine_status']!='version-confirmed': emit({'status':'blocked','engine':probe}); return 2
+            from manual_input import launch_manual
+            emit(launch_manual(args.engine,args.scratch,args.output_dir,mode=args.mode))
         elif args.command == 'check-ui-effects':
             probe=doctor(args.engine,args.expect,official=True)
             if probe['engine_status']!='version-confirmed': emit({'passed':False,'engine':probe}); return 2
             from quality_checks import check_sample
-            result=check_sample(args.engine,args.output_dir,args.scratch,args.graphical)
+            result=check_sample(args.engine,args.output_dir,args.scratch,args.graphical,case=args.case)
             result['engine_version']=probe['engine_version']
             if Path(args.output_dir,'report.json').is_file():
                 Path(args.output_dir,'report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
             emit(result); return 0 if result['passed'] else 2
         elif args.command == 'verify-godot':
+            if args.output and Path(args.output).exists(): raise ValueError('Output must not overwrite an existing file')
             result=verify_godot(args.engine,args.expect,args.scratch)
-            if args.output: Path(args.output).write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+            if args.output:
+                from analysis_reports import write_new
+                write_new(args.output,json.dumps(result,ensure_ascii=False,indent=2)+'\n')
             emit(result); return 0 if result['headless_behavior']=='passed' else 2
         elif args.command == 'doctor':
             if (args.expect or args.official) and not args.engine: raise ValueError('--expect/--official requires --engine')

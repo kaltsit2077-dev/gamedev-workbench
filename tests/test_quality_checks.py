@@ -31,6 +31,12 @@ class QualityRunnerTests(unittest.TestCase):
                 return subprocess.CompletedProcess([],0,b'SCRIPT ERROR: broken\nWORKBENCH_QUALITY: PASS',b'')
             with patch.object(q.subprocess,'run',side_effect=fake):
                 self.assertFalse(q.check_sample('fake',Path(d)/'broken',skill_root=ROOT)['passed'])
+            def leaked(command,**kwargs):
+                report=Path(command[command.index('--')+1])
+                report.write_text(json.dumps({'passed':True,'checks':[]}))
+                return subprocess.CompletedProcess([],0,b'WARNING: ObjectDB instances were leaked at exit\nWORKBENCH_QUALITY: PASS',b'')
+            with patch.object(q.subprocess,'run',side_effect=leaked):
+                self.assertFalse(q.check_sample('fake',Path(d)/'leaked',skill_root=ROOT)['passed'])
     def test_success_evidence_is_preserved_and_source_unchanged(self):
         with tempfile.TemporaryDirectory() as d:
             before=(ROOT/'assets/godot-demo/demo.gd').read_bytes()

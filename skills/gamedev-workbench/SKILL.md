@@ -10,6 +10,8 @@ license: Apache-2.0
 
 先读项目自身 AGENTS.md、代码导航和任务相关决策，再选择工作流。遵守现有接口与用户授权；本技能不授予远端发布、云端上传或额外安装权限。
 
+边界明确的小改动可直接沿现有契约实现与验证；跨模块或状态归属不清时再展开架构材料。只加载会改变当前决策的资源。
+
 ## 按任务加载
 
 - 不确定路径：[导航](references/workflows/gamedev-guide.md)。
@@ -44,3 +46,7 @@ license: Apache-2.0
 - `python scripts/workbench.py compare-analysis "改动前.json" "改动后.json" --output "新的对比.json"`：比较文件 hash、引用、autoload、循环和写入线索，忽略单纯行号变化。先确认是同一项目；扫描范围不同或不完整时不得把增删直接认定为回归。
 
 工具通过只背书其报告明确覆盖的维度；其他引擎、真实硬件输入、性能和玩法仍须各自验证。
+
+## 专项执行入口
+
+按需读 [工具配方与输入格式](references/tool-recipes.md)：包括 UID/有限常量解析、`check-ui-effects --case menu`、`manual-input`、`check-narrative`、`simulate-economy`、`audit-assets`、`summarize-evals` 与 `verify-editor-case`。这些工具随技能自包含分发；Unity/Unreal 的源码案例存在不代表已运行，没有编辑器时返回 blocked。

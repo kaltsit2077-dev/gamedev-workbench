@@ -2,7 +2,7 @@
 
 面向个人与小团队的游戏开发工作台：可安装技能 + 离线工具 + 知识导引。优先支持工程架构、原生游戏 UI、功能与视觉效果实现，同时覆盖创意、受众、机制、剧情、美术资产和验证。
 
-**当前版本：0.4.0-preview。** 可执行工具覆盖 Godot 工程只读分析、架构快照对比、UI/效果样例验证和配对任务验收。自有样例完成五种尺寸、二十帧真实 OpenGL 捕获和六十项检查；首轮代理对照两组均通过，尚未证明技能提效。第三方 MCP、Unity/Unreal 操作、物理输入和性能尚未验证。见 [能力矩阵](docs/CAPABILITIES.md)、[验证报告](docs/VALIDATION.md) 与 [对照结果](docs/PAIRED-EVALUATION.md)。
+**当前版本：0.5.0-preview。** 新增源 UID/有限常量路径解析、可操作的嵌套菜单与分层命中特效、叙事检查、整数经济模拟、资产依赖预检及重复评估汇总。新菜单案例完成五种视口、两种字号、四十帧真实 OpenGL 捕获和一百二十一项检查。新增两轮对照四组均通过，仍未证明技能提效。Unity/Unreal 原创案例和运行入口已准备，本机未安装引擎；实体输入、第三方 MCP 与性能保持单独验收状态。见 [能力矩阵](docs/CAPABILITIES.md)、[验证报告](docs/VALIDATION.md) 与 [对照结果](docs/PAIRED-EVALUATION.md)。
 
 [GitHub](https://github.com/kaltsit2077-dev/gamedev-workbench) · [预览版下载](https://github.com/kaltsit2077-dev/gamedev-workbench/releases) · [后续路线](docs/ROADMAP.md) · [English](README.en.md)
 
@@ -86,7 +86,19 @@ python tools/gdw.py compare-analysis "改动前.json" "改动后.json" --output 
 
 它比较文件、引用、autoload、循环和状态写入线索，忽略纯行号变化。扫描范围或完整性不同会标明不可直接比较；新写入线索不是“多个写者冲突”的自动证明。[阅读稿示例](docs/sample-analysis.md)可直接查看输出形式。
 
-完整项目另含 [配对任务与统一验收工具](evals/paired/README.md)，可准备相同任务、保留两组修改、运行共同验收；它不自动调用模型或读取账单。首轮使用旧版 0.2 技能，没有测量新增 0.3 工具的提效幅度。
+完整项目另含 [配对任务与统一验收工具](evals/paired/README.md)，可准备相同任务、保留两组修改、运行共同验收；它不自动调用模型或读取账单。首轮使用 0.2；新增两轮设置事务任务使用 0.4。完整验收在新两轮派发前冻结，仍没有测量新增 0.5 工具的提效幅度。
+
+## 专项工具与新菜单
+
+```text
+python tools/gdw.py check-ui-effects --case menu --engine "官方Godot路径" --scratch "可写缓存" --output-dir "新的证据目录" --graphical
+python tools/gdw.py check-narrative skills/gamedev-workbench/assets/design/narrative.json
+python tools/gdw.py simulate-economy skills/gamedev-workbench/assets/design/economy.json
+python tools/gdw.py audit-assets skills/gamedev-workbench/assets/design --manifest skills/gamedev-workbench/assets/design/assets.json
+python tools/gdw.py summarize-evals docs/transactions-results.json
+```
+
+[输入格式、人工输入窗口与跨引擎案例](skills/gamedev-workbench/references/tool-recipes.md)。[新菜单证据](docs/quality-v05/report.json)覆盖长文本、20/30 字号、嵌套返回焦点、合成键鼠/数字手柄、100 次菜单循环和 1000 次效果复用。实体硬件与合成事件分别登记，预检通过不等于引擎导入或玩法品质通过。
 
 ## 示例与当前项目接入
 

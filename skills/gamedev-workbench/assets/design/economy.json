@@ -1,0 +1,11 @@
+{
+  "steps": 120,
+  "initial_currency": 0,
+  "base_income": 5,
+  "income_scale_percent": [80, 100, 120],
+  "upgrades": [
+    {"id": "relay", "cost": 30, "income_bonus": 2, "max_level": 6, "price_growth_percent": 35},
+    {"id": "survey", "cost": 90, "income_bonus": 5, "max_level": 4, "price_growth_percent": 50},
+    {"id": "archive", "cost": 220, "income_bonus": 12, "max_level": 3, "price_growth_percent": 60}
+  ]
+}

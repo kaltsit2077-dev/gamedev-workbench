@@ -1,0 +1,20 @@
+{
+  "automation_completed": true,
+  "case": "menu input session",
+  "connected_joypads": 0,
+  "engine_version": "4.7.2-stable (official)",
+  "focus_restored": 1,
+  "hardware_attestation": "operator confirmation required; window events alone do not establish device origin",
+  "keyboard_events": 4,
+  "mode": "os-automation",
+  "mouse_events": 3,
+  "operator_completed": false,
+  "replayed": 2,
+  "session_completed": true,
+  "settings_opened": 1,
+  "steps_complete": true,
+  "text_size_changed": 1,
+  "automated_os_key_mouse_input_sent": true,
+  "physical_input_verified": false,
+  "protocol": "Windows window activation and explicit SendInput keyboard/mouse actions; no physical-device claim"
+}

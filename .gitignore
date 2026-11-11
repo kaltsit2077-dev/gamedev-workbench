@@ -7,3 +7,11 @@ local-profile.json
 .env.*
 .cache/
 private/
+Library/
+Temp/
+Logs/
+UserSettings/
+Intermediate/
+Saved/
+DerivedDataCache/
+Binaries/

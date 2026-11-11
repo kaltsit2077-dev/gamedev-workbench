@@ -1,0 +1,179 @@
+[
+  {
+    "id": "literal",
+    "code": "var x=load(\"res://a.tres\")",
+    "expected": [
+      [
+        "load",
+        "a.tres"
+      ]
+    ],
+    "extra_files": {}
+  },
+  {
+    "id": "comment",
+    "code": "# load(\"res://ghost.tres\")\nconst X=preload(\"res://a.tres\")",
+    "expected": [
+      [
+        "preload",
+        "a.tres"
+      ]
+    ],
+    "extra_files": {}
+  },
+  {
+    "id": "triple-string",
+    "code": "var doc=\"\"\"\nload(\"res://ghost.tres\")\n\"\"\"",
+    "expected": [],
+    "extra_files": {}
+  },
+  {
+    "id": "constant-concatenation",
+    "code": "const BASE=\"res://\"\nconst NAME=\"a\"\nfunc go():\n var x=load(BASE+NAME+\".tres\")",
+    "expected": [
+      [
+        "load",
+        "a.tres"
+      ]
+    ],
+    "extra_files": {}
+  },
+  {
+    "id": "constant-substitution",
+    "code": "const NAME=\"a\"\nvar x=load(\"res://%s.tres\" % NAME)",
+    "expected": [
+      [
+        "load",
+        "a.tres"
+      ]
+    ],
+    "extra_files": {}
+  },
+  {
+    "id": "parameter-shadow",
+    "code": "const PATH=\"res://a.tres\"\nfunc go(PATH: String):\n var x=load(PATH)",
+    "expected": [],
+    "extra_files": {}
+  },
+  {
+    "id": "local-shadow",
+    "code": "const PATH=\"res://a.tres\"\nfunc go():\n var PATH=\"res://b.tres\"\n var x=load(PATH)",
+    "expected": [],
+    "extra_files": {}
+  },
+  {
+    "id": "resource-uid",
+    "code": "const X=preload(\"uid://asset\")",
+    "expected": [
+      [
+        "preload",
+        "a.tres"
+      ]
+    ],
+    "extra_files": {
+      "a.tres": "[gd_resource format=3 uid=\"uid://asset\"]"
+    }
+  },
+  {
+    "id": "script-uid",
+    "code": "var x=load(\"uid://script\")",
+    "expected": [
+      [
+        "load",
+        "base.gd"
+      ]
+    ],
+    "extra_files": {
+      "base.gd.uid": "uid://script"
+    }
+  },
+  {
+    "id": "unknown-uid",
+    "code": "var x=load(\"uid://unknown\")",
+    "expected": [],
+    "extra_files": {}
+  },
+  {
+    "id": "runtime-concatenation",
+    "code": "func go(name):\n var x=load(\"res://\"+name+\".tres\")",
+    "expected": [],
+    "extra_files": {}
+  },
+  {
+    "id": "extends",
+    "code": "extends \"res://base.gd\"",
+    "expected": [
+      [
+        "extends",
+        "base.gd"
+      ]
+    ],
+    "extra_files": {}
+  },
+  {
+    "id": "conflicting-uid",
+    "code": "var x=load(\"uid://conflict\")",
+    "expected": [],
+    "extra_files": {
+      "a.tres": "[gd_resource format=3 uid=\"uid://conflict\"]",
+      "b.tres": "[gd_resource format=3 uid=\"uid://conflict\"]"
+    }
+  },
+  {
+    "id": "constant-tuple",
+    "code": "var x=load(\"res://%s_%s.tres\" % [\"a\",\"b\"])",
+    "expected": [
+      [
+        "load",
+        "a_b.tres"
+      ]
+    ],
+    "extra_files": {}
+  },
+  {
+    "id": "hash-in-path",
+    "code": "const PATH=\"res://a#v.tres\" # comment\nvar x=load(PATH)",
+    "expected": [
+      [
+        "load",
+        "a#v.tres"
+      ]
+    ],
+    "extra_files": {}
+  },
+  {
+    "id": "resource-loader",
+    "code": "var x=ResourceLoader.load(\"res://a.tres\")",
+    "expected": [
+      [
+        "load",
+        "a.tres"
+      ]
+    ],
+    "extra_files": {}
+  },
+  {
+    "id": "unsupported-method",
+    "code": "func go(name):\n var x=load(\"res://a.tres\".path_join(name))",
+    "expected": [],
+    "extra_files": {}
+  },
+  {
+    "id": "quoted-code",
+    "code": "var text=\"load(\\\"res://ghost.tres\\\")\"",
+    "expected": [],
+    "extra_files": {}
+  },
+  {
+    "id": "multiline-shadow",
+    "code": "const PATH=\"res://a.tres\"\nfunc go(\n PATH: String\n):\n var x=load(PATH)",
+    "expected": [],
+    "extra_files": {}
+  },
+  {
+    "id": "custom-loader",
+    "code": "var x=custom.load(\"res://a.tres\")",
+    "expected": [],
+    "extra_files": {}
+  }
+]

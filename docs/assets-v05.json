@@ -1,0 +1,29 @@
+{
+  "kind": "asset-preflight",
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "assets": [
+    {
+      "path": "signal-mark.svg",
+      "format_checks": "file-and-declaration-only",
+      "bytes": 368,
+      "sha256": "ad7919e4cac2c37b137aac630552303b6d329a09e1a3ef35d9874ac1d2f2fbf1",
+      "metadata_checked": true
+    },
+    {
+      "path": "triangle.gltf",
+      "format_checks": "gltf-dependencies",
+      "bytes": 863,
+      "sha256": "fbeff420f983b4d95dd4587112019dbfcb96898de882eb782ee7190f6fe4fbf9",
+      "dependencies": [],
+      "metadata_checked": true
+    }
+  ],
+  "limits": [
+    "License fields are caller declarations, not verified rights.",
+    "PNG checks cover header dimensions, not full decoding or visual quality.",
+    "Dependency checks do not prove engine import, materials or runtime appearance."
+  ],
+  "duplicate_content": []
+}

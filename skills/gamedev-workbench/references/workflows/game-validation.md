@@ -16,3 +16,5 @@
 ## 对照与实际测量
 
 工程工具与技能提效分开评价。完整项目的 `tools/paired_eval.py` 可准备一致输入并统一验收产物；模型需由宿主或使用者以相同配置独立运行。不可取得 token/费用时记 null，耗时须说明计量边界。单个任务两组都通过，不应声称通过率提高。
+
+完整项目的 tools/repeated_eval.py 提供预先冻结完整验收的设置事务任务。技能内 summarize-evals 只汇总有来源的记录，估算不能进入实际费用。typed engine events、OS automation 和实体输入分别登记，配方见 ../tool-recipes.md。

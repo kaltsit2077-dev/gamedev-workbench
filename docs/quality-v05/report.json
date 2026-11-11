@@ -1,0 +1,700 @@
+{
+  "case": "menu and layered impact",
+  "checks": [
+    {
+      "name": "main initial focus",
+      "passed": true
+    },
+    {
+      "name": "typed Tab reaches options",
+      "passed": true
+    },
+    {
+      "name": "typed Enter opens options and focuses slider",
+      "passed": true
+    },
+    {
+      "name": "typed mouse opens nested confirmation",
+      "passed": true
+    },
+    {
+      "name": "cancel restores settings focus",
+      "passed": true
+    },
+    {
+      "name": "back restores original main focus",
+      "passed": true
+    },
+    {
+      "name": "synthetic gamepad down navigates",
+      "passed": true
+    },
+    {
+      "name": "synthetic gamepad accept opens options",
+      "passed": true
+    },
+    {
+      "name": "synthetic gamepad cancel restores focus",
+      "passed": true
+    },
+    {
+      "name": "100 nested menu cycles preserve stack and nodes",
+      "passed": true
+    },
+    {
+      "name": "layered impact restarts single clock",
+      "passed": true
+    },
+    {
+      "name": "pause freezes all shader and spark progress",
+      "passed": true
+    },
+    {
+      "name": "impact ends hidden and idle",
+      "passed": true
+    },
+    {
+      "name": "1000 impact cycles do not allocate persistent nodes",
+      "passed": true
+    },
+    {
+      "name": "scroll viewport fits (640, 360) text 20",
+      "passed": true
+    },
+    {
+      "name": "long text wraps within width (640, 360) text 20",
+      "passed": true
+    },
+    {
+      "name": "long text is scrollable (640, 360) text 20",
+      "passed": true
+    },
+    {
+      "name": "return stays on screen (640, 360) text 20",
+      "passed": true
+    },
+    {
+      "name": "capture menu_640x360_text20.png",
+      "passed": true
+    },
+    {
+      "name": "content scrolls to reading position (640, 360) text 20",
+      "passed": true
+    },
+    {
+      "name": "long paragraph visible after scrolling (640, 360) text 20",
+      "passed": true
+    },
+    {
+      "name": "capture menu_640x360_text20_reading.png",
+      "passed": true
+    },
+    {
+      "name": "scroll viewport fits (640, 360) text 30",
+      "passed": true
+    },
+    {
+      "name": "long text wraps within width (640, 360) text 30",
+      "passed": true
+    },
+    {
+      "name": "long text is scrollable (640, 360) text 30",
+      "passed": true
+    },
+    {
+      "name": "return stays on screen (640, 360) text 30",
+      "passed": true
+    },
+    {
+      "name": "capture menu_640x360_text30.png",
+      "passed": true
+    },
+    {
+      "name": "content scrolls to reading position (640, 360) text 30",
+      "passed": true
+    },
+    {
+      "name": "long paragraph visible after scrolling (640, 360) text 30",
+      "passed": true
+    },
+    {
+      "name": "capture menu_640x360_text30_reading.png",
+      "passed": true
+    },
+    {
+      "name": "effect center visible (640, 360)",
+      "passed": true
+    },
+    {
+      "name": "capture impact_640x360_005.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_640x360_025.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_640x360_060.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_640x360_130.png",
+      "passed": true
+    },
+    {
+      "name": "scroll viewport fits (960, 540) text 20",
+      "passed": true
+    },
+    {
+      "name": "long text wraps within width (960, 540) text 20",
+      "passed": true
+    },
+    {
+      "name": "long text is scrollable (960, 540) text 20",
+      "passed": true
+    },
+    {
+      "name": "return stays on screen (960, 540) text 20",
+      "passed": true
+    },
+    {
+      "name": "capture menu_960x540_text20.png",
+      "passed": true
+    },
+    {
+      "name": "content scrolls to reading position (960, 540) text 20",
+      "passed": true
+    },
+    {
+      "name": "long paragraph visible after scrolling (960, 540) text 20",
+      "passed": true
+    },
+    {
+      "name": "capture menu_960x540_text20_reading.png",
+      "passed": true
+    },
+    {
+      "name": "scroll viewport fits (960, 540) text 30",
+      "passed": true
+    },
+    {
+      "name": "long text wraps within width (960, 540) text 30",
+      "passed": true
+    },
+    {
+      "name": "long text is scrollable (960, 540) text 30",
+      "passed": true
+    },
+    {
+      "name": "return stays on screen (960, 540) text 30",
+      "passed": true
+    },
+    {
+      "name": "capture menu_960x540_text30.png",
+      "passed": true
+    },
+    {
+      "name": "content scrolls to reading position (960, 540) text 30",
+      "passed": true
+    },
+    {
+      "name": "long paragraph visible after scrolling (960, 540) text 30",
+      "passed": true
+    },
+    {
+      "name": "capture menu_960x540_text30_reading.png",
+      "passed": true
+    },
+    {
+      "name": "effect center visible (960, 540)",
+      "passed": true
+    },
+    {
+      "name": "capture impact_960x540_005.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_960x540_025.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_960x540_060.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_960x540_130.png",
+      "passed": true
+    },
+    {
+      "name": "scroll viewport fits (1280, 720) text 20",
+      "passed": true
+    },
+    {
+      "name": "long text wraps within width (1280, 720) text 20",
+      "passed": true
+    },
+    {
+      "name": "long text is scrollable (1280, 720) text 20",
+      "passed": true
+    },
+    {
+      "name": "return stays on screen (1280, 720) text 20",
+      "passed": true
+    },
+    {
+      "name": "capture menu_1280x720_text20.png",
+      "passed": true
+    },
+    {
+      "name": "content scrolls to reading position (1280, 720) text 20",
+      "passed": true
+    },
+    {
+      "name": "long paragraph visible after scrolling (1280, 720) text 20",
+      "passed": true
+    },
+    {
+      "name": "capture menu_1280x720_text20_reading.png",
+      "passed": true
+    },
+    {
+      "name": "scroll viewport fits (1280, 720) text 30",
+      "passed": true
+    },
+    {
+      "name": "long text wraps within width (1280, 720) text 30",
+      "passed": true
+    },
+    {
+      "name": "long text is scrollable (1280, 720) text 30",
+      "passed": true
+    },
+    {
+      "name": "return stays on screen (1280, 720) text 30",
+      "passed": true
+    },
+    {
+      "name": "capture menu_1280x720_text30.png",
+      "passed": true
+    },
+    {
+      "name": "content scrolls to reading position (1280, 720) text 30",
+      "passed": true
+    },
+    {
+      "name": "long paragraph visible after scrolling (1280, 720) text 30",
+      "passed": true
+    },
+    {
+      "name": "capture menu_1280x720_text30_reading.png",
+      "passed": true
+    },
+    {
+      "name": "effect center visible (1280, 720)",
+      "passed": true
+    },
+    {
+      "name": "capture impact_1280x720_005.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_1280x720_025.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_1280x720_060.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_1280x720_130.png",
+      "passed": true
+    },
+    {
+      "name": "scroll viewport fits (800, 600) text 20",
+      "passed": true
+    },
+    {
+      "name": "long text wraps within width (800, 600) text 20",
+      "passed": true
+    },
+    {
+      "name": "long text is scrollable (800, 600) text 20",
+      "passed": true
+    },
+    {
+      "name": "return stays on screen (800, 600) text 20",
+      "passed": true
+    },
+    {
+      "name": "capture menu_800x600_text20.png",
+      "passed": true
+    },
+    {
+      "name": "content scrolls to reading position (800, 600) text 20",
+      "passed": true
+    },
+    {
+      "name": "long paragraph visible after scrolling (800, 600) text 20",
+      "passed": true
+    },
+    {
+      "name": "capture menu_800x600_text20_reading.png",
+      "passed": true
+    },
+    {
+      "name": "scroll viewport fits (800, 600) text 30",
+      "passed": true
+    },
+    {
+      "name": "long text wraps within width (800, 600) text 30",
+      "passed": true
+    },
+    {
+      "name": "long text is scrollable (800, 600) text 30",
+      "passed": true
+    },
+    {
+      "name": "return stays on screen (800, 600) text 30",
+      "passed": true
+    },
+    {
+      "name": "capture menu_800x600_text30.png",
+      "passed": true
+    },
+    {
+      "name": "content scrolls to reading position (800, 600) text 30",
+      "passed": true
+    },
+    {
+      "name": "long paragraph visible after scrolling (800, 600) text 30",
+      "passed": true
+    },
+    {
+      "name": "capture menu_800x600_text30_reading.png",
+      "passed": true
+    },
+    {
+      "name": "effect center visible (800, 600)",
+      "passed": true
+    },
+    {
+      "name": "capture impact_800x600_005.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_800x600_025.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_800x600_060.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_800x600_130.png",
+      "passed": true
+    },
+    {
+      "name": "scroll viewport fits (360, 640) text 20",
+      "passed": true
+    },
+    {
+      "name": "long text wraps within width (360, 640) text 20",
+      "passed": true
+    },
+    {
+      "name": "long text is scrollable (360, 640) text 20",
+      "passed": true
+    },
+    {
+      "name": "return stays on screen (360, 640) text 20",
+      "passed": true
+    },
+    {
+      "name": "capture menu_360x640_text20.png",
+      "passed": true
+    },
+    {
+      "name": "content scrolls to reading position (360, 640) text 20",
+      "passed": true
+    },
+    {
+      "name": "long paragraph visible after scrolling (360, 640) text 20",
+      "passed": true
+    },
+    {
+      "name": "capture menu_360x640_text20_reading.png",
+      "passed": true
+    },
+    {
+      "name": "scroll viewport fits (360, 640) text 30",
+      "passed": true
+    },
+    {
+      "name": "long text wraps within width (360, 640) text 30",
+      "passed": true
+    },
+    {
+      "name": "long text is scrollable (360, 640) text 30",
+      "passed": true
+    },
+    {
+      "name": "return stays on screen (360, 640) text 30",
+      "passed": true
+    },
+    {
+      "name": "capture menu_360x640_text30.png",
+      "passed": true
+    },
+    {
+      "name": "content scrolls to reading position (360, 640) text 30",
+      "passed": true
+    },
+    {
+      "name": "long paragraph visible after scrolling (360, 640) text 30",
+      "passed": true
+    },
+    {
+      "name": "capture menu_360x640_text30_reading.png",
+      "passed": true
+    },
+    {
+      "name": "effect center visible (360, 640)",
+      "passed": true
+    },
+    {
+      "name": "capture impact_360x640_005.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_360x640_025.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_360x640_060.png",
+      "passed": true
+    },
+    {
+      "name": "capture impact_360x640_130.png",
+      "passed": true
+    },
+    {
+      "name": "reduced-motion preference reaches effect",
+      "passed": true
+    },
+    {
+      "name": "scene cleanup releases menu and effect",
+      "passed": true
+    }
+  ],
+  "frames": [
+    {
+      "height": 360,
+      "image": "menu_640x360_text20.png",
+      "width": 640
+    },
+    {
+      "height": 360,
+      "image": "menu_640x360_text20_reading.png",
+      "width": 640
+    },
+    {
+      "height": 360,
+      "image": "menu_640x360_text30.png",
+      "width": 640
+    },
+    {
+      "height": 360,
+      "image": "menu_640x360_text30_reading.png",
+      "width": 640
+    },
+    {
+      "height": 360,
+      "image": "impact_640x360_005.png",
+      "width": 640
+    },
+    {
+      "height": 360,
+      "image": "impact_640x360_025.png",
+      "width": 640
+    },
+    {
+      "height": 360,
+      "image": "impact_640x360_060.png",
+      "width": 640
+    },
+    {
+      "height": 360,
+      "image": "impact_640x360_130.png",
+      "width": 640
+    },
+    {
+      "height": 540,
+      "image": "menu_960x540_text20.png",
+      "width": 960
+    },
+    {
+      "height": 540,
+      "image": "menu_960x540_text20_reading.png",
+      "width": 960
+    },
+    {
+      "height": 540,
+      "image": "menu_960x540_text30.png",
+      "width": 960
+    },
+    {
+      "height": 540,
+      "image": "menu_960x540_text30_reading.png",
+      "width": 960
+    },
+    {
+      "height": 540,
+      "image": "impact_960x540_005.png",
+      "width": 960
+    },
+    {
+      "height": 540,
+      "image": "impact_960x540_025.png",
+      "width": 960
+    },
+    {
+      "height": 540,
+      "image": "impact_960x540_060.png",
+      "width": 960
+    },
+    {
+      "height": 540,
+      "image": "impact_960x540_130.png",
+      "width": 960
+    },
+    {
+      "height": 720,
+      "image": "menu_1280x720_text20.png",
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "image": "menu_1280x720_text20_reading.png",
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "image": "menu_1280x720_text30.png",
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "image": "menu_1280x720_text30_reading.png",
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "image": "impact_1280x720_005.png",
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "image": "impact_1280x720_025.png",
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "image": "impact_1280x720_060.png",
+      "width": 1280
+    },
+    {
+      "height": 720,
+      "image": "impact_1280x720_130.png",
+      "width": 1280
+    },
+    {
+      "height": 600,
+      "image": "menu_800x600_text20.png",
+      "width": 800
+    },
+    {
+      "height": 600,
+      "image": "menu_800x600_text20_reading.png",
+      "width": 800
+    },
+    {
+      "height": 600,
+      "image": "menu_800x600_text30.png",
+      "width": 800
+    },
+    {
+      "height": 600,
+      "image": "menu_800x600_text30_reading.png",
+      "width": 800
+    },
+    {
+      "height": 600,
+      "image": "impact_800x600_005.png",
+      "width": 800
+    },
+    {
+      "height": 600,
+      "image": "impact_800x600_025.png",
+      "width": 800
+    },
+    {
+      "height": 600,
+      "image": "impact_800x600_060.png",
+      "width": 800
+    },
+    {
+      "height": 600,
+      "image": "impact_800x600_130.png",
+      "width": 800
+    },
+    {
+      "height": 640,
+      "image": "menu_360x640_text20.png",
+      "width": 360
+    },
+    {
+      "height": 640,
+      "image": "menu_360x640_text20_reading.png",
+      "width": 360
+    },
+    {
+      "height": 640,
+      "image": "menu_360x640_text30.png",
+      "width": 360
+    },
+    {
+      "height": 640,
+      "image": "menu_360x640_text30_reading.png",
+      "width": 360
+    },
+    {
+      "height": 640,
+      "image": "impact_360x640_005.png",
+      "width": 360
+    },
+    {
+      "height": 640,
+      "image": "impact_360x640_025.png",
+      "width": 360
+    },
+    {
+      "height": 640,
+      "image": "impact_360x640_060.png",
+      "width": 360
+    },
+    {
+      "height": 640,
+      "image": "impact_360x640_130.png",
+      "width": 360
+    }
+  ],
+  "input": "typed synthetic key/mouse/gamepad events, not hardware verification",
+  "passed": true,
+  "performance": "not-measured",
+  "rendering": "captured",
+  "exit_code": 0,
+  "diagnostics": [
+    "ERROR: Failed to read the root certificate store."
+  ],
+  "engine_version": "4.7.2.stable.official.ed1daf0bf"
+}
