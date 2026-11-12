@@ -35,6 +35,13 @@ class ToolboxTests(unittest.TestCase):
         self.assertIn('ui',w.route('原生菜单焦点'))
         self.assertIn('architecture',w.route('代码架构与依赖'))
         self.assertEqual(w.route('something unspecified'),['guide'])
+    def test_engineering_modes_load_workflows_and_templates(self):
+        for query, mode in [('多人分支合并冲突', 'collaboration'), ('修复崩溃并验证复现', 'bugfix'), ('中型项目开发规划和交接', 'planning')]:
+            packet=w.brief(query, 'godot')
+            selected=next(item for item in packet['modes'] if item['id']==mode)
+            self.assertTrue((SOURCE/selected['workflow']).is_file())
+            self.assertTrue((SOURCE/selected['template']).is_file())
+            self.assertEqual(packet['execution_status'], 'not-executed')
     def test_english_substrings_do_not_route_ui(self):
         self.assertNotIn('ui', w.route('build a model'))
         self.assertNotIn('design', w.route('redesignation'))

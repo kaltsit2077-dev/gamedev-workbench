@@ -1,0 +1,70 @@
+{
+  "passed": false,
+  "protected_files_unchanged": true,
+  "unmerged_index": false,
+  "state_resolution_staged": true,
+  "exit_code": 1,
+  "checks": [
+    {
+      "name": "both merged defaults survive",
+      "passed": true
+    },
+    {
+      "name": "all merged setters and unrelated fields",
+      "passed": true
+    },
+    {
+      "name": "invalid inputs are silent",
+      "passed": true
+    },
+    {
+      "name": "unchanged values are silent noops",
+      "passed": false
+    },
+    {
+      "name": "failed save does not commit or notify",
+      "passed": false
+    },
+    {
+      "name": "save success is strictly boolean true",
+      "passed": false
+    },
+    {
+      "name": "read snapshot cannot mutate state",
+      "passed": false
+    },
+    {
+      "name": "persistence callback cannot mutate committed state",
+      "passed": false
+    },
+    {
+      "name": "repeated open keeps one binding",
+      "passed": false
+    },
+    {
+      "name": "close detaches only that panel",
+      "passed": false
+    },
+    {
+      "name": "reopen reads latest state",
+      "passed": true
+    },
+    {
+      "name": "switching states removes old binding",
+      "passed": false
+    },
+    {
+      "name": "100 open-close cycles preserve single updates",
+      "passed": false
+    }
+  ],
+  "engine_version": "4.7.2-stable (official)",
+  "binary_version": "4.7.2.stable.official.ed1daf0bf",
+  "diagnostic_count": 1,
+  "usage": {
+    "source": "unavailable",
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost_usd": null
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "title",
+      "url",
+      "summary",
+      "restrictions",
+      "checked_at",
+      "local_verification",
+      "evidence_scope",
+      "license_status",
+      "tags"
+    ],
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "summary": {
+        "type": "string"
+      },
+      "restrictions": {
+        "type": "string"
+      },
+      "checked_at": {
+        "type": "string"
+      },
+      "local_verification": {
+        "type": "string"
+      },
+      "evidence_scope": {
+        "type": "string"
+      },
+      "license_status": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+}

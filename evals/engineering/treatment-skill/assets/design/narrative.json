@@ -1,0 +1,15 @@
+{
+  "title": "The quiet relay",
+  "start": "dock",
+  "flags": {"signal_recovered": false},
+  "nodes": [
+    {"id": "dock", "text": "A route waits behind the static.", "choices": [
+      {"text": "Search the archive", "to": "archive", "require": {"signal_recovered": false}},
+      {"text": "Depart", "to": "departure", "require": {"signal_recovered": true}}
+    ]},
+    {"id": "archive", "text": "The missing coordinate was hidden in a familiar voice.", "choices": [
+      {"text": "Return with the signal", "to": "dock", "set": {"signal_recovered": true}}
+    ]},
+    {"id": "departure", "text": "The relay answers. The next route is yours.", "ending": true}
+  ]
+}

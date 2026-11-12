@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "engine": "godot",
+  "expected_version": "4.7.2",
+  "sources": {
+    "project.godot": "7472ec071da66206c8b9cc843d55e973a51d39e0618bcc0d8b62ccdea4fe50ec",
+    "smoke.gd": "8918163282f125702efdd59629986e3071320def7a4e08af4fd5d6b9aa98ba54",
+    "state.gd": "526a7e33be490487fd09e765f915cfb55511e0055de676235bf40d12c879fb95",
+    "pulse.gd": "a25043d0c52c17fd2b6980788959d57543bdacc7c565eb2127c8d1a9e958b524",
+    "demo.gd": "22a8653dd9cce214cd3a8e9e41f24945548fd6d8cb298d8820a6eb7055c90a6a"
+  },
+  "tests": [
+    {
+      "id": "smoke",
+      "argv": [
+        "{engine}",
+        "--headless",
+        "--path",
+        "{project}",
+        "--log-file",
+        "{output}/godot.log",
+        "--script",
+        "res://smoke.gd"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "effects": "Writes Godot cache in the explicitly selected disposable project and native evidence to output; no user game is selected.",
+      "required_checks": [
+        "model trigger",
+        "model reset",
+        "effect halfway",
+        "retrigger restarts clock",
+        "effect terminates",
+        "UI command reaches model",
+        "model reaches UI"
+      ]
+    }
+  ]
+}

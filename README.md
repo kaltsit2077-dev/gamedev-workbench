@@ -1,16 +1,51 @@
 # GameDev Workbench
 
-配合 AI 助手的游戏创作与工程领航工具，面向独立开发者，尤其是初学者。产品目标是连接**创意探索、整体规划、风格选择、工程实现和试玩反馈**；架构分析与检查工具为这条制作流程提供支持。[最新产品方向](docs/PRODUCT-DIRECTION.md)。
+辅助 AI 开发小型和中型游戏的可安装技能。重点是**项目与代码架构、持续规划、完整功能实现、多人 Git 协作和 Bug 修复**，同时保留创意、风格、原生 UI 和效果工作流。离线工具和可视化按需使用。[具体定位](docs/PRODUCT-DIRECTION.md)。
 
 **可安装技能 + Python 离线工具 + 原创引擎案例 + 有来源的知识库。** Python 工具只用标准库，无 API key；运行引擎案例才需要相应编辑器。
 
-[快速上手](docs/QUICKSTART.md) · [下载 0.7 预览版](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.7.0-preview) · [能力与边界](docs/CAPABILITIES.md) · [路线](docs/ROADMAP.md) · [English](README.en.md)
+[快速上手](docs/QUICKSTART.md) · [下载 0.8 预览版](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.8.0-preview) · [能力与边界](docs/CAPABILITIES.md) · [路线](docs/ROADMAP.md) · [English](README.en.md)
 
 [![Toolbox checks](https://github.com/kaltsit2077-dev/gamedev-workbench/actions/workflows/ci.yml/badge.svg)](https://github.com/kaltsit2077-dev/gamedev-workbench/actions/workflows/ci.yml)
 
-## 0.7：连接成一个任务工作台
+## 0.8：补齐工程开发流程
 
-产品方向已修订为 **配合 AI 助手、面向新手的游戏创作领航插件**，以创意探索、整体规划和工程连续性为主线，知识库拟独立。当前 0.7 提供可复用的创作包、离线任务页、项目测试和适配报告；新设计中的创意 GUI 与宿主插件尚未实现。[最新产品设计](docs/PRODUCT-DIRECTION.md) · [0.7 技术探索记录](docs/PLATFORM.md)。
+- 项目规划、Bug 修复、Git 协作三项独立流程，按改动影响决定记录深度；沿用已有项目规范。
+- `review-git` 只读检查本地分支/变更/未解决索引、完整冲突标记、大小写及 UID/.meta 线索；不 fetch、合并或修改仓库。
+- 技能要求核对真实入口、状态所有者、失败与清理路径，并在最终集成树上跑受影响回归；补修复与交接模板。
+- 新增冻结的原生 Godot“合并冲突＋设置保存＋订阅生命周期”任务，进行独立上下文对照。结果与限制见 [工程任务验证](docs/ENGINEERING-EVALUATION.md)。
+
+```text
+$gamedev-workbench 继续这个项目。先读现有约定与决策，审查本次功能涉及的模块和状态归属，按可运行步骤实现并验证。
+$gamedev-workbench 定位这个 Bug，先复现和验证根因，再最小修复；保留相关旧行为，并报告实际跑过的回归。
+$gamedev-workbench 检查当前分支的集成风险，保留双方功能解决冲突，在最终代码上回归；遵守项目的提交和推送约定。
+```
+
+## 现在能做什么
+
+| 你要处理的工作 | 已有能力 | 直接产物 / 入口 |
+|---|---|---|
+| 项目规划与交接 | 按变化影响拆分可运行步骤，沿用决策/任务/责任记录，恢复时核对真实工作树 | planning 模式、handoff 模板 |
+| 多人 Git 协作 | 本地分支/改动/冲突/UID/.meta 线索；语义合并与集成后回归方法 | collaboration 模式、`review-git` |
+| Bug 修复 | 复现与根因证据、失败回归、最小修复和相关消费者检查 | bugfix 模式、bugfix 模板 |
+| 整体代码架构 | 读项目约束、梳理状态归属、接口与迁移；Godot 只读扫描入口/autoload/引用/UID/循环/赋值线索 | 架构评审技能；`analyze-project`、`report-analysis`、`compare-analysis` |
+| 菜单、HUD、效果 | 原生布局、主题、状态栈、键鼠/手柄焦点与事件驱动绑定；Shader/VFX 单时钟、复用与清理方法 | UI/效果技能；原创 Godot 案例、`check-ui-effects`、`gallery` |
+| 功能实现与回归 | 从项目契约到代码、资源、场景接入，区分解析/行为/画面/输入等证据 | feature / validation 模式、模板、验证助手 |
+| 剧情与分支 | 布尔状态图的断链、软锁和无法到达结局的状态检查 | `check-narrative`；不评判故事质量 |
+| 数值经济 | 确定性整数收入、升级策略、敏感性与收支守恒 | `simulate-economy`；不预测玩家或收入 |
+| 美术与导入 | 风格参考、资产规格、建模/材质/声音导引；清单路径、hash、PNG 尺寸、glTF/GLB 外部依赖预检 | art 模式、`audit-assets`；不替代编辑器导入 |
+| 创意、类型、受众、机制、关卡 | 体验目标、比较方向、最小原型和验证问题 | design 模式与设计模板；由代理结合项目执行 |
+| 技能、MCP、开发资料 | 带来源与许可说明的本地目录、工作流与学习导引 | `search`、`inspect`、`brief`；外部工具保留未运行状态 |
+| 比较工具是否值得用 | 一致输入、冻结验收、真实产物评分、重复记录与费用来源区分 | `tools/repeated_eval.py`、`summarize-evals` |
+
+技能共十三种按需模式，另含 Godot / Unity / Unreal / Web / Blender 适配指引。[技能入口](skills/gamedev-workbench/SKILL.md) · [学习导引](skills/gamedev-workbench/references/learning-path.md) · [完整能力矩阵](docs/CAPABILITIES.md)。方法指导由代理执行；本地 CLI 不会自动完成整套游戏。
+
+<details>
+<summary>可选工作页与已有原生 UI / 效果截图</summary>
+
+### 已有的可选工作页
+
+已有可编辑创作包、离线任务页、项目测试和适配报告。工作页用于整理草案与查看产物，是对话开发的可选补充；无需它也能使用技能。[0.7 技术探索记录](docs/PLATFORM.md)。
 
 ![实际工作页：关联需求、阶段、可编辑文件预览和任务包导出](docs/media/workspace-preview.png)
 
@@ -53,7 +88,7 @@ python tools/gdw.py workspace-page workspaces/my-game --output workspaces/my-gam
 
 </details>
 
-**0.6 新增：离线画面证据浏览器。** 下载发行页的 `gamedev-workbench-gallery-0.7.0-preview.html`，双击即可按视口筛选、两侧独立逐帧对照、查看失败项与下载原报告。它包含上述 0.5 案例的 40 张原始 PNG；不运行引擎、不联网，也不把旧记录算作新的测试。
+**0.6 新增：离线画面证据浏览器。** 下载发行页的 `gamedev-workbench-gallery-0.8.0-preview.html`，双击即可按视口筛选、两侧独立逐帧对照、查看失败项与下载原报告。它包含上述 0.5 案例的 40 张原始 PNG；不运行引擎、不联网，也不把旧记录算作新的测试。
 
 <details>
 <summary>查看新浏览器的实际页面</summary>
@@ -62,7 +97,12 @@ python tools/gdw.py workspace-page workspaces/my-game --output workspaces/my-gam
 
 </details>
 
+
+</details>
+
 ## 已实测的改变，以及尚未证明的提升
+
+**0.8 新工程任务：** 独立两组共同原生验收均 13/13、验收后返工 0；只合并功能的阴性对照 4/13。带技能组观察墙钟 336.6 秒，对照 298.1 秒，费用未知；本轮仍未证明技能提效。[任务、产物和局限](docs/ENGINEERING-EVALUATION.md)。
 
 ![从归档 JSON 派生的资源引用识别回归与原生 UI 验证覆盖图](docs/media/evidence-changes.svg)
 
@@ -74,22 +114,6 @@ python tools/gdw.py workspace-page workspaces/my-game --output workspaces/my-gam
 **生产力结论保留为“尚未证明”。** 两轮设置事务任务四组均 10/10，共同验收后返工均 0；带 0.4 技能组的配对耗时差中位数是 **+23.6 秒**。两组沿用相同父级模型配置，但精确后端 ID 不可得；并发、宿主负载和文档时间影响墙钟。实际 token/费用缺失，不能据此宣传省钱。新增 0.5/0.6 工具未作为这些实验的处理项。[原始记录](docs/transactions-results.json) · [完整方法和首轮实验](docs/PAIRED-EVALUATION.md)。
 
 两张图由 `python tools/readme_visuals.py` 读取归档 JSON 生成，CI 用 `--check` 防止图表与记录漂移。
-
-## 现在能做什么
-
-| 你要处理的工作 | 已有能力 | 直接产物 / 入口 |
-|---|---|---|
-| 整体代码架构 | 读项目约束、梳理状态归属、接口与迁移；Godot 只读扫描入口/autoload/引用/UID/循环/赋值线索 | 架构评审技能；`analyze-project`、`report-analysis`、`compare-analysis` |
-| 菜单、HUD、效果 | 原生布局、主题、状态栈、键鼠/手柄焦点与事件驱动绑定；Shader/VFX 单时钟、复用与清理方法 | UI/效果技能；原创 Godot 案例、`check-ui-effects`、`gallery` |
-| 功能实现与回归 | 从项目契约到代码、资源、场景接入，区分解析/行为/画面/输入等证据 | feature / validation 模式、模板、验证助手 |
-| 剧情与分支 | 布尔状态图的断链、软锁和无法到达结局的状态检查 | `check-narrative`；不评判故事质量 |
-| 数值经济 | 确定性整数收入、升级策略、敏感性与收支守恒 | `simulate-economy`；不预测玩家或收入 |
-| 美术与导入 | 风格参考、资产规格、建模/材质/声音导引；清单路径、hash、PNG 尺寸、glTF/GLB 外部依赖预检 | art 模式、`audit-assets`；不替代编辑器导入 |
-| 创意、类型、受众、机制、关卡 | 体验目标、比较方向、最小原型和验证问题 | design 模式与设计模板；由代理结合项目执行 |
-| 技能、MCP、开发资料 | 带来源与许可说明的本地目录、工作流与学习导引 | `search`、`inspect`、`brief`；外部工具保留未运行状态 |
-| 比较工具是否值得用 | 一致输入、冻结验收、真实产物评分、重复记录与费用来源区分 | `tools/repeated_eval.py`、`summarize-evals` |
-
-技能共十种按需模式，另含 Godot / Unity / Unreal / Web / Blender 适配指引。[技能入口](skills/gamedev-workbench/SKILL.md) · [学习导引](skills/gamedev-workbench/references/learning-path.md) · [完整能力矩阵](docs/CAPABILITIES.md)。方法指导由代理执行；本地 CLI 不会自动完成整套游戏。
 
 ## 三种开始方式
 
@@ -158,7 +182,7 @@ python tools/gdw.py gallery "新的菜单证据目录" --output "新的菜单浏
 
 ## 下一步优先做什么
 
-长期阶段、进入条件及平台层次见 [PLATFORM](docs/PLATFORM.md)，当前重点仍是真实项目连续使用与独立验证。
+以 [产品定位](docs/PRODUCT-DIRECTION.md) 和 [路线](docs/ROADMAP.md) 为准，优先收集真实架构、功能、多人集成和故障修复任务的结果，检验遗漏、返工和维护成本。界面与 MCP 按实际缺口增加。
 
 1. **接入一个真实项目的 UI/效果验证夹具。** 显式选择场景、控件和触发点，复用报告/浏览器；让现有检查真正进入日常回归。先保留项目自己的装配和测试约定。
 2. **独立留出案例检验架构扫描。** 加入未参与开发的 UID/动态引用样本，复核误报/漏报；运行时资源保留未知，避免假装完整理解源码。

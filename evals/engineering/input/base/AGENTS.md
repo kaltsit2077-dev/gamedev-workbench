@@ -1,0 +1,3 @@
+# Fixture rules
+
+Only work in this original integration fixture. Read REQUIREMENTS.md and the existing scripts before changes. Preserve public APIs and project checks. Do not inspect sibling cases or external evaluation material. Do not use network, external skills unless the task explicitly supplies one, reset/clean/stash/force, or delete collaborator changes. Resolve and stage the state script conflict; do not commit or push. Only settings_state.gd and settings_panel.gd may change. You may add NOTES.md with a concise explanation and actual validation. Do not put absolute host paths in notes.

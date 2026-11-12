@@ -1,0 +1,7 @@
+# Integration repair
+
+- Diagnosis: the merge conflicted between reduced motion and master volume. State was mutated and broadcast before saving, snapshots exposed live dictionaries, and each panel open added a listener that close never removed.
+- Changes: retained both defaults and setters; validate font sizes and finite volume bounds; accept unchanged values silently; save an isolated candidate and commit/notify only after an exact boolean `true` result. Snapshot, save and notification dictionaries cannot mutate active state. Patches retain unrelated fields.
+- Panel: validate sources, keep one named listener, make repeated open/close idempotent, detach only this panel when switching or closing, copy displayed snapshots, and refresh from current state on reopen. HUD and public smoke are unchanged.
+- Validation: Godot 4.7.2 headless public `smoke.gd` passed. A temporary native integration script passed 57 assertions covering defaults, valid/invalid values, no-ops, strict save results, failed-save rollback, nested reference isolation, unrelated fields, invalid/freed sources, switching, 20 open/close cycles, and independent HUD/panel consumers. Final runs reported no script errors. Logs are in `.cache/validation/`; the temporary script was removed.
+- Remaining limits: the engine reported that the root certificate store could not be read; the offline checks still exited successfully. Physical input, rendering, and the full game were not verified. No known functional issue remains in the requested scope. No commit or push was made.

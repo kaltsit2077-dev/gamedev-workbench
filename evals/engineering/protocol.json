@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "frozen_before_dispatch": "2026-11-12",
+  "model_configuration": "same inherited parent configuration; no overrides; exact backend ID unavailable",
+  "treatment": "0.8.0-preview skill, frozen before dispatch",
+  "sha256": {
+    "input/base/.gitignore": "d70b8cf993f36ad6894b60e9ea85dc76c43557bb487741e9ec1e128d27916661",
+    "input/base/AGENTS.md": "73ed916d541ba3ee69b08d1708378f4adecd78157f181b22d8c452904d0d4799",
+    "input/base/hud.gd": "164d6acc48c1a613c082bbf0a5fe45e2bc95e817ceed006ffdfdd36f84636b23",
+    "input/base/project.godot": "45589b03721de4638510cf3889e96e341f4923afa72a57606e1b5dd94307a307",
+    "input/base/REQUIREMENTS.md": "5995b380dc0e03a6ab230a0a4f702717b4e4db89bf56fca1b00e5bfa7518f4eb",
+    "input/base/settings_panel.gd": "edb849d06a955154c9d7cefd69361be0b3c481c648739d3ca0f471b2fa0fc587",
+    "input/base/settings_state.gd": "e547bc91b669e9423ecedc6192cbbf3ab548243616bb014f50a808d9d458d6f3",
+    "input/base/smoke.gd": "422950220b342dc56582f77ccab184b3912eaccce8e4743a2019cfd0555af4dc",
+    "input/branch-reduced/settings_state.gd": "e55eb267b7976dfcbcb2b0b33495f5651ab04d043e85ec41fd48e500aa859692",
+    "input/branch-volume/settings_state.gd": "616ed9d1ef42b5f4cea2b51f235493257388346a4afab6a846e61bb0135cccc7",
+    "grader.gd": "3f327e8494514cc3da37e9b597eed5b20567c2cabfcbc642f6478f83bc5d6047"
+  },
+  "limits": [
+    "One original bounded integration task; not a medium-size production project or representative benchmark.",
+    "Independent agent contexts; exact backend ID/token/billing unavailable.",
+    "Wall time includes reading/tools/tests and shared host effects; no human blind architecture review.",
+    "Same grader for both arms; input and full grader frozen before dispatch; no post-dispatch tuning."
+  ],
+  "driver_sha256": "7c8c0c7921a882b93ebb81de28309669d4bfe928197722a684357b041eca1737"
+}

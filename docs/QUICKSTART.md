@@ -2,9 +2,29 @@
 
 需要 Python 3.11+。以下在完整项目根目录执行，无第三方 Python 包、API key 或 MCP 依赖。单独技能包将 `python tools/gdw.py` 替换为 `python scripts/workbench.py`，并按技能目录调整 assets 路径。
 
+## 先在现有工程使用技能
+
+安装后直接描述当前任务，不必创建网页或工作区：
+
+```text
+$gamedev-workbench 接手这个游戏，先读已有规则和决策，再检查整体模块、状态归属和近期功能的实现顺序。
+$gamedev-workbench 修复这个问题：给出可重复的复现，验证根因，最小修复并运行相关回归。
+$gamedev-workbench 集成这两个分支，保留双方功能和资源元数据，解决冲突后在集成树上验证；遵守本项目的提交/推送约定。
+```
+
+新项目先做整体规划和最近可运行切片；已有项目优先沿用既有模块、票据和测试。局部修改无需完整设计文档。规划、修复、协作方法由 AI 执行，不是输入一句命令就自动合并或修好所有问题。
+
+只读检查多人协作现场，需要本机 Git：
+
+```text
+python tools/gdw.py review-git "仓库根目录" --base "本地基准提交或分支" --output git-review.json
+```
+
+--base 可省略。报告包含本地分支/跟踪引用、已有操作、未解决索引、变更和有限资源线索；不 fetch、不暂存、不改文件。远端引用可能旧，未发现列出的问题不表示语义合并正确。完整边界见 [工具配方](../skills/gamedev-workbench/references/tool-recipes.md)。
+
 ## 先看已有真实证据
 
-发行页的 `gamedev-workbench-gallery-0.7.0-preview.html` 可直接下载后双击。也可从克隆生成：
+发行页的 `gamedev-workbench-gallery-0.8.0-preview.html` 可直接下载后双击。也可从克隆生成：
 
 ```text
 python tools/gdw.py validate

@@ -1,0 +1,6 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "",
+  "Category": "Original Workbench fixture",
+  "Plugins": [{"Name": "PythonScriptPlugin", "Enabled": true}]
+}

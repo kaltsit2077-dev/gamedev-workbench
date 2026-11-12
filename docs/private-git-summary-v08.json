@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-12",
+  "kind": "sanitized-private-git-inspection",
+  "changed_path_count": 0,
+  "unmerged_path_count": 0,
+  "finding_count": 0,
+  "operation_count": 0,
+  "scan_complete": true,
+  "assessment": "no-listed-issues",
+  "scope": "local evidence only; original report and private identifiers excluded; not remote freshness or architecture correctness"
+}

@@ -1,5 +1,52 @@
 [
   {
+    "id": "planning",
+    "keywords": [
+      "项目规划",
+      "开发规划",
+      "开发流程",
+      "里程碑",
+      "交接",
+      "planning",
+      "milestone",
+      "handoff"
+    ],
+    "workflow": "references/workflows/project-planning.md",
+    "template": "templates/handoff.md",
+    "source_ids": []
+  },
+  {
+    "id": "bugfix",
+    "keywords": [
+      "bug",
+      "修复",
+      "崩溃",
+      "复现",
+      "regression",
+      "diagnose"
+    ],
+    "workflow": "references/workflows/bug-fixing.md",
+    "template": "templates/bugfix.md",
+    "source_ids": []
+  },
+  {
+    "id": "collaboration",
+    "keywords": [
+      "git",
+      "协作",
+      "多人",
+      "分支",
+      "合并",
+      "冲突",
+      "版本管理",
+      "merge",
+      "conflict"
+    ],
+    "workflow": "references/workflows/git-collaboration.md",
+    "template": "templates/handoff.md",
+    "source_ids": []
+  },
+  {
     "id": "architecture",
     "keywords": [
       "架构",

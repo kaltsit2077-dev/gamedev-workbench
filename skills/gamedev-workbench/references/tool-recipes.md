@@ -141,3 +141,20 @@ Unity/Unreal 采用同一入口各自指定 kind、编辑器与期望版本。�
 Godot 在副本跑菜单 headless；Unity/Unreal 沿用各自原创编辑器案例；Web 案例只在 Node 中验证状态事件/取消订阅与重置，不能充当浏览器 UI 验证；Blender 案例准备后台创建/变换/对象与 mesh 清理，尚无真实运行记录。没有新增 MCP 连接。
 
 官方参考：[Godot CLI](https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html)、[Unity CLI](https://docs.unity3d.com/Manual/EditorCommandLineArguments.html)、[Unreal Python](https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python)、[Node EventTarget](https://nodejs.org/api/events.html#class-eventtarget)、[Blender CLI](https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html)。文档来源不等于本机引擎成功运行。
+
+## Git 协作现场：只读
+
+需要 PATH 中的 Git；选择仓库根，不是子目录。从技能根执行：
+
+```text
+python scripts/workbench.py review-git "仓库根目录" --output "仓库外的新报告.json"
+python scripts/workbench.py review-git "仓库根目录" --base "本地基准引用" --max-paths 2000 --output "新的集成检查.json"
+```
+
+默认最多检查 2000 个变更路径（可设 1..10000），已识别文本类型每文件最多 1 MB；Git 命令超时 20 秒、输出上限 5 MB，跟踪路径上限 100000。超限/缺失基准/读不到 HEAD 或历史图保留不完整或错误，不假装通过。--base 比较该本地提交与当前工作树，省略时只看索引/工作树改动；从不联网更新引用。
+
+报告含 head、branch、upstream、local_divergence（仅本地引用）、operations、changes、unmerged_paths、findings、warnings 和 scan_complete。assessment 为 blocked-by-unmerged-index / requires-review / partial / no-listed-issues；最后一种只表示本工具列出的检查没发现问题。完整三段冲突标记只作 possible 提示，示例文本也可能触发。元数据提示只覆盖所观察到的移动/删除和跟踪路径，不是资源引用全扫描或语义冲突证明。
+
+禁用可选索引锁写入、fsmonitor、配置过滤器、外部 diff 和 textconv；不检查子模块内部，不运行 hook、不 fetch/暂存/合并/提交。过滤器禁用时，过滤资源的差异解释可能不同。路径按 UTF-8 解码（无效字节替代）；文件和 HEAD 在扫描中仍可能被其他进程改变，报告不是原子快照。将完整报告留在私有工程，公开证据只包含经核对的脱敏摘要。
+
+CLI 检出未解决索引返回 2；其他完整报告返回 0（包括 review/partial），参数/执行错误返回 2。返回 0 不等于可安全合并，应检查报告字段并遵守项目流程。
