@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "modules": [
+    {
+      "id": "domain",
+      "paths": [
+        "domain/"
+      ],
+      "allow": []
+    },
+    {
+      "id": "presentation",
+      "paths": [
+        "presentation/"
+      ],
+      "allow": [
+        "domain"
+      ]
+    },
+    {
+      "id": "probe",
+      "paths": [
+        "smoke.gd"
+      ],
+      "allow": [
+        "domain",
+        "presentation"
+      ]
+    }
+  ]
+}

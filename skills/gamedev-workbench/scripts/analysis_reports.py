@@ -13,6 +13,9 @@ def validate_snapshot(data):
         if not isinstance(data.get(key),dict): raise ValueError('Missing/invalid snapshot object: '+key)
     for key in ['references','state_write_clues','autoloads']:
         if not all(isinstance(row,dict) for row in data[key]): raise ValueError('Invalid row in '+key)
+    for key in ['class_definitions','class_references']:
+        if key in data and (not isinstance(data[key],list) or not all(isinstance(row,dict) for row in data[key])):
+            raise ValueError('Invalid optional class evidence: '+key)
     if not all(isinstance(k,str) and isinstance(v,str) for k,v in data['source_fingerprints'].items()):
         raise ValueError('Invalid source fingerprint map')
 
@@ -51,6 +54,9 @@ def render_analysis(report,max_rows=40):
         table('源 UID 线索',report['uid_references'],[('来源','source'),('UID','uid'),('状态','status'),('源候选','candidates'),('备用路径','fallback')])
     if report.get('uid_conflicts'):
         table('冲突 UID',report['uid_conflicts'],[('UID','uid'),('不同源路径','paths')])
+    class_unknowns=[r for r in report.get('class_references',[]) if r.get('status') in {'ambiguous','shadowed'}]
+    if class_unknowns:
+        table('命名基类待核对',class_unknowns,[('来源','source'),('类名','name'),('状态','status'),('候选','candidates')])
     table('资源引用',report['references'],[('来源','source'),('目标','target'),('类型','kind'),('路径状态','status')])
     table('状态写入线索',report['state_write_clues'],[('文件','file'),('方法','method'),('目标','target'),('操作','operator'),('绑定限制','binding')])
     lines.extend(['','## 循环线索',''])
@@ -74,6 +80,7 @@ def compare_analysis(before,after):
     auto_added,auto_removed=difference('autoloads',['name','path'])
     uid_added,uid_removed=difference('uid_references',['source','uid','status','candidates'])
     conflict_added,conflict_removed=difference('uid_conflicts',['uid','paths'])
+    classes_added,classes_removed=difference('class_references',['source','name','status','candidates'])
     def cycles(data):
         result=set()
         for cycle in data['cycles']:
@@ -92,6 +99,7 @@ def compare_analysis(before,after):
             'write_clues_added':writes_added,'write_clues_removed':writes_removed,
             'uid_clues_added':uid_added,'uid_clues_removed':uid_removed,
             'uid_conflicts_added':conflict_added,'uid_conflicts_removed':conflict_removed,
+            'class_clues_added':classes_added,'class_clues_removed':classes_removed,
             'cycles_added':[list(c)+[c[0]] for c in sorted(new_cycles-old_cycles)],
             'cycles_removed':[list(c)+[c[0]] for c in sorted(old_cycles-new_cycles)],
             'warnings_before':before['warnings'],'warnings_after':after['warnings'],

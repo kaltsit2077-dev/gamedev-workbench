@@ -24,7 +24,7 @@ python tools/gdw.py review-git "仓库根目录" --base "本地基准提交或�
 
 ## 先看已有真实证据
 
-发行页的 `gamedev-workbench-gallery-0.9.0-preview.html` 可直接下载后双击。也可从克隆生成：
+发行页的 `gamedev-workbench-gallery-0.10.0-preview.html` 可直接下载后双击。也可从克隆生成：
 
 ```text
 python tools/gdw.py validate
@@ -120,7 +120,7 @@ Unity / Unreal 的独立案例同样由 `verify-editor-case` 显式指定本地�
 
 选一个边界明确的真实任务，固定输入、验收、模型与环境；分别记录有无工具的产物、失败、共同验收后返工、墙钟和可追溯实际用量。`tools/repeated_eval.py` 可准备和验收已冻结的设置事务任务，`summarize-evals` 可汇总记录，但不会自动派发模型或取得账单。费用缺失保留 null；既有小样本没有证明技能提效。
 
-优先让一个真实项目接入只读分析和显式 UI 验证，再决定是否需要更多工具或编辑器 MCP。[已验证与未验证项](VALIDATION.md) · [下一步路线](ROADMAP.md)。
+当前证据与使用边界见 [实操案例](CASE-STUDIES.md) 和 [已验证与未验证项](VALIDATION.md)。
 
 
 ## 0.7：从创作工作区继续开发

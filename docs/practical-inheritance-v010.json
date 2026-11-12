@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-12",
+  "kind": "sanitized-existing-project-inheritance-check",
+  "scanned_files": 497,
+  "labeled_positive_edges": 33,
+  "before_matched": 0,
+  "after_matched": 33,
+  "source_fingerprints_unchanged": true,
+  "index_bytes_unchanged": true,
+  "scan_warning_count": 0,
+  "limits": [
+    "Author-made simple inheritance labels frozen before implementation; no independent human review.",
+    "Positive-edge subset only; not whole-project precision or semantic architecture accuracy.",
+    "Private paths, code, class names, commit IDs and full reports excluded.",
+    "This measures analyzer coverage, not AI speed, cost or production bug removal."
+  ]
+}

@@ -17,7 +17,7 @@ class ValueProtocolTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
             for path in [*data['source_sha256'], 'evals/tool-value/protocol.json']:
-                target = root/path; target.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(ROOT/path, target)
+                target = root/path; target.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(v.SNAPSHOT/path, target)
             target = root/'skills/gamedev-workbench/assets/godot-menu/menu.gd'
             target.write_text('# changed', encoding='utf-8')
             with self.assertRaisesRegex(ValueError, 'source changed'): v.frozen_protocol(root)

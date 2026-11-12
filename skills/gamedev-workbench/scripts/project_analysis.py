@@ -7,6 +7,7 @@ import re
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from gd_references import bindings,constant_value,calls
+from gd_classes import class_evidence,IDENTIFIER
 
 EXCLUDED = {'addons', 'tests', 'node_modules', 'vendor', 'build', 'dist'}
 EXTENSIONS = {'.gd', '.tscn', '.tres', '.gdshader'}
@@ -71,10 +72,12 @@ def analyze_project(project, include_tests=False, include_addons=False, max_file
             'declared_features':None,'actual_engine_version':'unverified','files':[], 'references':[],
             'dynamic_references':[], 'members':[], 'state_write_clues':[], 'cycles':[], 'warnings':[],
             'uid_metadata_files':[], 'uid_references':[], 'uid_conflicts':[],
-            'source_fingerprints':{},'scope':{'analysis_revision':2,'uid_metadata_limit':max_files,'excluded_directories':sorted(excluded),'hidden_and_symlinks':'excluded','max_files':max_files,'max_bytes_per_file':max_bytes},
+            'class_definitions':[], 'class_references':[],
+            'source_fingerprints':{},'scope':{'analysis_revision':3,'uid_metadata_limit':max_files,'excluded_directories':sorted(excluded),'hidden_and_symlinks':'excluded','max_files':max_files,'max_bytes_per_file':max_bytes},
             'limits':['No AST/type/scope resolution; bare member matches may be shadowed by locals.',
                       'Matching property names on different receivers do not prove shared state.',
                       'Source UID mappings and finite constant expressions are clues; engine cache, runtime paths, groups and signals remain incomplete.',
+                      'Named inheritance resolves simple root-level bases only against scanned class_name declarations; unindexed bases may be built-in, excluded or missing. Type annotations, calls and nested bases are not inferred.',
                       'No private file content or credentials are collected; output can still reveal project structure.']}
     config=root/'project.godot'
     if config.is_symlink() or config.stat().st_size>max_bytes: raise ValueError('project.godot is symlinked or exceeds the file limit')
@@ -135,6 +138,7 @@ def analyze_project(project, include_tests=False, include_addons=False, max_file
         if uid and re.fullmatch(r'uid://[a-z0-9]+',uid): uid_paths.setdefault(uid,set()).add(target)
         if path in metadata: report['uid_metadata_files'].append(name)
     report['uid_conflicts']=[{'uid':uid,'paths':sorted(targets)} for uid,targets in sorted(uid_paths.items()) if len(targets)>1]
+    report['class_definitions'],report['class_references']=class_evidence(texts,gd_lines)
     def uid_target(uid,source,number,fallback=None):
         candidates=sorted(uid_paths.get(uid,()))
         status='ambiguous' if len(candidates)>1 else ('source-resolved' if candidates else 'unknown')
@@ -157,6 +161,10 @@ def analyze_project(project, include_tests=False, include_addons=False, max_file
         item={'source':source,'line':number,'target':relative,'kind':kind,'status':status}
         if resolution: item.update(resolution=resolution,expression_value=original)
         report['references'].append(item)
+    for item in report['class_references']:
+        if item['status']=='source-resolved':
+            add_ref(item['source'],item['line'],'res://'+item['candidates'][0],'extends-class','source-class-index')
+            report['references'][-1]['class_name']=item['name']
     for path in paths:
         name=path.relative_to(root).as_posix()
         if name not in texts: continue
@@ -194,7 +202,7 @@ def analyze_project(project, include_tests=False, include_addons=False, max_file
                 if any(first<=start<last for kind,first,last,expression in resource_calls): continue
                 if not value.startswith(('res://','uid://')): continue
                 prefix=code[:start]
-                kind='extends' if prefix.strip()=='extends' else 'path-literal'
+                kind='extends' if re.fullmatch(r'(?:class_name\s+'+IDENTIFIER+r'\s+)?extends',prefix.strip()) else 'path-literal'
                 dynamic='%' in value or bool(re.match(r'\s*[+%]',code[end:]))
                 if dynamic:
                     report['dynamic_references'].append({'source':name,'line':number,'kind':kind,'reason':'formatted/concatenated path'})

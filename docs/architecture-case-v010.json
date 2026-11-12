@@ -1,0 +1,176 @@
+{
+  "kind": "original-architecture-repair-case",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "passed": true,
+  "records": [
+    {
+      "case": "before",
+      "matched_expected_result": true,
+      "original_source_bytes_unchanged": true,
+      "source_sha256": {
+        "project.godot": "c9c5b8e47bd5ef0b1e9b29b063b65686982f6868f7013610739218822c41c473",
+        "smoke.gd": "b77341267de92986d7966aa6b055701052d7218f35be17b965289ee28bf7de33",
+        "domain/run_state.gd": "302d70aea5b4862ad69a6f1ca99d70bda49608aaff92ba7597deb5ec7a72efb2",
+        "presentation/widget_state.gd": "5bdbe3cc4c24532f76a844739e7628c39ff597f7e664ab3d2f33b01ddc1c88de"
+      },
+      "compile_exit_code": 0,
+      "runtime_exit_code": 1,
+      "blocking_diagnostic_count": 0,
+      "environment_diagnostic_count": 2,
+      "boundary_report": {
+        "schema_version": 1,
+        "kind": "dependency-boundaries",
+        "status": "violations",
+        "passed": false,
+        "coverage": "observed-scope",
+        "checked_reference_count": 3,
+        "violations": [
+          {
+            "source": "domain/run_state.gd",
+            "target": "presentation/widget_state.gd",
+            "line": 2,
+            "status": "exists",
+            "kind": "extends-class",
+            "source_module": "domain",
+            "target_module": "presentation"
+          }
+        ],
+        "unknowns": [],
+        "snapshot_utc": "2026-11-12T12:39:46.369894+00:00",
+        "scan_scope": {
+          "analysis_revision": 3,
+          "uid_metadata_limit": 3000,
+          "excluded_directories": [
+            "addons",
+            "build",
+            "dist",
+            "node_modules",
+            "tests",
+            "vendor"
+          ],
+          "hidden_and_symlinks": "excluded",
+          "max_files": 3000,
+          "max_bytes_per_file": 2000000
+        },
+        "snapshot_sha256": "a8ed31a01507aea1850b0cdf2b199f2e7b72c2a88ed212ec6bf90771477e92a8",
+        "rules_sha256": "ecf87ec41be184da7cec3786478015e15d87b54c91129831eb74400580d0775a",
+        "limits": [
+          "Evaluates explicit observed Godot resource references in this saved snapshot only.",
+          "Entry/autoload registrations are outside the explicit reference rows evaluated here.",
+          "No proof of runtime calls, signal/DI dependencies, unique state writers or architectural quality.",
+          "Revision 2 snapshots do not include named inheritance. Revision 3 resolves indexed simple bases only; unindexed bases and nested/type/call expressions are outside that resolution.",
+          "Snapshot may be stale; no current source or engine is read. Re-analyze the intended tree before use.",
+          "Analyzer exclusions and bounds still apply; unobserved runtime dependencies remain unknown."
+        ]
+      },
+      "native": {
+        "checks": [
+          {
+            "name": "domain initial state",
+            "passed": true
+          },
+          {
+            "name": "view reads injected state",
+            "passed": true
+          },
+          {
+            "name": "view reflects current state",
+            "passed": true
+          },
+          {
+            "name": "domain exposes no view API",
+            "passed": false
+          }
+        ],
+        "engine_version": "4.7.2-stable (official)",
+        "passed": false
+      },
+      "baseline": {
+        "version": "0.9.0-preview",
+        "status": "no-observed-violations",
+        "violation_count": 0,
+        "analyzer_sha256": "7f2e3c07f6ad71afcd5a131673bde98c8bf457eebf7a2ebb8e0f51f79d65e5c5"
+      }
+    },
+    {
+      "case": "after",
+      "matched_expected_result": true,
+      "original_source_bytes_unchanged": true,
+      "source_sha256": {
+        "project.godot": "c9c5b8e47bd5ef0b1e9b29b063b65686982f6868f7013610739218822c41c473",
+        "smoke.gd": "b77341267de92986d7966aa6b055701052d7218f35be17b965289ee28bf7de33",
+        "domain/run_state.gd": "49089cd4eb352378046f532336ee38e1aae9687f958d0b2e92dcae918f770f8b",
+        "presentation/widget_state.gd": "5bdbe3cc4c24532f76a844739e7628c39ff597f7e664ab3d2f33b01ddc1c88de"
+      },
+      "compile_exit_code": 0,
+      "runtime_exit_code": 0,
+      "blocking_diagnostic_count": 0,
+      "environment_diagnostic_count": 2,
+      "boundary_report": {
+        "schema_version": 1,
+        "kind": "dependency-boundaries",
+        "status": "no-observed-violations",
+        "passed": true,
+        "coverage": "observed-scope",
+        "checked_reference_count": 2,
+        "violations": [],
+        "unknowns": [],
+        "snapshot_utc": "2026-11-12T12:39:50.440040+00:00",
+        "scan_scope": {
+          "analysis_revision": 3,
+          "uid_metadata_limit": 3000,
+          "excluded_directories": [
+            "addons",
+            "build",
+            "dist",
+            "node_modules",
+            "tests",
+            "vendor"
+          ],
+          "hidden_and_symlinks": "excluded",
+          "max_files": 3000,
+          "max_bytes_per_file": 2000000
+        },
+        "snapshot_sha256": "0b88288d752a8c101a083e0c42d6c5a90ef7d2b0dd073bee130688b30551efe3",
+        "rules_sha256": "ecf87ec41be184da7cec3786478015e15d87b54c91129831eb74400580d0775a",
+        "limits": [
+          "Evaluates explicit observed Godot resource references in this saved snapshot only.",
+          "Entry/autoload registrations are outside the explicit reference rows evaluated here.",
+          "No proof of runtime calls, signal/DI dependencies, unique state writers or architectural quality.",
+          "Revision 2 snapshots do not include named inheritance. Revision 3 resolves indexed simple bases only; unindexed bases and nested/type/call expressions are outside that resolution.",
+          "Snapshot may be stale; no current source or engine is read. Re-analyze the intended tree before use.",
+          "Analyzer exclusions and bounds still apply; unobserved runtime dependencies remain unknown."
+        ]
+      },
+      "native": {
+        "checks": [
+          {
+            "name": "domain initial state",
+            "passed": true
+          },
+          {
+            "name": "view reads injected state",
+            "passed": true
+          },
+          {
+            "name": "view reflects current state",
+            "passed": true
+          },
+          {
+            "name": "domain exposes no view API",
+            "passed": true
+          }
+        ],
+        "engine_version": "4.7.2-stable (official)",
+        "passed": true
+      },
+      "baseline": null
+    }
+  ],
+  "limits": [
+    "Original demonstration with a deliberately introduced dependency; not a production-game bug.",
+    "Same native acceptance before/after; no rendering, physical input, performance or model productivity test.",
+    "Working copies may acquire engine caches/UIDs; distributed originals are not modified.",
+    "Optional baseline executes the explicitly selected local 0.9 Python tool; no download or installation."
+  ]
+}

@@ -181,8 +181,16 @@ python scripts/workbench.py check-boundaries "新的分析.json" --rules "项目
 
 状态为 no-observed-violations / violations / partial。只有已观察范围无违规、且未留下本检查已知未知项时 CLI 返回 0；其余返回 2。coverage 独立保留不完整状态，有确定违规时不会被其他未知覆盖。报告给出来源/目标/模块、引用类型、快照时间、规范化 JSON 输入 hash 和扫描范围；行号只表示该快照位置。
 
-检查 load/preload/extends/ext-resource/uid-resolution 的已解析引用。普通路径字符串仅为 weak-reference，不直接判违规；动态/未知 UID、失效路径、未归属/未观察模块和扫描警告保留 partial。入口/autoload 注册、运行时调用、信号/注入依赖、状态写者以及完整语义图不在本检查范围。扫描器排除范围仍生效；旧快照符合规则不代表当前树符合。
+检查 load/preload/extends/extends-class/ext-resource/uid-resolution 的已解析引用。普通路径字符串仅为 weak-reference，不直接判违规；动态/未知 UID、失效路径、未归属/未观察模块和扫描警告保留 partial。入口/autoload 注册、运行时调用、信号/注入依赖、状态写者以及完整语义图不在本检查范围。扫描器排除范围仍生效；旧快照符合规则不代表当前树符合。
 
 分析 JSON 上限 20 MB、规则 2 MB；最多 30000 个扫描文件、100000 条资源引用，各不确定性列表最多 100000 项。JSON 指纹采用排序键/紧凑 UTF-8 序列化；不是 Git 提交或当前文件新鲜度证明。输出拒绝覆盖。
 
 包内 assets/dependency-rules.json 对应既有 assets/godot-demo。完整项目可用 `python tools/evaluate_boundaries.py --output 新记录.json` 复现五个有限回归：原案例、反向引用、动态加载、普通字符串、未知 UID。它不运行引擎或模型，不证明全工程准确率或技能提效。
+
+## 命名继承与原生架构案例
+
+analyze-project 的 analysis_revision=3 增加 class_definitions / class_references。支持根级 `class_name Name`、`extends Name` 和单行 `class_name Child extends Name`；唯一来源形成 extends-class 边，进入阅读稿、快照对比与 check-boundaries。重复声明/局部名字遮蔽保留待核对。只索引本次纳入的 .gd；注释、字符串、内层 class 不作全局声明。未索引基类可能是引擎类型、被排除依赖或缺失源码，不猜它是哪一种；类型标注、调用和嵌套基类不在该解析范围。
+
+旧 revision=2 快照可继续读取，但没有这项继承证据；不同扫描 revision 的前后比较不直接判结构改善。请对目标树新建快照。
+
+技能包的 assets/architecture-case 含相同原生验收的 before/after。完整项目中 `tools/run_architecture_case.py --engine 编辑器 --scratch 全新副本目录 --output-dir 全新证据目录` 可在副本重现；官方 Godot 4.7.2，目录需引擎可写且不在技能源码中。修复前应编译通过但一项契约检查失败，修后四项通过。该命令只在完整项目包提供，不修改用户游戏。

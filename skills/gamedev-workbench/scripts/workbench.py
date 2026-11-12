@@ -103,11 +103,11 @@ def verify_godot(engine, expected='4.7.2', scratch=None):
 def validate(root=ROOT):
     errors = []
     try:
-        for name in ['SKILL.md','LICENSE','catalog/modes.json','assets/godot-demo/smoke.gd','assets/godot-demo/quality.gd','assets/godot-demo/validation_probe.gd','scripts/project_analysis.py','scripts/quality_checks.py','scripts/analysis_reports.py']:
+        for name in ['SKILL.md','LICENSE','.gdignore','catalog/modes.json','assets/godot-demo/smoke.gd','assets/godot-demo/quality.gd','assets/godot-demo/validation_probe.gd','scripts/project_analysis.py','scripts/quality_checks.py','scripts/analysis_reports.py']:
             if not (root/name).is_file(): errors.append('missing package file: '+name)
-        for name in ['gd_references.py','manual_input.py','editor_cases.py','narrative_checks.py','economy_simulation.py','asset_preflight.py','evaluation_ledger.py','evidence_gallery.py','workspace_io.py','creative_workspace.py','engine_adapters.py','project_runner.py','workspace_view.py','git_review.py','dependency_boundaries.py']:
+        for name in ['gd_references.py','gd_classes.py','manual_input.py','editor_cases.py','narrative_checks.py','economy_simulation.py','asset_preflight.py','evaluation_ledger.py','evidence_gallery.py','workspace_io.py','creative_workspace.py','engine_adapters.py','project_runner.py','workspace_view.py','git_review.py','dependency_boundaries.py']:
             if not (root/'scripts'/name).is_file(): errors.append('missing package script: '+name)
-        for name in ['godot-menu/quality.gd','godot-menu/manual.gd','design/narrative.json','design/economy.json','dependency-rules.json','unity-smoke/Assets/Editor/WorkbenchSmoke.cs','unreal-smoke/WorkbenchSmoke.uproject']:
+        for name in ['godot-menu/quality.gd','godot-menu/manual.gd','design/narrative.json','design/economy.json','dependency-rules.json','architecture-case/before/smoke.gd','architecture-case/after/smoke.gd','architecture-case/rules.json','unity-smoke/Assets/Editor/WorkbenchSmoke.cs','unreal-smoke/WorkbenchSmoke.uproject']:
             if not (root/'assets'/name).is_file(): errors.append('missing package case: '+name)
         records = catalog(root)
         schema = json.loads((root/'catalog/schema.json').read_text(encoding='utf-8'))['items']

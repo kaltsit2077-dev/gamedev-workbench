@@ -4,7 +4,7 @@ import json
 import re
 from analysis_reports import validate_snapshot
 
-STRONG_KINDS = {'load', 'preload', 'extends', 'ext-resource', 'uid-resolution'}
+STRONG_KINDS = {'load', 'preload', 'extends', 'extends-class', 'ext-resource', 'uid-resolution'}
 
 
 def relative_path(value, directory=False):
@@ -48,7 +48,7 @@ def check_boundaries(snapshot, rules):
     if type(snapshot['format_version']) is not int: raise ValueError('Invalid snapshot version')
     selectors, allowed = validate_rules(rules)
     for key, limit in [('files', 30000), ('references', 100000), ('warnings', 100000),
-                       ('dynamic_references', 100000), ('uid_references', 100000), ('uid_conflicts', 100000)]:
+                       ('dynamic_references', 100000), ('uid_references', 100000), ('uid_conflicts', 100000), ('class_references', 100000)]:
         if not isinstance(snapshot.get(key, []), list) or len(snapshot.get(key, [])) > limit: raise ValueError('Invalid or excessive snapshot list: '+key)
     for path in snapshot['files']: relative_path(path)
     if len(set(snapshot['files'])) != len(snapshot['files']): raise ValueError('Duplicate snapshot file')
@@ -60,8 +60,10 @@ def check_boundaries(snapshot, rules):
         return owners[path]
     def clue(row):
         return {key: row[key] for key in ['source', 'target', 'line', 'status'] if key in row}
-    if snapshot['scope'].get('analysis_revision') != 2:
-        unknowns.append({'kind': 'snapshot-coverage', 'detail': 'Expected analysis_revision=2 coverage metadata'})
+    if snapshot['scope'].get('analysis_revision') not in {2,3}:
+        unknowns.append({'kind': 'snapshot-coverage', 'detail': 'Expected analysis_revision=2 or 3 coverage metadata'})
+    if snapshot['scope'].get('analysis_revision') == 3 and 'class_references' not in snapshot:
+        unknowns.append({'kind': 'snapshot-coverage', 'detail': 'Missing class_references'})
     for key in ['dynamic_references', 'uid_references', 'uid_conflicts']:
         if key not in snapshot: unknowns.append({'kind': 'snapshot-coverage', 'detail': 'Missing '+key})
     if snapshot['warnings']: unknowns.append({'kind': 'scan-warnings', 'count': len(snapshot['warnings'])})
@@ -96,6 +98,10 @@ def check_boundaries(snapshot, rules):
         if row.get('status') != 'source-resolved' or row.get('path_disagrees'):
             unknowns.append({'kind': 'uid-reference', **clue(row)})
     if snapshot.get('uid_conflicts'): unknowns.append({'kind': 'uid-conflicts', 'count': len(snapshot['uid_conflicts'])})
+    for row in snapshot.get('class_references', []):
+        if not isinstance(row,dict): raise ValueError('Invalid class reference')
+        if row.get('status') in {'ambiguous','shadowed'}:
+            unknowns.append({'kind':'class-reference',**clue(row)})
     for name in sorted(allowed.keys()-observed): unknowns.append({'kind': 'unobserved-module', 'module': name})
     def fingerprint(value):
         return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False).encode('utf-8')).hexdigest()
@@ -108,5 +114,6 @@ def check_boundaries(snapshot, rules):
             'limits': ['Evaluates explicit observed Godot resource references in this saved snapshot only.',
                        'Entry/autoload registrations are outside the explicit reference rows evaluated here.',
                        'No proof of runtime calls, signal/DI dependencies, unique state writers or architectural quality.',
+                       'Revision 2 snapshots do not include named inheritance. Revision 3 resolves indexed simple bases only; unindexed bases and nested/type/call expressions are outside that resolution.',
                        'Snapshot may be stale; no current source or engine is read. Re-analyze the intended tree before use.',
                        'Analyzer exclusions and bounds still apply; unobserved runtime dependencies remain unknown.']}
