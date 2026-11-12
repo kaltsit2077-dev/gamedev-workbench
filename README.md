@@ -4,11 +4,24 @@
 
 **可安装技能 + Python 离线工具 + 原创引擎案例 + 有来源的知识库。** Python 工具只用标准库，无 API key；运行引擎案例才需要相应编辑器。
 
-[快速上手](docs/QUICKSTART.md) · [下载 0.8 预览版](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.8.0-preview) · [能力与边界](docs/CAPABILITIES.md) · [路线](docs/ROADMAP.md) · [English](README.en.md)
+[快速上手](docs/QUICKSTART.md) · [下载 0.9 预览版](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.9.0-preview) · [能力与边界](docs/CAPABILITIES.md) · [路线](docs/ROADMAP.md) · [English](README.en.md)
 
 [![Toolbox checks](https://github.com/kaltsit2077-dev/gamedev-workbench/actions/workflows/ci.yml/badge.svg)](https://github.com/kaltsit2077-dev/gamedev-workbench/actions/workflows/ci.yml)
 
-## 0.8：补齐工程开发流程
+## 0.9：参考上游，并落实为可检查的改进
+
+查阅 Spec Kit、Superpowers、GSD Core、Godogen、Unciv 等项目的固定版本，补充独立验收、故障取证、存档恢复和旧异步结果取消。记录维护迁移、许可与取舍，未安装上游工具。[10 个项目的研究与落地](docs/UPSTREAM-REVIEW.md)。
+
+新增 `check-boundaries`：按项目自己声明的模块方向复查 Godot 分析快照，列出反向引用；动态加载、普通字符串、未知 UID 或未覆盖文件保留 partial。五个有限工具回归符合预期，**不代表完整架构正确或已证明 AI 提效**。[原始记录](docs/boundaries-v09.json)。
+
+```text
+python tools/gdw.py analyze-project "你的Godot项目" --output current-analysis.json
+python tools/gdw.py check-boundaries current-analysis.json --rules "项目模块规则.json" --output boundaries.json
+```
+
+规则写法见 [工具配方](skills/gamedev-workbench/references/tool-recipes.md)，随包的 `assets/dependency-rules.json` 对应原创 demo，不能直接当作用户工程规则。
+
+## 工程开发流程
 
 - 项目规划、Bug 修复、Git 协作三项独立流程，按改动影响决定记录深度；沿用已有项目规范。
 - `review-git` 只读检查本地分支/变更/未解决索引、完整冲突标记、大小写及 UID/.meta 线索；不 fetch、合并或修改仓库。
@@ -28,7 +41,7 @@ $gamedev-workbench 检查当前分支的集成风险，保留双方功能解决�
 | 项目规划与交接 | 按变化影响拆分可运行步骤，沿用决策/任务/责任记录，恢复时核对真实工作树 | planning 模式、handoff 模板 |
 | 多人 Git 协作 | 本地分支/改动/冲突/UID/.meta 线索；语义合并与集成后回归方法 | collaboration 模式、`review-git` |
 | Bug 修复 | 复现与根因证据、失败回归、最小修复和相关消费者检查 | bugfix 模式、bugfix 模板 |
-| 整体代码架构 | 读项目约束、梳理状态归属、接口与迁移；Godot 只读扫描入口/autoload/引用/UID/循环/赋值线索 | 架构评审技能；`analyze-project`、`report-analysis`、`compare-analysis` |
+| 整体代码架构 | 读项目约束、梳理状态归属、接口与迁移；Godot 只读扫描入口/autoload/引用/UID/循环/赋值线索 | 架构评审技能；`analyze-project`、`report-analysis`、`compare-analysis`、`check-boundaries` |
 | 菜单、HUD、效果 | 原生布局、主题、状态栈、键鼠/手柄焦点与事件驱动绑定；Shader/VFX 单时钟、复用与清理方法 | UI/效果技能；原创 Godot 案例、`check-ui-effects`、`gallery` |
 | 功能实现与回归 | 从项目契约到代码、资源、场景接入，区分解析/行为/画面/输入等证据 | feature / validation 模式、模板、验证助手 |
 | 剧情与分支 | 布尔状态图的断链、软锁和无法到达结局的状态检查 | `check-narrative`；不评判故事质量 |
@@ -88,7 +101,7 @@ python tools/gdw.py workspace-page workspaces/my-game --output workspaces/my-gam
 
 </details>
 
-**0.6 新增：离线画面证据浏览器。** 下载发行页的 `gamedev-workbench-gallery-0.8.0-preview.html`，双击即可按视口筛选、两侧独立逐帧对照、查看失败项与下载原报告。它包含上述 0.5 案例的 40 张原始 PNG；不运行引擎、不联网，也不把旧记录算作新的测试。
+**0.6 新增：离线画面证据浏览器。** 下载发行页的 `gamedev-workbench-gallery-0.9.0-preview.html`，双击即可按视口筛选、两侧独立逐帧对照、查看失败项与下载原报告。它包含上述 0.5 案例的 40 张原始 PNG；不运行引擎、不联网，也不把旧记录算作新的测试。
 
 <details>
 <summary>查看新浏览器的实际页面</summary>

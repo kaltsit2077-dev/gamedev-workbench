@@ -24,7 +24,7 @@ python tools/gdw.py review-git "仓库根目录" --base "本地基准提交或�
 
 ## 先看已有真实证据
 
-发行页的 `gamedev-workbench-gallery-0.8.0-preview.html` 可直接下载后双击。也可从克隆生成：
+发行页的 `gamedev-workbench-gallery-0.9.0-preview.html` 可直接下载后双击。也可从克隆生成：
 
 ```text
 python tools/gdw.py validate
@@ -65,6 +65,14 @@ python tools/gdw.py report-analysis before.json --output before.md
 ```
 
 先阅读报告的范围、warnings、动态引用与未知 UID，再核对关心的源码。分析器不启动引擎，不写源码或 .godot 缓存；默认排除隐藏目录、插件和测试。它是有界文本扫描，不是 AST、完整语义依赖图或状态单写者证明。
+
+已有模块方向约定时，按 [规则配方](../skills/gamedev-workbench/references/tool-recipes.md) 映射本项目路径，再运行：
+
+```text
+python tools/gdw.py check-boundaries before.json --rules "本项目模块规则.json" --output boundary-check.json
+```
+
+工具复查保存快照的显式引用，不重读当前项目。partial 表示动态、UID、字符串或未覆盖路径仍需核对；旧快照通过不等于当前工程通过。包内规则只适用于包内 demo。
 
 完成项目授权的修改和相关回归后，再取快照：
 

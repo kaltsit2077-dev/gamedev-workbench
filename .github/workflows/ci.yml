@@ -28,6 +28,7 @@ jobs:
       - run: python tools/gdw.py validate
       - run: python tools/readme_visuals.py --check
       - run: python -m unittest discover -s tests -v
+      - run: python tools/evaluate_boundaries.py --output boundaries-ci.json
       - run: python tools/evaluate_analysis.py --output analysis-ci.json
       - run: python tools/evaluate_external_analysis.py --output external-analysis-ci.json
       - run: python tools/repeated_eval.py grade --artifacts evals/transactions/outputs --metadata evals/transactions/run-metadata.json --output .cache/evaluation-ci

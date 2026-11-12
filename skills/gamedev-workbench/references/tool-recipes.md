@@ -158,3 +158,31 @@ python scripts/workbench.py review-git "仓库根目录" --base "本地基准引
 禁用可选索引锁写入、fsmonitor、配置过滤器、外部 diff 和 textconv；不检查子模块内部，不运行 hook、不 fetch/暂存/合并/提交。过滤器禁用时，过滤资源的差异解释可能不同。路径按 UTF-8 解码（无效字节替代）；文件和 HEAD 在扫描中仍可能被其他进程改变，报告不是原子快照。将完整报告留在私有工程，公开证据只包含经核对的脱敏摘要。
 
 CLI 检出未解决索引返回 2；其他完整报告返回 0（包括 review/partial），参数/执行错误返回 2。返回 0 不等于可安全合并，应检查报告字段并遵守项目流程。
+
+## 模块依赖边界：check-boundaries
+
+项目已明确模块归属与方向后，把相关决策对应为规则。已有规则能复用就沿用，不额外复制架构说明。先对准备检查的实际树重新扫描，再检查该快照：
+
+```text
+python scripts/workbench.py analyze-project "Godot项目" --output "新的分析.json"
+python scripts/workbench.py check-boundaries "新的分析.json" --rules "项目模块规则.json" --output "新的边界报告.json"
+```
+
+规则例（路径相对于被分析的游戏根，而非规则文件；按真实项目调整）：
+
+```json
+{"schema_version":1,"modules":[
+  {"id":"ui","paths":["scripts/ui/","scenes/ui/"],"allow":["state"]},
+  {"id":"state","paths":["scripts/state/"],"allow":[]}
+]}
+```
+
+同模块引用隐式允许；跨模块只允许 allow 列出的 ID。paths 是大小写敏感的精确文件或以 / 结尾的目录，不展开 glob；禁止绝对路径、反斜杠、父级穿越、空段/点段、重叠选择器与未知 ID。最多 64 模块 / 512 选择器。工具只读 JSON，不读当前源码、不执行引擎或联网。
+
+状态为 no-observed-violations / violations / partial。只有已观察范围无违规、且未留下本检查已知未知项时 CLI 返回 0；其余返回 2。coverage 独立保留不完整状态，有确定违规时不会被其他未知覆盖。报告给出来源/目标/模块、引用类型、快照时间、规范化 JSON 输入 hash 和扫描范围；行号只表示该快照位置。
+
+检查 load/preload/extends/ext-resource/uid-resolution 的已解析引用。普通路径字符串仅为 weak-reference，不直接判违规；动态/未知 UID、失效路径、未归属/未观察模块和扫描警告保留 partial。入口/autoload 注册、运行时调用、信号/注入依赖、状态写者以及完整语义图不在本检查范围。扫描器排除范围仍生效；旧快照符合规则不代表当前树符合。
+
+分析 JSON 上限 20 MB、规则 2 MB；最多 30000 个扫描文件、100000 条资源引用，各不确定性列表最多 100000 项。JSON 指纹采用排序键/紧凑 UTF-8 序列化；不是 Git 提交或当前文件新鲜度证明。输出拒绝覆盖。
+
+包内 assets/dependency-rules.json 对应既有 assets/godot-demo。完整项目可用 `python tools/evaluate_boundaries.py --output 新记录.json` 复现五个有限回归：原案例、反向引用、动态加载、普通字符串、未知 UID。它不运行引擎或模型，不证明全工程准确率或技能提效。

@@ -1,0 +1,251 @@
+{
+  "kind": "authored-tool-regression",
+  "passed": true,
+  "records": [
+    {
+      "case": "existing-sample",
+      "expected_status": "no-observed-violations",
+      "expected_violations": 0,
+      "matched": true,
+      "source_files_unchanged": true,
+      "report": {
+        "schema_version": 1,
+        "kind": "dependency-boundaries",
+        "status": "no-observed-violations",
+        "passed": true,
+        "coverage": "observed-scope",
+        "checked_reference_count": 9,
+        "violations": [],
+        "unknowns": [],
+        "snapshot_utc": "2026-11-12T11:58:11.848688+00:00",
+        "scan_scope": {
+          "analysis_revision": 2,
+          "uid_metadata_limit": 3000,
+          "excluded_directories": [
+            "addons",
+            "build",
+            "dist",
+            "node_modules",
+            "tests",
+            "vendor"
+          ],
+          "hidden_and_symlinks": "excluded",
+          "max_files": 3000,
+          "max_bytes_per_file": 2000000
+        },
+        "snapshot_sha256": "123bf36b1f58f545e6528aeb5dc72b42884e3286251052041e69ebc7120656f3",
+        "rules_sha256": "3eed337d4c80e58321ed910f6dde58eded92220cba8a107e8d7dd6e0ebfe0a07",
+        "limits": [
+          "Evaluates explicit observed Godot resource references in this saved snapshot only.",
+          "Entry/autoload registrations are outside the explicit reference rows evaluated here.",
+          "No proof of runtime calls, signal/DI dependencies, unique state writers or architectural quality.",
+          "Snapshot may be stale; no current source or engine is read. Re-analyze the intended tree before use.",
+          "Analyzer exclusions and bounds still apply; unobserved runtime dependencies remain unknown."
+        ]
+      }
+    },
+    {
+      "case": "reverse-state-dependency",
+      "expected_status": "violations",
+      "expected_violations": 1,
+      "matched": true,
+      "source_files_unchanged": true,
+      "report": {
+        "schema_version": 1,
+        "kind": "dependency-boundaries",
+        "status": "violations",
+        "passed": false,
+        "coverage": "observed-scope",
+        "checked_reference_count": 10,
+        "violations": [
+          {
+            "source": "state.gd",
+            "target": "demo.gd",
+            "line": 14,
+            "status": "exists",
+            "kind": "preload",
+            "source_module": "state",
+            "target_module": "presentation"
+          }
+        ],
+        "unknowns": [],
+        "snapshot_utc": "2026-11-12T11:58:11.874860+00:00",
+        "scan_scope": {
+          "analysis_revision": 2,
+          "uid_metadata_limit": 3000,
+          "excluded_directories": [
+            "addons",
+            "build",
+            "dist",
+            "node_modules",
+            "tests",
+            "vendor"
+          ],
+          "hidden_and_symlinks": "excluded",
+          "max_files": 3000,
+          "max_bytes_per_file": 2000000
+        },
+        "snapshot_sha256": "08b1c1f83acdfc04af3e63d345f34a4a8375a770afae63354e88c5d90f1a23a1",
+        "rules_sha256": "3eed337d4c80e58321ed910f6dde58eded92220cba8a107e8d7dd6e0ebfe0a07",
+        "limits": [
+          "Evaluates explicit observed Godot resource references in this saved snapshot only.",
+          "Entry/autoload registrations are outside the explicit reference rows evaluated here.",
+          "No proof of runtime calls, signal/DI dependencies, unique state writers or architectural quality.",
+          "Snapshot may be stale; no current source or engine is read. Re-analyze the intended tree before use.",
+          "Analyzer exclusions and bounds still apply; unobserved runtime dependencies remain unknown."
+        ]
+      }
+    },
+    {
+      "case": "runtime-load",
+      "expected_status": "partial",
+      "expected_violations": 0,
+      "matched": true,
+      "source_files_unchanged": true,
+      "report": {
+        "schema_version": 1,
+        "kind": "dependency-boundaries",
+        "status": "partial",
+        "passed": false,
+        "coverage": "partial",
+        "checked_reference_count": 9,
+        "violations": [],
+        "unknowns": [
+          {
+            "kind": "dynamic-reference",
+            "source": "state.gd",
+            "line": 15
+          }
+        ],
+        "snapshot_utc": "2026-11-12T11:58:11.902553+00:00",
+        "scan_scope": {
+          "analysis_revision": 2,
+          "uid_metadata_limit": 3000,
+          "excluded_directories": [
+            "addons",
+            "build",
+            "dist",
+            "node_modules",
+            "tests",
+            "vendor"
+          ],
+          "hidden_and_symlinks": "excluded",
+          "max_files": 3000,
+          "max_bytes_per_file": 2000000
+        },
+        "snapshot_sha256": "5192a6708882d20136cb16a5df83bdb74016d2ae4f01e7eada2195c2e68908bb",
+        "rules_sha256": "3eed337d4c80e58321ed910f6dde58eded92220cba8a107e8d7dd6e0ebfe0a07",
+        "limits": [
+          "Evaluates explicit observed Godot resource references in this saved snapshot only.",
+          "Entry/autoload registrations are outside the explicit reference rows evaluated here.",
+          "No proof of runtime calls, signal/DI dependencies, unique state writers or architectural quality.",
+          "Snapshot may be stale; no current source or engine is read. Re-analyze the intended tree before use.",
+          "Analyzer exclusions and bounds still apply; unobserved runtime dependencies remain unknown."
+        ]
+      }
+    },
+    {
+      "case": "literal-only",
+      "expected_status": "partial",
+      "expected_violations": 0,
+      "matched": true,
+      "source_files_unchanged": true,
+      "report": {
+        "schema_version": 1,
+        "kind": "dependency-boundaries",
+        "status": "partial",
+        "passed": false,
+        "coverage": "partial",
+        "checked_reference_count": 9,
+        "violations": [],
+        "unknowns": [
+          {
+            "kind": "weak-reference",
+            "source": "state.gd",
+            "target": "demo.gd",
+            "line": 14,
+            "status": "exists"
+          }
+        ],
+        "snapshot_utc": "2026-11-12T11:58:11.928806+00:00",
+        "scan_scope": {
+          "analysis_revision": 2,
+          "uid_metadata_limit": 3000,
+          "excluded_directories": [
+            "addons",
+            "build",
+            "dist",
+            "node_modules",
+            "tests",
+            "vendor"
+          ],
+          "hidden_and_symlinks": "excluded",
+          "max_files": 3000,
+          "max_bytes_per_file": 2000000
+        },
+        "snapshot_sha256": "045a67f03677d423cd823667b9bb38e887ca2e6d0d1d49819a387f21dab862cc",
+        "rules_sha256": "3eed337d4c80e58321ed910f6dde58eded92220cba8a107e8d7dd6e0ebfe0a07",
+        "limits": [
+          "Evaluates explicit observed Godot resource references in this saved snapshot only.",
+          "Entry/autoload registrations are outside the explicit reference rows evaluated here.",
+          "No proof of runtime calls, signal/DI dependencies, unique state writers or architectural quality.",
+          "Snapshot may be stale; no current source or engine is read. Re-analyze the intended tree before use.",
+          "Analyzer exclusions and bounds still apply; unobserved runtime dependencies remain unknown."
+        ]
+      }
+    },
+    {
+      "case": "unknown-uid",
+      "expected_status": "partial",
+      "expected_violations": 0,
+      "matched": true,
+      "source_files_unchanged": true,
+      "report": {
+        "schema_version": 1,
+        "kind": "dependency-boundaries",
+        "status": "partial",
+        "passed": false,
+        "coverage": "partial",
+        "checked_reference_count": 9,
+        "violations": [],
+        "unknowns": [
+          {
+            "kind": "uid-reference",
+            "source": "state.gd",
+            "line": 14,
+            "status": "unknown"
+          }
+        ],
+        "snapshot_utc": "2026-11-12T11:58:11.955536+00:00",
+        "scan_scope": {
+          "analysis_revision": 2,
+          "uid_metadata_limit": 3000,
+          "excluded_directories": [
+            "addons",
+            "build",
+            "dist",
+            "node_modules",
+            "tests",
+            "vendor"
+          ],
+          "hidden_and_symlinks": "excluded",
+          "max_files": 3000,
+          "max_bytes_per_file": 2000000
+        },
+        "snapshot_sha256": "64ead84fb1d2449e9710512f1acdb319e097fcf8dcdb44bf0e445c9ce05991fd",
+        "rules_sha256": "3eed337d4c80e58321ed910f6dde58eded92220cba8a107e8d7dd6e0ebfe0a07",
+        "limits": [
+          "Evaluates explicit observed Godot resource references in this saved snapshot only.",
+          "Entry/autoload registrations are outside the explicit reference rows evaluated here.",
+          "No proof of runtime calls, signal/DI dependencies, unique state writers or architectural quality.",
+          "Snapshot may be stale; no current source or engine is read. Re-analyze the intended tree before use.",
+          "Analyzer exclusions and bounds still apply; unobserved runtime dependencies remain unknown."
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Existing original Godot sample with authored mutations; regression, not held-out accuracy.",
+    "No engine, model comparison, productivity, fees or production-game claim."
+  ]
+}

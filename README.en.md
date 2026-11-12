@@ -4,7 +4,7 @@ A practical skill for AI-assisted small and medium game development: project/cod
 
 An installable skill, offline Python toolbox and learning guide for independent developers and small game teams. Priorities: code architecture, native UI, gameplay features and effects, with design, narrative, art and resource-discovery workflows.
 
-[中文与实际截图](README.md) · [Quickstart (Chinese)](docs/QUICKSTART.md) · [0.8 preview](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.8.0-preview) · [Support boundaries](docs/CAPABILITIES.md)
+[中文与实际截图](README.md) · [Quickstart (Chinese)](docs/QUICKSTART.md) · [0.9 preview](https://github.com/kaltsit2077-dev/gamedev-workbench/releases/tag/v0.9.0-preview) · [Support boundaries](docs/CAPABILITIES.md)
 
 ![Recorded tool changes, not a productivity claim](docs/media/evidence-changes.svg)
 
@@ -15,6 +15,10 @@ The original Godot menu fixture records 121 checks and 40 native PNG captures ov
 ![Paired pilots show no demonstrated speed gain](docs/media/paired-pilot.svg)
 
 Two settings-repair pairs passed the same 10 checks in all four arms, with zero post-grading rework. The with-skill arms (version 0.4) had a median paired wall-time difference of +23.6 seconds. Model configuration was inherited equally; exact backend ID and actual token/billing data were unavailable. Concurrent host load confounds time. **No productivity or cost improvement established; new 0.5/0.6 tools were not the treatment.** [Protocol and evidence](docs/PAIRED-EVALUATION.md).
+
+## Upstream review and dependency checks in 0.9
+
+Selected pinned primary files from ten projects informed focused planning/debugging/save-recovery/cancellation guidance. Maintenance moves and licenses are recorded; no upstream package was installed or code copied. New `check-boundaries` checks explicit observed Godot resource references against project-selected module rules, preserving dynamic/weak/unowned evidence as partial. Five authored tool cases match expectations; this is not whole-project semantic accuracy or a new productivity trial. [Research and adoption decisions](docs/UPSTREAM-REVIEW.md).
 
 ## Engineering workflows in 0.8
 

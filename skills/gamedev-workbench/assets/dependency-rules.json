@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "modules": [
+    {
+      "id": "presentation",
+      "paths": [
+        "demo.gd",
+        "demo.tscn"
+      ],
+      "allow": [
+        "state",
+        "effects"
+      ]
+    },
+    {
+      "id": "state",
+      "paths": [
+        "state.gd"
+      ],
+      "allow": []
+    },
+    {
+      "id": "effects",
+      "paths": [
+        "pulse.gd"
+      ],
+      "allow": []
+    },
+    {
+      "id": "probes",
+      "paths": [
+        "capture.gd",
+        "quality.gd",
+        "smoke.gd",
+        "validation_probe.gd"
+      ],
+      "allow": [
+        "presentation",
+        "state",
+        "effects"
+      ]
+    }
+  ]
+}

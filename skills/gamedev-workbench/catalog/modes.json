@@ -13,7 +13,10 @@
     ],
     "workflow": "references/workflows/project-planning.md",
     "template": "templates/handoff.md",
-    "source_ids": []
+    "source_ids": [
+      "S10",
+      "S12"
+    ]
   },
   {
     "id": "bugfix",
@@ -27,7 +30,10 @@
     ],
     "workflow": "references/workflows/bug-fixing.md",
     "template": "templates/bugfix.md",
-    "source_ids": []
+    "source_ids": [
+      "S11",
+      "T12"
+    ]
   },
   {
     "id": "collaboration",
@@ -44,7 +50,9 @@
     ],
     "workflow": "references/workflows/git-collaboration.md",
     "template": "templates/handoff.md",
-    "source_ids": []
+    "source_ids": [
+      "K17"
+    ]
   },
   {
     "id": "architecture",
@@ -54,14 +62,20 @@
       "模块",
       "architecture",
       "ownership",
-      "ecs"
+      "ecs",
+      "模块边界",
+      "依赖方向",
+      "boundary",
+      "boundaries"
     ],
     "workflow": "references/workflows/architecture-review.md",
     "template": "templates/architecture.md",
     "source_ids": [
       "E01",
       "K11",
-      "S04"
+      "S04",
+      "K16",
+      "K18"
     ]
   },
   {
@@ -103,7 +117,8 @@
       "E07",
       "E08",
       "A04",
-      "A05"
+      "A05",
+      "T11"
     ]
   },
   {
@@ -118,7 +133,8 @@
     "template": "templates/delivery.md",
     "source_ids": [
       "S03",
-      "E01"
+      "E01",
+      "S10"
     ]
   },
   {
@@ -138,7 +154,9 @@
       "E02",
       "E05",
       "A05",
-      "A06"
+      "A06",
+      "T12",
+      "S13"
     ]
   },
   {

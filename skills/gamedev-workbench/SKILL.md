@@ -44,10 +44,11 @@ license: Apache-2.0
 从技能根执行 `python scripts/workbench.py --help`。按需选择，不为用工具而增加步骤：
 
 - `brief` 整理当前任务入口；`analyze-project` / `report-analysis` / `compare-analysis` 提供有范围与未知项的 Godot 文本线索。
+- `check-boundaries` 按项目声明的模块规则复查 Godot 快照中的显式引用；不完整/动态线索保留 partial，不证明整个架构正确。
 - `review-git` 读取本地 Git 状态、冲突与变更关联线索，不 fetch 或修改仓库。
 - `project-tests` 默认预览项目声明的命令，显式 --execute 才运行；遵守项目副作用、并发编辑器及缓存约定。它不会自动隔离项目。
 - `check-ui-effects` / `run-adapter-case` 运行包内原创案例，不自动验收用户游戏；`gallery` 只是查看已有画面。
 - `check-narrative` / `simulate-economy` / `audit-assets` 覆盖其有限输入模型，不证明写作、平衡或实际导入质量。
 - `create-workspace` / `check-workspace` / `workspace-page` 是可选草案组织工具，不强制用于已有工程，也不表示游戏已实现。
 
-详细命令与输入边界见 [工具配方](references/tool-recipes.md)。模板只在项目缺少合适载体且任务确需记录时取用。来源目录是元数据快照，第三方技能/MCP 的存在与其已验证状态分开；不自动安装。输出默认拒绝覆盖。
+详细命令与输入边界见 [工具配方](references/tool-recipes.md)。模板只在项目缺少合适载体且任务确需记录时取用。研究与选择上游做法见 [采纳与取舍](references/upstream-patterns.md)。来源目录是元数据快照，第三方技能/MCP 的存在与其已验证状态分开；不自动安装。输出默认拒绝覆盖。
